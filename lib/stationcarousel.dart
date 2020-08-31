@@ -1,3 +1,5 @@
+import 'package:first_app/answer.dart';
+
 import 'input.dart';
 import 'multipleChoice.dart';
 import 'qrCode.dart';
@@ -77,20 +79,31 @@ class StationTile extends StatelessWidget {
             Navigator.push(
                 context,
                 MaterialPageRoute(
-                    builder: (context) =>
-                        MultipleChoice(currentScore: currentScore)));
+                    builder: (context) => MultipleChoice(
+                        currentScore: currentScore,
+                        id: stationnr,
+                        question: 'Das ist eine MC-Frage')));
           }
           if (stationnr == 2) {
             Navigator.push(
                 context,
                 MaterialPageRoute(
-                    builder: (context) => QrCode(currentScore: currentScore)));
+                    builder: (context) => QrCode(
+                          currentScore: currentScore,
+                          id: stationnr,
+                          description: 'QrCode scannen',
+                        )));
           }
           if (stationnr == 3) {
             Navigator.push(
                 context,
                 MaterialPageRoute(
-                    builder: (context) => Input(currentScore: currentScore)));
+                    builder: (context) => Input(
+                          currentScore: currentScore,
+                          id: stationnr,
+                          description: 'Das ist eine Beschreibung',
+                          hintText: 'zB 12',
+                        )));
           }
         },
         child: Container(

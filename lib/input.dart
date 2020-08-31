@@ -1,30 +1,44 @@
 import 'stationmenu.dart';
 import 'package:flutter/material.dart';
 
-void main() => runApp(MaterialApp(
-      home: Input(),
-    ));
-
 class Input extends StatefulWidget {
   int currentScore;
+  int id;
+  String description;
+  String hintText;
 
-  Input({this.currentScore});
+  Input(
+      {@required this.currentScore,
+      @required this.id,
+      @required this.description,
+      @required this.hintText});
 
   @override
   State<StatefulWidget> createState() {
-    return _InputState(currentScore: currentScore);
+    return _InputState(
+        currentScore: currentScore,
+        id: id,
+        description: description,
+        hintText: hintText);
   }
 }
 
 class _InputState extends State<Input> {
+  int currentScore;
+  int id;
+  String description;
+  String hintText;
+
   Color selected = Color(0xFFBff8000);
   Color unselected = Colors.grey;
 
-  int data = 0;
   int scoreToBeAdded = 0;
-  int currentScore;
 
-  _InputState({this.currentScore});
+  _InputState(
+      {@required this.currentScore,
+      @required this.id,
+      @required this.description,
+      @required this.hintText});
 
   @override
   Widget build(BuildContext context) {
@@ -59,12 +73,12 @@ class _InputState extends State<Input> {
                       height: 200,
                       width: 250,
                       child: Center(
-                          child: Text("description",
+                          child: Text(description,
                               style: TextStyle(color: Colors.white)))),
                   Container(
                     padding: EdgeInsets.all(50),
                     child: Text(
-                      '06',
+                      '0$id',
                       style: TextStyle(color: Colors.grey, fontSize: 50),
                     ),
                   ),
@@ -106,7 +120,7 @@ class _InputState extends State<Input> {
                             Icons.edit,
                             color: unselected,
                           ),
-                          hintText: 'Beispiel',
+                          hintText: hintText,
                           hintStyle: TextStyle(color: unselected)),
                     )),
               ],

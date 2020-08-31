@@ -2,26 +2,33 @@ import 'stationmenu.dart';
 import 'package:flutter/material.dart';
 import 'package:barcode_scan/barcode_scan.dart';
 
-void main() => runApp(MaterialApp(
-      home: QrCode(),
-    ));
-
 class QrCode extends StatefulWidget {
   int currentScore;
+  int id;
+  String description;
 
-  QrCode({this.currentScore});
+  QrCode(
+      {@required this.currentScore,
+      @required this.id,
+      @required this.description});
 
   @override
   State<StatefulWidget> createState() {
-    return _QrCodeState(currentScore: currentScore);
+    return _QrCodeState(
+        currentScore: currentScore, id: id, description: description);
   }
 }
 
 class _QrCodeState extends State<QrCode> {
   String qrCodeResult = "Noch nicht gescannt";
   int currentScore;
+  int id;
+  String description;
 
-  _QrCodeState({this.currentScore});
+  _QrCodeState(
+      {@required this.currentScore,
+      @required this.id,
+      @required this.description});
 
   @override
   Widget build(BuildContext context) {
@@ -56,12 +63,12 @@ class _QrCodeState extends State<QrCode> {
                         height: 200,
                         width: 250,
                         child: Center(
-                            child: Text("description",
+                            child: Text(description,
                                 style: TextStyle(color: Colors.white)))),
                     Container(
                       padding: EdgeInsets.all(50),
                       child: Text(
-                        '06',
+                        '0$id',
                         style: TextStyle(color: Colors.grey, fontSize: 50),
                       ),
                     ),

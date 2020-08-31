@@ -1,100 +1,87 @@
-/*import 'package:first_app/startingpage.dart';
-import 'package:first_app/tappingtest.dart';
-import 'package:flutter/cupertino.dart';
+/*import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-class Answer extends StatelessWidget {
+class Answer extends StatefulWidget {
+  bool correct;
+  Color buttonColor = Color(0xFFBff8000);
   String answerText;
-  int answerNr;
-  GestureTapCallback onTap;
-  int score;
+  int points;
+  int scoreToBeAdded;
 
-  Answer({this.onTap, this.answerNr, this.answerText, this.score});
+  Color buttonUnselectedColor = Color(0xFFBff8000);
+  Color buttonSelectedColor = Colors.deepPurple[300];
 
-  @override
-  Widget build(BuildContext context) {
-    return GestureDetector(
-        onTap: () {
-          if (answerNr == 1) {
-            score = score + 10;
-          } else {
-            score = score - 10;
-          }
-        },
-        child: Padding(
-          padding: EdgeInsets.all(10),
-          child: Container(
-            height: 40,
-            width: 300,
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(20),
-              color: Color(0xFFBff8000),
-            ),
-            child: Center(
-              child: Text(answerText,
-                  style: TextStyle(color: Colors.white, fontSize: 16)),
-            ),
-          ),
-        ));
-  }
-}/*
-
-/*class Answer extends StatefulWidget {
-  final String answerText;
-  int score;
-
-  Answer({this.answerText, this.score});
+  Answer({
+    @required this.scoreToBeAdded,
+    @required this.answerText,
+    @required this.points,
+    @required this.correct,
+  });
 
   @override
-  State<StatefulWidget> createState() {
-    return AnswerState();
-  }
+  _AnswerState createState() => _AnswerState(
+      scoreToBeAdded: scoreToBeAdded,
+      answerText: answerText,
+      points: points,
+      correct: correct,
+      buttonColor: buttonColor);
 }
 
-class AnswerState extends State<Answer> {
-  final String answerText;
-  int score;
+class _AnswerState extends State<Answer> {
+  bool correct;
+  Color buttonColor;
+  String answerText;
+  int points;
+  int scoreToBeAdded;
 
-  Color colorToShow = Color(0xFFBff8000);
+  _AnswerState(
+      {@required this.scoreToBeAdded,
+      @required this.answerText,
+      @required this.points,
+      @required this.correct,
+      @required this.buttonColor});
+
   Color buttonUnselectedColor = Color(0xFFBff8000);
-  Color buttonSelectedColor = Colors.deepPurple;
-
-  AnswerState({
-    this.answerText,
-    this.score,
-  });
+  Color buttonSelectedColor = Colors.deepPurple[300];
 
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.symmetric(vertical: 10.0, horizontal: 20.0),
-      child: MaterialButton(
-        color: colorToShow,
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
-        minWidth: 300,
-        height: 50,
+      padding: EdgeInsets.all(10),
+      child: FlatButton(
+        color: buttonColor,
+        onPressed: () {
+          changeScore(correct, scoreToBeAdded);
+        },
         child: Text(
-          '$answerText',
-          textAlign: TextAlign.center,
-          style: TextStyle(
-            color: Colors.white,
-            fontSize: 20,
-          ),
+          answerText,
+          style: TextStyle(color: Colors.white),
         ),
-        onPressed: changeButtonState,
+        padding: EdgeInsets.symmetric(vertical: 15, horizontal: 150),
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
       ),
     );
   }
 
-  void changeButtonState() {
+  void changeScore(bool correct, int scoreToBeAdded) {
     setState(() {
-      if (colorToShow == buttonUnselectedColor) {
-        colorToShow = buttonSelectedColor;
-        //addPointsTo(totalScore);
+      if (correct) {
+        if (buttonColor == buttonUnselectedColor) {
+          buttonColor = buttonSelectedColor;
+          scoreToBeAdded = scoreToBeAdded + points;
+        } else {
+          buttonColor = buttonUnselectedColor;
+          scoreToBeAdded = scoreToBeAdded - points;
+        }
       } else {
-        colorToShow = buttonUnselectedColor;
-        //removePointsFrom(totalScore);
+        if (buttonColor == buttonUnselectedColor) {
+          buttonColor = buttonSelectedColor;
+          scoreToBeAdded = scoreToBeAdded + points;
+        } else {
+          buttonColor = buttonUnselectedColor;
+          scoreToBeAdded = scoreToBeAdded - points;
+        }
       }
     });
   }
-}*/*/*/
+}*/

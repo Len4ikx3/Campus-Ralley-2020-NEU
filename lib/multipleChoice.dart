@@ -2,19 +2,25 @@ import 'stationmenu.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-void main() => runApp(MaterialApp(
-      home: MultipleChoice(),
-    ));
-
 // ignore: must_be_immutable
 class MultipleChoice extends StatefulWidget {
   int currentScore;
+  int id;
+  String question;
 
-  MultipleChoice({this.currentScore});
+  MultipleChoice({
+    this.currentScore,
+    @required this.id,
+    @required this.question,
+  });
 
   @override
   State<StatefulWidget> createState() {
-    return MultipleChoiceState(currentScore: currentScore);
+    return MultipleChoiceState(
+      currentScore: currentScore,
+      id: id,
+      question: question,
+    );
   }
 }
 
@@ -27,16 +33,22 @@ class MultipleChoiceState extends State<MultipleChoice> {
   List<int> buttonPoints = [10, -10, 10];
   List<bool> answers = [true, false, true];
   List<String> answerTexts = ['1', '2', '3'];
-  String question = "Welche Zahl ist die 1?";
 
   Color buttonUnselectedColor = Color(0xFFBff8000);
   Color buttonSelectedColor = Colors.deepPurple[300];
 
   int scoreToBeAdded = 0;
   int finalScore;
-  int currentScore;
 
-  MultipleChoiceState({this.currentScore});
+  int currentScore;
+  int id;
+  String question;
+
+  MultipleChoiceState({
+    @required this.currentScore,
+    @required this.id,
+    @required this.question,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -76,7 +88,7 @@ class MultipleChoiceState extends State<MultipleChoice> {
                   Container(
                     padding: EdgeInsets.all(50),
                     child: Text(
-                      '06',
+                      '0$id',
                       style: TextStyle(color: Colors.grey, fontSize: 50),
                     ),
                   ),
