@@ -5,8 +5,8 @@ import 'multipleChoice.dart';
 import 'qrCode.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
-import 'package:flutter/services.dart';
 import 'wordSolutionPage.dart';
+import 'package:flutter/services.dart';
 
 class StationCarousel extends StatefulWidget {
   int currentScore;
