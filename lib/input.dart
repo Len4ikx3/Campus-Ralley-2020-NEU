@@ -126,7 +126,6 @@ class _InputState extends State<Input> {
               ],
             ),
           ),
-          Container(child: Text((currentScore + scoreToBeAdded).toString())),
           Container(
             child: Column(
               children: <Widget>[

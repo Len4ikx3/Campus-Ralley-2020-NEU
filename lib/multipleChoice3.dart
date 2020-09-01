@@ -3,36 +3,43 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 // ignore: must_be_immutable
-class MultipleChoice extends StatefulWidget {
+class MultipleChoice3 extends StatefulWidget {
   int currentScore;
   int id;
   String question;
+  List<int> points;
+  List<bool> answerValues;
+  List<String> answerTexts;
 
-  MultipleChoice({
-    this.currentScore,
-    @required this.id,
-    @required this.question,
-  });
+  MultipleChoice3(
+      {this.currentScore,
+      @required this.id,
+      @required this.question,
+      @required this.points,
+      @required this.answerValues,
+      @required this.answerTexts});
 
   @override
   State<StatefulWidget> createState() {
-    return MultipleChoiceState(
-      currentScore: currentScore,
-      id: id,
-      question: question,
-    );
+    return MultipleChoice3State(
+        currentScore: currentScore,
+        id: id,
+        question: question,
+        points: points,
+        answerValues: answerValues,
+        answerTexts: answerTexts);
   }
 }
 
-class MultipleChoiceState extends State<MultipleChoice> {
+class MultipleChoice3State extends State<MultipleChoice3> {
   List<Color> buttonColor = [
     Color(0xFFBff8000),
     Color(0xFFBff8000),
     Color(0xFFBff8000)
   ];
-  List<int> buttonPoints = [10, -10, 10];
-  List<bool> answers = [true, false, true];
-  List<String> answerTexts = ['1', '2', '3'];
+  List<int> points;
+  List<bool> answerValues;
+  List<String> answerTexts;
 
   Color buttonUnselectedColor = Color(0xFFBff8000);
   Color buttonSelectedColor = Colors.deepPurple[300];
@@ -44,16 +51,19 @@ class MultipleChoiceState extends State<MultipleChoice> {
   int id;
   String question;
 
-  MultipleChoiceState({
-    @required this.currentScore,
-    @required this.id,
-    @required this.question,
-  });
+  MultipleChoice3State(
+      {@required this.currentScore,
+      @required this.id,
+      @required this.question,
+      @required this.points,
+      @required this.answerValues,
+      @required this.answerTexts});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
         body: Container(
+            child: SingleChildScrollView(
       child: Column(
         children: <Widget>[
           Container(
@@ -103,7 +113,7 @@ class MultipleChoiceState extends State<MultipleChoice> {
                     child: FlatButton(
                       color: buttonColor[0],
                       onPressed: () {
-                        changeScore(0, answers[0]);
+                        changeScore(0, answerValues[0]);
                       },
                       child: Text(
                         answerTexts[0],
@@ -120,7 +130,7 @@ class MultipleChoiceState extends State<MultipleChoice> {
                     child: FlatButton(
                       color: buttonColor[1],
                       onPressed: () {
-                        changeScore(1, answers[1]);
+                        changeScore(1, answerValues[1]);
                       },
                       child: Text(
                         answerTexts[1],
@@ -137,7 +147,7 @@ class MultipleChoiceState extends State<MultipleChoice> {
                     child: FlatButton(
                       color: buttonColor[2],
                       onPressed: () {
-                        changeScore(2, answers[2]);
+                        changeScore(2, answerValues[2]);
                       },
                       child: Text(
                         answerTexts[2],
@@ -151,9 +161,6 @@ class MultipleChoiceState extends State<MultipleChoice> {
                   ),
                 ],
               )),
-          Container(
-              child:
-                  Text(newFinalScore(currentScore, scoreToBeAdded).toString())),
           Container(
             child: Column(
               children: <Widget>[
@@ -185,7 +192,7 @@ class MultipleChoiceState extends State<MultipleChoice> {
           )
         ],
       ),
-    ));
+    )));
   }
 
   void changeScore(int buttonnr, bool correct) {
@@ -193,18 +200,18 @@ class MultipleChoiceState extends State<MultipleChoice> {
       if (correct) {
         if (buttonColor[buttonnr] == buttonUnselectedColor) {
           buttonColor[buttonnr] = buttonSelectedColor;
-          scoreToBeAdded = scoreToBeAdded + buttonPoints[buttonnr];
+          scoreToBeAdded = scoreToBeAdded + points[buttonnr];
         } else {
           buttonColor[buttonnr] = buttonUnselectedColor;
-          scoreToBeAdded = scoreToBeAdded - buttonPoints[buttonnr];
+          scoreToBeAdded = scoreToBeAdded - points[buttonnr];
         }
       } else {
         if (buttonColor[buttonnr] == buttonUnselectedColor) {
           buttonColor[buttonnr] = buttonSelectedColor;
-          scoreToBeAdded = scoreToBeAdded + buttonPoints[buttonnr];
+          scoreToBeAdded = scoreToBeAdded + points[buttonnr];
         } else {
           buttonColor[buttonnr] = buttonUnselectedColor;
-          scoreToBeAdded = scoreToBeAdded - buttonPoints[buttonnr];
+          scoreToBeAdded = scoreToBeAdded - points[buttonnr];
         }
       }
     });

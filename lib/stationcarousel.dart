@@ -1,7 +1,7 @@
 import 'package:first_app/answer.dart';
 
 import 'input.dart';
-import 'multipleChoice.dart';
+import 'multipleChoice3.dart';
 import 'qrCode.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
@@ -220,10 +220,14 @@ class StationTile extends StatelessWidget {
             Navigator.push(
                 context,
                 MaterialPageRoute(
-                    builder: (context) => MultipleChoice(
-                        currentScore: currentScore,
-                        id: stationnr,
-                        question: 'Das ist eine MC-Frage')));
+                    builder: (context) => MultipleChoice3(
+                          currentScore: currentScore,
+                          id: stationnr,
+                          question: 'Das ist eine MC-Frage',
+                          points: [10, -10, 10],
+                          answerValues: [true, false, true],
+                          answerTexts: ['1', '2', '3'],
+                        )));
           }
           if (stationnr == 2) {
             Navigator.push(
