@@ -175,6 +175,7 @@ class StationCarouselState extends State<StationCarousel> {
         ),
         StationTile(
           onTap: () {},
+          //Bild muss ausgetauscht werden!
           imagepath: "lib/images/sport.jpg",
           stationnr: 21,
           stationtitle: "Hochschulsport",
