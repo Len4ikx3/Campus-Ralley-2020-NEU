@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 //import 'ralley.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 void main() => runApp(MaterialApp(
       home: LastPage(),
@@ -78,11 +79,28 @@ class LastPageState extends State<LastPage> {
                                 fontSize: 18,
                               ),
                             )),
+                        Container(
+                          padding: EdgeInsets.fromLTRB(30, 30, 30, 30),
+                          child: RaisedButton(
+                            onPressed: _launchURL,
+                            child: Text('Show Flutter homepage'),
+                          ),
+                        ),
                       ],
                     )),
               ],
             ),
           ),
         ));
+  }
+
+  _launchURL() async {
+    const url =
+        'https://fiw.fhws.de/fileadmin/redaktion/bildmaterial/FHWS_bilder/SHL-Tour.mp4';
+    if (await canLaunch(url)) {
+      await launch(url);
+    } else {
+      throw 'Could not launch $url';
+    }
   }
 }

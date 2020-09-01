@@ -27,7 +27,7 @@ class StationCarouselState extends State<StationCarousel> {
       children: [
         StationTile(
           onTap: () {},
-          imagepath: "lib/images/4yFkCcI.jpg",
+          imagepath: "lib/images/Foyer.jpg",
           stationnr: 1,
           stationtitle: "Foyer Institutsgebäude",
           currentScore: currentScore,
@@ -146,21 +146,21 @@ class StationCarouselState extends State<StationCarousel> {
         ),
         StationTile(
           onTap: () {},
-          imagepath: "lib/images/4yFkCcI.jpg",
+          imagepath: "lib/images/Innenhof.jpg",
           stationnr: 18,
           stationtitle: "Innenhof",
           currentScore: currentScore,
         ),
         StationTile(
           onTap: () {},
-          imagepath: "lib/images/4yFkCcI.jpg",
+          imagepath: "lib/images/Cafe.jpeg",
           stationnr: 19,
           stationtitle: "Cafeteria",
           currentScore: currentScore,
         ),
         StationTile(
           onTap: () {},
-          imagepath: "lib/images/4yFkCcI.jpg",
+          imagepath: "lib/images/H1.jpg",
           stationnr: 20,
           stationtitle: "Hörsaal",
           currentScore: currentScore,

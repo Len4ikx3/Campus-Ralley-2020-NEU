@@ -2,10 +2,14 @@ import 'package:flutter/material.dart';
 //import 'stationmenu.dart';
 import 'pulsatingbutton.dart';
 import 'introductionpage.dart';
+import 'package:flutter/services.dart';
 
-void main() => runApp(MaterialApp(
-      home: Startingpage(),
-    ));
+void main() {
+  SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
+  runApp(MaterialApp(
+    home: Startingpage(),
+  ));
+}
 
 class Startingpage extends StatefulWidget {
   @override
@@ -21,6 +25,7 @@ class StartingpageState extends State<Startingpage> {
         debugShowCheckedModeBanner: false,
         home: Scaffold(
           body: Container(
+            height: MediaQuery.of(context).size.height,
             child: Column(
               children: <Widget>[
                 Container(
@@ -37,7 +42,7 @@ class StartingpageState extends State<Startingpage> {
                   ),
                 )),
                 Container(
-                  padding: EdgeInsets.all(70.0),
+                  padding: EdgeInsets.all(40.0),
                   child: PulsatingCircleIconButton(
                     onTap: () {
                       goToIntroduction();
