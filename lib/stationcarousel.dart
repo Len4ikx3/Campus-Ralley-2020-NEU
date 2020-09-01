@@ -6,6 +6,7 @@ import 'qrCode.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter/services.dart';
+import 'wordSolutionPage.dart';
 
 class StationCarousel extends StatefulWidget {
   int currentScore;
@@ -43,6 +44,13 @@ class StationCarouselState extends State<StationCarousel> {
           imagepath: "lib/images/4yFkCcI.jpg",
           stationnr: 3,
           stationtitle: "Zweite Station",
+          currentScore: currentScore,
+        ),
+        StationTile(
+          onTap: () {},
+          imagepath: "lib/images/4yFkCcI.jpg",
+          stationnr: 23,
+          stationtitle: "letzte Station",
           currentScore: currentScore,
         ),
       ],
@@ -103,6 +111,17 @@ class StationTile extends StatelessWidget {
                           id: stationnr,
                           description: 'Das ist eine Beschreibung',
                           hintText: 'zB 12',
+                        )));
+          }
+          if (stationnr == 23) {
+            Navigator.push(
+                context,
+                MaterialPageRoute(
+                    builder: (context) => WordSolutionPage(
+                        /*currentScore: currentScore,
+                          id: stationnr,
+                          description: 'Das ist eine Beschreibung',
+                          hintText: 'zB 12',*/
                         )));
           }
         },
