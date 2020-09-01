@@ -59,11 +59,22 @@ flutter:
   uses-material-design: true
   assets:
     - lib/images/CampusRalleyLogo.png
-    - lib/images/4yFkCcI.jpg
     - lib/images/Cafe.jpeg
     - lib/images/Foyer.jpg
     - lib/images/H1.jpg
     - lib/images/Innenhof.jpg
+    - lib/images/sport.jpg
+    - lib/images/mensa.jpg
+    - lib/images/bib.jpg
+    - lib/images/tischtennis.jpg
+    - lib/images/parken.jpg
+    - lib/images/FHWS.jpg
+    - lib/images/fachschaft.png
+    - lib/images/wasser.png
+    - lib/images/welearn.png
+    - lib/images/stillzimmer.jpg
+    - lib/images/innonight.jpg
+    - lib/images/labor.jpg
 
   # To add assets to your application, add an assets section, like this:
   # assets:
