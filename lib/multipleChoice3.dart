@@ -98,7 +98,7 @@ class MultipleChoice3State extends State<MultipleChoice3> {
                   Container(
                     padding: EdgeInsets.all(50),
                     child: Text(
-                      '0$id',
+                      '$id',
                       style: TextStyle(color: Colors.grey, fontSize: 50),
                     ),
                   ),

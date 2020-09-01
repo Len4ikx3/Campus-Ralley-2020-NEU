@@ -99,7 +99,7 @@ class MultipleChoice4State extends State<MultipleChoice4> {
                   Container(
                     padding: EdgeInsets.all(50),
                     child: Text(
-                      '0$id',
+                      '$id',
                       style: TextStyle(color: Colors.grey, fontSize: 50),
                     ),
                   ),

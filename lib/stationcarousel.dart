@@ -1,4 +1,5 @@
 import 'package:first_app/answer.dart';
+import 'package:first_app/multipleChoice4.dart';
 
 import 'input.dart';
 import 'multipleChoice3.dart';
@@ -225,28 +226,30 @@ class StationTile extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
         onTap: () {
-          if (stationnr == 1) {
-            Navigator.push(
-                context,
-                MaterialPageRoute(
-                    builder: (context) => MultipleChoice3(
-                          currentScore: currentScore,
-                          id: stationnr,
-                          question: 'Das ist eine MC-Frage',
-                          points: [10, -10, 10],
-                          answerValues: [true, false, true],
-                          answerTexts: ['1', '2', '3'],
-                        )));
-          }
+          if (stationnr == 1) {}
           if (stationnr == 2) {
             Navigator.push(
                 context,
                 MaterialPageRoute(
-                    builder: (context) => QrCode(
-                          currentScore: currentScore,
-                          id: stationnr,
-                          description: 'QrCode scannen',
-                        )));
+                    builder: (context) => MultipleChoice3(
+                            id: 2,
+                            question:
+                                'Gut zugehört? Was sind die Aufgaben der Fachschaft?',
+                            points: [
+                              10,
+                              -10,
+                              10
+                            ],
+                            answerValues: [
+                              true,
+                              false,
+                              true
+                            ],
+                            answerTexts: [
+                              'Organisation der Ersti-Fete',
+                              'Entgegennehmen der Studentenausweise',
+                              'Öffnen der Seminarräume'
+                            ])));
           }
           if (stationnr == 3) {
             Navigator.push(
@@ -257,6 +260,149 @@ class StationTile extends StatelessWidget {
                           id: stationnr,
                           description: 'Das ist eine Beschreibung',
                           hintText: 'zB 12',
+                        )));
+          }
+          if (stationnr == 5) {
+            Navigator.push(
+                context,
+                MaterialPageRoute(
+                    builder: (context) => QrCode(
+                        currentScore: currentScore,
+                        id: stationnr,
+                        description:
+                            'Findet einen QR-Code und scannt ihn ein. Merkt euch die ganzen Buchstaben, die ihr scannt... ;)')));
+          }
+          if (stationnr == 6) {
+            Navigator.push(
+                context,
+                MaterialPageRoute(
+                    builder: (context) => MultipleChoice3(
+                            id: stationnr,
+                            question: 'Ab ins Labor! Was habt ihr gefunden?',
+                            points: [
+                              -10,
+                              10,
+                              -10
+                            ],
+                            answerValues: [
+                              false,
+                              true,
+                              false
+                            ],
+                            answerTexts: [
+                              'Versuchsratte',
+                              'Alter Fernseher',
+                              'Hängematte'
+                            ])));
+          }
+          if (stationnr == 7) {
+            Navigator.push(
+                context,
+                MaterialPageRoute(
+                    builder: (context) => QrCode(
+                        currentScore: currentScore,
+                        id: stationnr,
+                        description:
+                            'Zugehört und verstanden? Dann zeigt euer können. Sucht einen USB-Stick und druckt den Inhalt aus. Welcher Buchstabe ist es?')));
+          }
+          if (stationnr == 9) {
+            Navigator.push(
+                context,
+                MaterialPageRoute(
+                    builder: (context) => QrCode(
+                        currentScore: currentScore,
+                        id: stationnr,
+                        description: 'Wer findet den QR-Code?')));
+          }
+          if (stationnr == 11) {
+            Navigator.push(
+                context,
+                MaterialPageRoute(
+                    builder: (context) => Input(
+                          currentScore: currentScore,
+                          id: stationnr,
+                          description:
+                              'Lasst die Spiele beginnen! Jeder aus der Gruppe hat einen Versuch. Ihr müsst versuchen so viele Flaschen wie möglich umzuwerfen. Jede Flasche bringt einen Punkt',
+                          hintText: 'zB 25',
+                        )));
+          }
+          if (stationnr == 12) {
+            Navigator.push(
+                context,
+                MaterialPageRoute(
+                    builder: (context) => QrCode(
+                        currentScore: currentScore,
+                        id: stationnr,
+                        description: 'Auf zum Scannen!')));
+          }
+          if (stationnr == 13) {
+            Navigator.push(
+                context,
+                MaterialPageRoute(
+                    builder: (context) => MultipleChoice4(
+                            id: stationnr,
+                            question:
+                                'Das Dekanat übernimmt welche Aufgaben...?',
+                            points: [
+                              10,
+                              -10,
+                              -10,
+                              10
+                            ],
+                            answerValues: [
+                              true,
+                              false,
+                              false,
+                              true
+                            ],
+                            answerTexts: [
+                              'Organisation & Betreuung der Tutoren',
+                              'Annahme gefundener Studentenausweise',
+                              'Entgegennahme von Anzahlungen für neue Studentenausweise',
+                              'Weiterleitung von Briefen/Post an Professoren und Mitarbeiter'
+                            ])));
+          }
+          if (stationnr == 14) {
+            Navigator.push(
+                context,
+                MaterialPageRoute(
+                    builder: (context) => QrCode(
+                        currentScore: currentScore,
+                        id: stationnr,
+                        description:
+                            'Euch fehlen noch ein paar Buchstaben für ein Wort, welcher ist es wohl?')));
+          }
+          if (stationnr == 15) {
+            Navigator.push(
+                context,
+                MaterialPageRoute(
+                    builder: (context) => QrCode(
+                        currentScore: currentScore,
+                        id: stationnr,
+                        description: 'Was ist der nächste Buchstabe?')));
+          }
+          if (stationnr == 17) {
+            Navigator.push(
+                context,
+                MaterialPageRoute(
+                    builder: (context) => Input(
+                          currentScore: currentScore,
+                          id: stationnr,
+                          description:
+                              'Schon Punkte gesammelt? Mindestens 10 von euch müssen spielen. Ihr lauft um die Tischtennisplatte und schlagt dabei den Ball mit der Hand auf. Geht der daneben, ist die Person raus. Ein erfolgreicher Aufschlag = 1 Punkt',
+                          hintText: 'zB 36',
+                        )));
+          }
+          if (stationnr == 18) {
+            Navigator.push(
+                context,
+                MaterialPageRoute(
+                    builder: (context) => Input(
+                          currentScore: currentScore,
+                          id: stationnr,
+                          description:
+                              'Weitwurf ist angesagt! Aber mit Teebeuteln ;-) Jeder bekommt einen vollgesaugten Teebeutel und muss ihn mit dem Mund so weit wie möglich werfen. Jeder Meter bringt euch einen Punkt',
+                          hintText: '1,05m = 105 Punkte',
                         )));
           }
           if (stationnr == 23) {

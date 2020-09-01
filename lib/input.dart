@@ -78,7 +78,7 @@ class _InputState extends State<Input> {
                   Container(
                     padding: EdgeInsets.all(50),
                     child: Text(
-                      '0$id',
+                      '$id',
                       style: TextStyle(color: Colors.grey, fontSize: 50),
                     ),
                   ),

@@ -1,3 +1,4 @@
+import 'package:first_app/stationmenu.dart';
 import 'package:flutter/material.dart';
 //import 'stationmenu.dart';
 import 'pulsatingbutton.dart';
@@ -47,7 +48,7 @@ class StartingpageState extends State<Startingpage> {
                       padding: EdgeInsets.all(40.0),
                       child: PulsatingCircleIconButton(
                         onTap: () {
-                          goToIntroduction();
+                          goToStationMenu();
                         },
                         icon: Icon(Icons.play_arrow,
                             color: Color(0xFFBff8000), size: 50),
@@ -59,18 +60,10 @@ class StartingpageState extends State<Startingpage> {
         ));
   }
 
-  /*void goToStationMenu() {
+  void goToStationMenu() {
     setState(() {
       Navigator.push(
           context, MaterialPageRoute(builder: (context) => Stationmenu()));
-    });
-  }*/
-
-  //Methode, um zur IntroductionPage zu gelangen
-  void goToIntroduction() {
-    setState(() {
-      Navigator.push(
-          context, MaterialPageRoute(builder: (context) => Introductionpage()));
     });
   }
 }
