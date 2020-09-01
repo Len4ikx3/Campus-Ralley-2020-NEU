@@ -36,6 +36,7 @@ class StationmenuState extends State<Stationmenu> {
         debugShowCheckedModeBanner: false,
         home: Scaffold(
           body: Container(
+              child: SingleChildScrollView(
             child: Column(
               children: <Widget>[
                 Container(
@@ -82,7 +83,7 @@ class StationmenuState extends State<Stationmenu> {
                     ))
               ],
             ),
-          ),
+          )),
         ));
   }
 }
