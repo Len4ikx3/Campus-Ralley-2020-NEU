@@ -2,6 +2,7 @@ import 'package:first_app/answer.dart';
 import 'package:first_app/multipleChoice4.dart';
 
 import 'input.dart';
+import 'inputTimer.dart';
 import 'multipleChoice3.dart';
 import 'qrCode.dart';
 import 'package:flutter/material.dart';
@@ -226,7 +227,17 @@ class StationTile extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
         onTap: () {
-          if (stationnr == 1) {}
+          if (stationnr == 1) {
+            Navigator.push(
+                context,
+                MaterialPageRoute(
+                    builder: (context) => InputTimer(
+                        currentScore: currentScore,
+                        id: stationnr,
+                        description:
+                            'Auf die Dekce, fertig, los! Alle müssen auf die Decke und sie einmal umdrehen. Aber Achtung! Es darf keiner von der Decke runter ;-) Schafft ihr es in x Sekunden könnt ihr jeweils 10 P. ergattern, sonst geht ihr leer aus',
+                        timer: 25)));
+          }
           if (stationnr == 2) {
             Navigator.push(
                 context,
