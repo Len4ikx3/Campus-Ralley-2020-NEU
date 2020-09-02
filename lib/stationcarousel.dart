@@ -273,6 +273,17 @@ class StationTile extends StatelessWidget {
                           hintText: 'zB 12',
                         )));
           }
+          if (stationnr == 4) {
+            Navigator.push(
+                context,
+                MaterialPageRoute(
+                    builder: (context) => InputTimer(
+                        currentScore: currentScore,
+                        id: stationnr,
+                        description:
+                            'Nicht umsonst studieren Gestalter mit uns an diesem Standort! Zeigt euer Talent beim Montagsmaler. Einer von euch zeichnet einen Begriff. Kann jemand diesen erraten, darf der Zeichner sich stolz 10 P gutschreiben. Wer den Begriff erraten konnte, ist als nächstes mit Zeichnen dran',
+                        timer: 25)));
+          }
           if (stationnr == 5) {
             Navigator.push(
                 context,
