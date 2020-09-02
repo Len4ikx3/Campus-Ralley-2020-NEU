@@ -33,6 +33,8 @@ class _InputTimerState extends State<InputTimer> {
   String description;
   int timer;
   int currentTimeValue = 0;
+  String yourScore = '0';
+  int scoreToBeAdded = 0;
 
   Color selected = Color(0xFFBff8000);
   Color unselected = Colors.grey;
@@ -113,6 +115,12 @@ class _InputTimerState extends State<InputTimer> {
                 },
               )),
           Container(
+            child: Text(
+              'Deine Punkte: $yourScore',
+              style: TextStyle(color: Colors.deepPurple[300]),
+            ),
+          ),
+          Container(
             width: 200,
             decoration: BoxDecoration(borderRadius: BorderRadius.circular(50)),
             child: Column(
@@ -127,12 +135,18 @@ class _InputTimerState extends State<InputTimer> {
                     splashColor: Color(0xFFBff8000),
                     onPressed: () {
                       setState(() {
-                        Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => Stationmenu(
-                                      newCurrentScore: currentScore + 10,
-                                    )));
+                        if (id == 4) {
+                          currentScore = currentScore + 10;
+                          scoreToBeAdded = scoreToBeAdded + 10;
+                          yourScore = scoreToBeAdded.toString();
+                        } else {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => Stationmenu(
+                                        newCurrentScore: currentScore + 10,
+                                      )));
+                        }
                       });
                     }),
                 Text('Gib mir 10 Punkte!',
