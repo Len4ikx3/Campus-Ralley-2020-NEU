@@ -95,10 +95,39 @@ class _InputState extends State<Input> {
                     child: TextField(
                       onChanged: (text) {
                         setState(() {
-                          if (text == '') {
-                            scoreToBeAdded = 0;
+                          if (id == 20) {
+                            if (210 <= int.parse(text) &&
+                                int.parse(text) <= 226) {
+                              scoreToBeAdded = scoreToBeAdded + 50;
+                            } else if ((200 <= int.parse(text) &&
+                                    int.parse(text) < 210) ||
+                                (226 < int.parse(text) &&
+                                    int.parse(text) <= 236)) {
+                              scoreToBeAdded = scoreToBeAdded + 40;
+                            } else if ((190 <= int.parse(text) &&
+                                    int.parse(text) < 200) ||
+                                (236 < int.parse(text) &&
+                                    int.parse(text) <= 246)) {
+                              scoreToBeAdded = scoreToBeAdded + 30;
+                            } else if ((170 <= int.parse(text) &&
+                                    int.parse(text) < 190) ||
+                                (246 < int.parse(text) &&
+                                    int.parse(text) <= 266)) {
+                              scoreToBeAdded = scoreToBeAdded + 20;
+                            } else if ((140 <= int.parse(text) &&
+                                    int.parse(text) < 170) ||
+                                (266 < int.parse(text) &&
+                                    int.parse(text) <= 296)) {
+                              scoreToBeAdded = scoreToBeAdded + 40;
+                            } else {
+                              scoreToBeAdded = 0;
+                            }
                           } else {
-                            scoreToBeAdded = int.parse(text);
+                            if (text == '') {
+                              scoreToBeAdded = 0;
+                            } else {
+                              scoreToBeAdded = int.parse(text);
+                            }
                           }
                         });
                       },

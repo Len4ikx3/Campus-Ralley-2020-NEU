@@ -1,4 +1,4 @@
-import 'package:first_app/answer.dart';
+import 'package:first_app/innonight.dart';
 import 'package:first_app/multipleChoice4.dart';
 
 import 'input.dart';
@@ -327,6 +327,16 @@ class StationTile extends StatelessWidget {
                         description:
                             'Zugehört und verstanden? Dann zeigt euer können. Sucht einen USB-Stick und druckt den Inhalt aus. Welcher Buchstabe ist es?')));
           }
+          if (stationnr == 8) {
+            Navigator.push(
+                context,
+                MaterialPageRoute(
+                    builder: (context) => Innonight(
+                        currentScore: currentScore,
+                        id: stationnr,
+                        description:
+                            'Zugehört? Sehr gut, dann geht\'s mal ohne Aufgabe weiter. Überleg dir mal, mitzumachen ;-)')));
+          }
           if (stationnr == 9) {
             Navigator.push(
                 context,
@@ -424,7 +434,31 @@ class StationTile extends StatelessWidget {
                           id: stationnr,
                           description:
                               'Weitwurf ist angesagt! Aber mit Teebeuteln ;-) Jeder bekommt einen vollgesaugten Teebeutel und muss ihn mit dem Mund so weit wie möglich werfen. Jeder Meter bringt euch einen Punkt',
-                          hintText: '1,05m = 105 Punkte',
+                          hintText: '1,05m = 105 P',
+                        )));
+          }
+          if (stationnr == 19) {
+            Navigator.push(
+                context,
+                MaterialPageRoute(
+                    builder: (context) => Input(
+                          currentScore: currentScore,
+                          id: stationnr,
+                          description:
+                              'Zeit für etwas Mathe. Was kosten die 3 Produkte X, Y, Z aus den Automaten?',
+                          hintText: '2,40€ = 240 P',
+                        )));
+          }
+          if (stationnr == 20) {
+            Navigator.push(
+                context,
+                MaterialPageRoute(
+                    builder: (context) => Input(
+                          currentScore: currentScore,
+                          id: stationnr,
+                          description:
+                              'Schätzfrage: Wie viele Sitzplätze hat der Hörsaal H.1.1? Je weiter die Schätzung entfernt, desto weniger Punkte gibt es.',
+                          hintText: 'zB. 12',
                         )));
           }
           if (stationnr == 23) {
