@@ -109,52 +109,49 @@ class MultipleChoice3State extends State<MultipleChoice3> {
               child: Column(
                 children: <Widget>[
                   Container(
-                    padding: EdgeInsets.all(10),
+                    width: 380,
+                    height: 45,
+                    margin: EdgeInsets.only(bottom: 15),
                     child: FlatButton(
                       color: buttonColor[0],
                       onPressed: () {
                         changeScore(0, answerValues[0]);
                       },
-                      child: Text(
-                        answerTexts[0],
-                        style: TextStyle(color: Colors.white),
-                      ),
-                      padding:
-                          EdgeInsets.symmetric(vertical: 15, horizontal: 150),
+                      child: Text(answerTexts[0],
+                          style: TextStyle(color: Colors.white),
+                          textAlign: TextAlign.center),
                       shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(20)),
                     ),
                   ),
                   Container(
-                    padding: EdgeInsets.all(10),
+                    width: 380,
+                    height: 45,
+                    margin: EdgeInsets.only(bottom: 15),
                     child: FlatButton(
                       color: buttonColor[1],
                       onPressed: () {
                         changeScore(1, answerValues[1]);
                       },
-                      child: Text(
-                        answerTexts[1],
-                        style: TextStyle(color: Colors.white),
-                      ),
-                      padding:
-                          EdgeInsets.symmetric(vertical: 15, horizontal: 150),
+                      child: Text(answerTexts[1],
+                          style: TextStyle(color: Colors.white),
+                          textAlign: TextAlign.center),
                       shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(20)),
                     ),
                   ),
                   Container(
-                    padding: EdgeInsets.all(10),
+                    width: 380,
+                    height: 45,
+                    margin: EdgeInsets.only(bottom: 15),
                     child: FlatButton(
                       color: buttonColor[2],
                       onPressed: () {
                         changeScore(2, answerValues[2]);
                       },
-                      child: Text(
-                        answerTexts[2],
-                        style: TextStyle(color: Colors.white),
-                      ),
-                      padding:
-                          EdgeInsets.symmetric(vertical: 15, horizontal: 150),
+                      child: Text(answerTexts[2],
+                          style: TextStyle(color: Colors.white),
+                          textAlign: TextAlign.center),
                       shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(20)),
                     ),

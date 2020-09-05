@@ -33,7 +33,18 @@ class _InputTimerState extends State<InputTimer> {
   String description;
   int timer;
   int currentTimeValue = 0;
-  String yourScore = '0';
+  int yourScore = 0;
+  String yourScoreText;
+
+  String getYourScoreText() {
+    if (id == 4) {
+      yourScoreText = 'Deine Punkte: $yourScore';
+    } else {
+      yourScoreText = '';
+    }
+    return yourScoreText;
+  }
+
   int scoreToBeAdded = 0;
 
   Color selected = Color(0xFFBff8000);
@@ -106,17 +117,25 @@ class _InputTimerState extends State<InputTimer> {
                 ),
                 onComplete: () {
                   setState(() {
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) =>
-                                Stationmenu(newCurrentScore: currentScore)));
+                    if (id == 4) {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => Stationmenu(
+                                  newCurrentScore: currentScore + yourScore)));
+                    } else {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) =>
+                                  Stationmenu(newCurrentScore: currentScore)));
+                    }
                   });
                 },
               )),
           Container(
             child: Text(
-              'Deine Punkte: $yourScore',
+              getYourScoreText(),
               style: TextStyle(color: Colors.deepPurple[300]),
             ),
           ),
@@ -136,9 +155,7 @@ class _InputTimerState extends State<InputTimer> {
                     onPressed: () {
                       setState(() {
                         if (id == 4) {
-                          currentScore = currentScore + 10;
-                          scoreToBeAdded = scoreToBeAdded + 10;
-                          yourScore = scoreToBeAdded.toString();
+                          yourScore = yourScore + 10;
                         } else {
                           Navigator.push(
                               context,

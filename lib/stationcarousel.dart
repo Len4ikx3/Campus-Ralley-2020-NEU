@@ -1,3 +1,4 @@
+import 'package:first_app/dekan.dart';
 import 'package:first_app/innonight.dart';
 import 'package:first_app/multipleChoice4.dart';
 
@@ -243,6 +244,7 @@ class StationTile extends StatelessWidget {
                 context,
                 MaterialPageRoute(
                     builder: (context) => MultipleChoice3(
+                            currentScore: currentScore,
                             id: 2,
                             question:
                                 'Gut zugehört? Was sind die Aufgaben der Fachschaft?',
@@ -299,6 +301,7 @@ class StationTile extends StatelessWidget {
                 context,
                 MaterialPageRoute(
                     builder: (context) => MultipleChoice3(
+                            currentScore: currentScore,
                             id: stationnr,
                             question: 'Ab ins Labor! Was habt ihr gefunden?',
                             points: [
@@ -346,6 +349,36 @@ class StationTile extends StatelessWidget {
                         id: stationnr,
                         description: 'Wer findet den QR-Code?')));
           }
+          if (stationnr == 10) {
+            Navigator.push(
+                context,
+                MaterialPageRoute(
+                    builder: (context) => Dekan(
+                            currentScore: currentScore,
+                            id: stationnr,
+                            question: 'Wie lautet die richtige Reihenfolge?',
+                            points: [
+                              -10,
+                              -10,
+                              -10,
+                              10,
+                              -10
+                            ],
+                            answerValues: [
+                              false,
+                              false,
+                              false,
+                              true,
+                              false
+                            ],
+                            answerTexts: [
+                              'Öffnen - Anliegen mitteilen',
+                              'Klopfen - Anliegen mitteilen',
+                              'Warten, bis man angesprochen wird',
+                              'Klopfen - Öffnen - Begrüßen mit Anrede (Prof./Dr.) - Anliegen mitteilen',
+                              'Klopfen - Öffnen - Anliegen mitteilen'
+                            ])));
+          }
           if (stationnr == 11) {
             Navigator.push(
                 context,
@@ -372,6 +405,7 @@ class StationTile extends StatelessWidget {
                 context,
                 MaterialPageRoute(
                     builder: (context) => MultipleChoice4(
+                            currentScore: currentScore,
                             id: stationnr,
                             question:
                                 'Das Dekanat übernimmt welche Aufgaben...?',
