@@ -495,6 +495,17 @@ class StationTile extends StatelessWidget {
                           hintText: 'zB. 12',
                         )));
           }
+          if (stationnr == 21) {
+            Navigator.push(
+                context,
+                MaterialPageRoute(
+                    builder: (context) => InputTimer(
+                        currentScore: currentScore,
+                        id: stationnr,
+                        description:
+                            'Zeit für Sport! Jeder durchläuft hintereinander durch diesen Parcour. Hat jemand den Parkour durchlaufen, darf er sich einen Punkt holen! Die Zeit läuft...',
+                        timer: 10)));
+          }
           if (stationnr == 23) {
             Navigator.push(
                 context,

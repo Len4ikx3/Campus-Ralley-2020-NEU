@@ -35,14 +35,24 @@ class _InputTimerState extends State<InputTimer> {
   int currentTimeValue = 0;
   int yourScore = 0;
   String yourScoreText;
+  String buttonText;
 
   String getYourScoreText() {
-    if (id == 4) {
+    if (id == 4 || id == 21) {
       yourScoreText = 'Deine Punkte: $yourScore';
     } else {
       yourScoreText = '';
     }
     return yourScoreText;
+  }
+
+  String getButtonText() {
+    if (id == 21) {
+      buttonText = 'Gib mir einen Punkt!';
+    } else {
+      buttonText = 'Gib mir 10 Punkte!';
+    }
+    return buttonText;
   }
 
   int scoreToBeAdded = 0;
@@ -117,7 +127,7 @@ class _InputTimerState extends State<InputTimer> {
                 ),
                 onComplete: () {
                   setState(() {
-                    if (id == 4) {
+                    if (id == 4 || id == 21) {
                       Navigator.push(
                           context,
                           MaterialPageRoute(
@@ -156,6 +166,8 @@ class _InputTimerState extends State<InputTimer> {
                       setState(() {
                         if (id == 4) {
                           yourScore = yourScore + 10;
+                        } else if (id == 21) {
+                          yourScore = yourScore + 1;
                         } else {
                           Navigator.push(
                               context,
@@ -166,7 +178,7 @@ class _InputTimerState extends State<InputTimer> {
                         }
                       });
                     }),
-                Text('Gib mir 10 Punkte!',
+                Text(getButtonText(),
                     textAlign: TextAlign.center,
                     style: TextStyle(
                       color: Color(0xFFBff8000),
