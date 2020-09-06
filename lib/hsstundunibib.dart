@@ -3,7 +3,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 // ignore: must_be_immutable
-class Hochschulservice extends StatefulWidget {
+class HSSTundUnibib extends StatefulWidget {
   int currentScore;
   int id;
   String question;
@@ -11,7 +11,7 @@ class Hochschulservice extends StatefulWidget {
   List<String> answerTexts;
   int pressedCounter;
 
-  Hochschulservice(
+  HSSTundUnibib(
       {@required this.currentScore,
       @required this.id,
       @required this.question,
@@ -21,7 +21,7 @@ class Hochschulservice extends StatefulWidget {
 
   @override
   State<StatefulWidget> createState() {
-    return HochschulserviceState(
+    return HSSTundUnibibState(
         currentScore: currentScore,
         id: id,
         question: question,
@@ -31,7 +31,7 @@ class Hochschulservice extends StatefulWidget {
   }
 }
 
-class HochschulserviceState extends State<Hochschulservice> {
+class HSSTundUnibibState extends State<HSSTundUnibib> {
   List<Color> buttonColor = [
     Color(0xFFBff8000),
     Color(0xFFBff8000),
@@ -57,24 +57,41 @@ class HochschulserviceState extends State<Hochschulservice> {
   IconData icon;
 
   String getButtonText() {
-    if (pressedCounter == 0 || pressedCounter == 1) {
-      buttonText = 'Weiter zur nächsten Frage';
+    if (id == 3) {
+      if (pressedCounter == 0 || pressedCounter == 1) {
+        buttonText = 'Weiter zur nächsten Frage';
+      } else {
+        buttonText = 'Speichern und zurück zur Stationenauswahl';
+      }
     } else {
-      buttonText = 'Speichern und zurück zur Stationenauswahl';
+      if (pressedCounter == 0) {
+        buttonText = 'Weiter zur nächsten Frage';
+      } else {
+        buttonText = 'Speichern und zurück zur Stationenauswahl';
+      }
     }
     return buttonText;
   }
 
   IconData getButtonIcon() {
-    if (pressedCounter == 0 || pressedCounter == 1) {
-      icon = Icons.arrow_forward;
+    if (id == 3) {
+      if (pressedCounter == 0 || pressedCounter == 1) {
+        icon = Icons.arrow_forward;
+      } else {
+        icon = Icons.save;
+      }
     } else {
-      icon = Icons.save;
+      if (pressedCounter == 0) {
+        icon = Icons.arrow_forward;
+      } else {
+        icon = Icons.save;
+      }
     }
+
     return icon;
   }
 
-  HochschulserviceState(
+  HSSTundUnibibState(
       {@required this.currentScore,
       @required this.id,
       @required this.question,
@@ -242,50 +259,83 @@ class HochschulserviceState extends State<Hochschulservice> {
                             splashColor: Color(0xFFBff8000),
                             onPressed: () {
                               setState(() {
-                                if (pressedCounter == 0) {
-                                  Navigator.push(
-                                      context,
-                                      MaterialPageRoute(
-                                          builder: (context) => Hochschulservice(
-                                              currentScore: newFinalScore(
-                                                  currentScore, scoreToBeAdded),
-                                              id: id,
-                                              question:
-                                                  'Hier gibt es 3 Fragen zu 3 Themen. Frage 2: Wer bekommt einen Teil der Kosten für das Semesterticket?',
-                                              points: [-10, -10, -10, 10],
-                                              answerTexts: [
-                                                'Ich',
-                                                'Tutoren',
-                                                'HSST',
-                                                'Studentenwerk'
-                                              ],
-                                              pressedCounter: 1)));
-                                } else if (pressedCounter == 1) {
-                                  Navigator.push(
-                                      context,
-                                      MaterialPageRoute(
-                                          builder: (context) => Hochschulservice(
-                                              currentScore: newFinalScore(
-                                                  currentScore, scoreToBeAdded),
-                                              id: id,
-                                              question:
-                                                  'Hier gibt es 3 Fragen zu 3 Themen. Frage 3: Welche Businien fahren von der FH aus ab?',
-                                              points: [10, -10, -10, -10],
-                                              answerTexts: [
-                                                'Buslinie 114',
-                                                'Buslinie 14',
-                                                'Buslinie 16',
-                                                'Buslinie 216'
-                                              ],
-                                              pressedCounter: 2)));
+                                if (id == 3) {
+                                  if (pressedCounter == 0) {
+                                    Navigator.push(
+                                        context,
+                                        MaterialPageRoute(
+                                            builder: (context) => HSSTundUnibib(
+                                                currentScore: newFinalScore(
+                                                    currentScore,
+                                                    scoreToBeAdded),
+                                                id: id,
+                                                question:
+                                                    'Hier gibt es 3 Fragen zu 3 Themen. Frage 2: Wer bekommt einen Teil der Kosten für das Semesterticket?',
+                                                points: [-10, -10, -10, 10],
+                                                answerTexts: [
+                                                  'Ich',
+                                                  'Tutoren',
+                                                  'HSST',
+                                                  'Studentenwerk'
+                                                ],
+                                                pressedCounter: 1)));
+                                  } else if (pressedCounter == 1) {
+                                    Navigator.push(
+                                        context,
+                                        MaterialPageRoute(
+                                            builder: (context) => HSSTundUnibib(
+                                                currentScore: newFinalScore(
+                                                    currentScore,
+                                                    scoreToBeAdded),
+                                                id: id,
+                                                question:
+                                                    'Hier gibt es 3 Fragen zu 3 Themen. Frage 3: Welche Businien fahren von der FH aus ab?',
+                                                points: [10, -10, -10, -10],
+                                                answerTexts: [
+                                                  'Buslinie 114',
+                                                  'Buslinie 14',
+                                                  'Buslinie 16',
+                                                  'Buslinie 216'
+                                                ],
+                                                pressedCounter: 2)));
+                                  } else {
+                                    Navigator.push(
+                                        context,
+                                        MaterialPageRoute(
+                                            builder: (context) => Stationmenu(
+                                                newCurrentScore: newFinalScore(
+                                                    currentScore,
+                                                    scoreToBeAdded))));
+                                  }
                                 } else {
-                                  Navigator.push(
-                                      context,
-                                      MaterialPageRoute(
-                                          builder: (context) => Stationmenu(
-                                              newCurrentScore: newFinalScore(
-                                                  currentScore,
-                                                  scoreToBeAdded))));
+                                  if (pressedCounter == 0) {
+                                    Navigator.push(
+                                        context,
+                                        MaterialPageRoute(
+                                            builder: (context) => HSSTundUnibib(
+                                                currentScore: newFinalScore(
+                                                    currentScore,
+                                                    scoreToBeAdded),
+                                                id: id,
+                                                question:
+                                                    'Hier gibt es 2 Fragen zu 2 Themen. Frage 2: Wie viele Teilbibliotheken gibt es in Würzburg?',
+                                                points: [-10, 10, -10, -10],
+                                                answerTexts: [
+                                                  '15',
+                                                  '11',
+                                                  '10',
+                                                  '8'
+                                                ],
+                                                pressedCounter: 1)));
+                                  } else {
+                                    Navigator.push(
+                                        context,
+                                        MaterialPageRoute(
+                                            builder: (context) => Stationmenu(
+                                                newCurrentScore: newFinalScore(
+                                                    currentScore,
+                                                    scoreToBeAdded))));
+                                  }
                                 }
                               });
                             }),

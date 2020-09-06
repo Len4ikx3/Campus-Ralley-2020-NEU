@@ -1,5 +1,5 @@
 import 'package:first_app/dekan.dart';
-import 'package:first_app/hochschulservice.dart';
+import 'package:first_app/hsstundunibib.dart';
 import 'package:first_app/innonight.dart';
 import 'package:first_app/multipleChoice4.dart';
 
@@ -268,7 +268,7 @@ class StationTile extends StatelessWidget {
             Navigator.push(
                 context,
                 MaterialPageRoute(
-                    builder: (context) => Hochschulservice(
+                    builder: (context) => HSSTundUnibib(
                         currentScore: currentScore,
                         id: stationnr,
                         question:
@@ -505,6 +505,24 @@ class StationTile extends StatelessWidget {
                         description:
                             'Zeit für Sport! Jeder durchläuft hintereinander durch diesen Parcour. Hat jemand den Parkour durchlaufen, darf er sich einen Punkt holen! Die Zeit läuft...',
                         timer: 10)));
+          }
+          if (stationnr == 22) {
+            Navigator.push(
+                context,
+                MaterialPageRoute(
+                    builder: (context) => HSSTundUnibib(
+                        currentScore: currentScore,
+                        id: stationnr,
+                        question:
+                            'Hier gibt es 2 Fragen zu 2 Themen. Frage 1: Hier werdet ihr viel Zeit im Studium verbringen. Da könnt ihr ja mal zählen.. Wie viel digitalen und gedruckten Bestand besitzt die Unibibliothek INSGESAMT?',
+                        points: [-10, 10, -10, -10],
+                        answerTexts: [
+                          '664.374',
+                          '3.762.012',
+                          '997.652',
+                          '1.843.441'
+                        ],
+                        pressedCounter: 0)));
           }
           if (stationnr == 23) {
             Navigator.push(
