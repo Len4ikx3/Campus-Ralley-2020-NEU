@@ -3,32 +3,35 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 // ignore: must_be_immutable
-class Dekan extends StatefulWidget {
+class Hochschulservice extends StatefulWidget {
   int currentScore;
   int id;
   String question;
   List<int> points;
   List<String> answerTexts;
+  int pressedCounter;
 
-  Dekan(
+  Hochschulservice(
       {@required this.currentScore,
       @required this.id,
       @required this.question,
       @required this.points,
-      @required this.answerTexts});
+      @required this.answerTexts,
+      @required this.pressedCounter});
 
   @override
   State<StatefulWidget> createState() {
-    return DekanState(
+    return HochschulserviceState(
         currentScore: currentScore,
         id: id,
         question: question,
         points: points,
-        answerTexts: answerTexts);
+        answerTexts: answerTexts,
+        pressedCounter: pressedCounter);
   }
 }
 
-class DekanState extends State<Dekan> {
+class HochschulserviceState extends State<Hochschulservice> {
   List<Color> buttonColor = [
     Color(0xFFBff8000),
     Color(0xFFBff8000),
@@ -37,6 +40,7 @@ class DekanState extends State<Dekan> {
     Color(0xFFBff8000)
   ];
   List<int> points;
+  List<bool> answerValues;
   List<String> answerTexts;
 
   Color buttonUnselectedColor = Color(0xFFBff8000);
@@ -48,13 +52,35 @@ class DekanState extends State<Dekan> {
   int currentScore;
   int id;
   String question;
+  int pressedCounter;
+  String buttonText;
+  IconData icon;
 
-  DekanState(
+  String getButtonText() {
+    if (pressedCounter == 0 || pressedCounter == 1) {
+      buttonText = 'Weiter zur nächsten Frage';
+    } else {
+      buttonText = 'Speichern und zurück zur Stationenauswahl';
+    }
+    return buttonText;
+  }
+
+  IconData getButtonIcon() {
+    if (pressedCounter == 0 || pressedCounter == 1) {
+      icon = Icons.arrow_forward;
+    } else {
+      icon = Icons.save;
+    }
+    return icon;
+  }
+
+  HochschulserviceState(
       {@required this.currentScore,
       @required this.id,
       @required this.question,
       @required this.points,
-      @required this.answerTexts});
+      @required this.answerTexts,
+      @required this.pressedCounter});
 
   @override
   Widget build(BuildContext context) {
@@ -202,29 +228,6 @@ class DekanState extends State<Dekan> {
                                   borderRadius: BorderRadius.circular(20)),
                             ),
                           ),
-                          Container(
-                            width: 380,
-                            height: 45,
-                            child: FlatButton(
-                              color: buttonColor[4],
-                              onPressed: () {
-                                setState(() {
-                                  scoreToBeAdded = 0;
-                                  buttonColor[0] = buttonUnselectedColor;
-                                  buttonColor[1] = buttonUnselectedColor;
-                                  buttonColor[2] = buttonUnselectedColor;
-                                  buttonColor[3] = buttonUnselectedColor;
-                                  buttonColor[4] = buttonSelectedColor;
-                                  scoreToBeAdded = scoreToBeAdded + points[4];
-                                });
-                              },
-                              child: Text(answerTexts[4],
-                                  style: TextStyle(color: Colors.white),
-                                  textAlign: TextAlign.center),
-                              shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(20)),
-                            ),
-                          ),
                         ],
                       )),
                   Container(
@@ -232,23 +235,61 @@ class DekanState extends State<Dekan> {
                       children: <Widget>[
                         IconButton(
                             icon: Icon(
-                              Icons.save,
+                              getButtonIcon(),
                               color: Color(0xFFBff8000),
                             ),
                             iconSize: 50,
                             splashColor: Color(0xFFBff8000),
                             onPressed: () {
                               setState(() {
-                                Navigator.push(
-                                    context,
-                                    MaterialPageRoute(
-                                        builder: (context) => Stationmenu(
-                                            newCurrentScore: newFinalScore(
-                                                currentScore,
-                                                scoreToBeAdded))));
+                                if (pressedCounter == 0) {
+                                  Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                          builder: (context) => Hochschulservice(
+                                              currentScore: newFinalScore(
+                                                  currentScore, scoreToBeAdded),
+                                              id: id,
+                                              question:
+                                                  'Hier gibt es 3 Fragen zu 3 Themen. Frage 2: Wer bekommt einen Teil der Kosten für das Semesterticket?',
+                                              points: [-10, -10, -10, 10],
+                                              answerTexts: [
+                                                'Ich',
+                                                'Tutoren',
+                                                'HSST',
+                                                'Studentenwerk'
+                                              ],
+                                              pressedCounter: 1)));
+                                } else if (pressedCounter == 1) {
+                                  Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                          builder: (context) => Hochschulservice(
+                                              currentScore: newFinalScore(
+                                                  currentScore, scoreToBeAdded),
+                                              id: id,
+                                              question:
+                                                  'Hier gibt es 3 Fragen zu 3 Themen. Frage 3: Welche Businien fahren von der FH aus ab?',
+                                              points: [10, -10, -10, -10],
+                                              answerTexts: [
+                                                'Buslinie 114',
+                                                'Buslinie 14',
+                                                'Buslinie 16',
+                                                'Buslinie 216'
+                                              ],
+                                              pressedCounter: 2)));
+                                } else {
+                                  Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                          builder: (context) => Stationmenu(
+                                              newCurrentScore: newFinalScore(
+                                                  currentScore,
+                                                  scoreToBeAdded))));
+                                }
                               });
                             }),
-                        Text('Speichern und zurück zur Stationenauswahl',
+                        Text(getButtonText(),
                             textAlign: TextAlign.center,
                             style: TextStyle(
                               color: Color(0xFFBff8000),

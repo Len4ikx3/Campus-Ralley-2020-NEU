@@ -1,4 +1,5 @@
 import 'package:first_app/dekan.dart';
+import 'package:first_app/hochschulservice.dart';
 import 'package:first_app/innonight.dart';
 import 'package:first_app/multipleChoice4.dart';
 
@@ -26,7 +27,6 @@ class StationCarouselState extends State<StationCarousel> {
   Widget stationList() {
     return Container(
         child: ListView(
-      scrollDirection: Axis.vertical,
       children: [
         StationTile(
           onTap: () {},
@@ -268,12 +268,19 @@ class StationTile extends StatelessWidget {
             Navigator.push(
                 context,
                 MaterialPageRoute(
-                    builder: (context) => Input(
-                          currentScore: currentScore,
-                          id: stationnr,
-                          description: 'Das ist eine Beschreibung',
-                          hintText: 'zB 12',
-                        )));
+                    builder: (context) => Hochschulservice(
+                        currentScore: currentScore,
+                        id: stationnr,
+                        question:
+                            'Hier gibt es 3 Fragen zu 3 Themen. Frage 1: Studentenausweis verloren? Wohin gehst du?',
+                        points: [-10, 10, -10, -10],
+                        answerTexts: [
+                          'Studentenwerk',
+                          'HSST',
+                          'Fachschaft',
+                          'Nach Hause'
+                        ],
+                        pressedCounter: 0)));
           }
           if (stationnr == 4) {
             Navigator.push(
@@ -363,13 +370,6 @@ class StationTile extends StatelessWidget {
                               -10,
                               10,
                               -10
-                            ],
-                            answerValues: [
-                              false,
-                              false,
-                              false,
-                              true,
-                              false
                             ],
                             answerTexts: [
                               'Öffnen - Anliegen mitteilen',
