@@ -1,145 +1,163 @@
+import 'package:curved_navigation_bar/curved_navigation_bar.dart';
+import 'package:first_app/wordSolutionPage.dart';
 import 'package:flutter/material.dart';
 //import 'stationChoice.dart';
 import 'stationmenu.dart';
 
-void main() => runApp(MaterialApp(
-      home: Introductionpage(),
-    ));
-
 class Introductionpage extends StatefulWidget {
+  int currentScore;
+  Introductionpage({@required this.currentScore});
   @override
   State<StatefulWidget> createState() {
-    return IntroductionpageState();
+    return IntroductionpageState(currentScore: currentScore);
   }
 }
 
 class IntroductionpageState extends State<Introductionpage> {
+  int currentScore;
+  IntroductionpageState({@required this.currentScore});
   @override
   Widget build(BuildContext context) {
-    return WillPopScope(
-        onWillPop: () async => false,
-        child: Scaffold(
-          body: Container(
-            child: Column(
-              children: <Widget>[
-                /*Container(
-                    color: Color(0xFFBff8000),
-                    width: double.infinity,
-                    child: Center(
-                      child: Text(
-                        '- FHWS -',
-                        style: TextStyle(
-                          color: Colors.white,
-                          fontSize: 16,
-                        ),
-                      ),
-                    )),*/
-                Container(
-                    margin: const EdgeInsets.all(20),
-                    child: Column(
-                      children: <Widget>[
-                        Container(
-                            margin: const EdgeInsets.only(top: 50),
-                            color: Color(0xFFBff8000),
-                            child: Text(
-                              'HERZLICH WILLKOMMEN AN DER HOCHSCHULE FÜR ANGEWANDTE WISSENSCHAFTEN WÜRZBURG SCHWEINFURT',
-                              textAlign: TextAlign.center,
-                              style: TextStyle(
-                                color: Colors.white,
-                                fontSize: 18,
-                              ),
-                            )),
-                        Container(
-                            margin: const EdgeInsets.only(top: 20),
-                            child: Text(
-                              'Es freut uns, dass du deinen Weg zu uns gefunden hast. Um dir den Start ins Studium etwas zu erleichtern, wollen wir dich mit Hilfe der Campus Ralley vertraut machen mit:',
-                              style: TextStyle(
-                                color: Color(0xFFBff8000),
-                                fontSize: 18,
-                              ),
-                            )),
-                        Container(
-                            margin: const EdgeInsets.only(top: 20),
-                            child: Text(
-                              '- den Gebäuden auf dem Campus',
-                              style: TextStyle(
-                                color: Color(0xFFBff8000),
-                                fontSize: 18,
-                              ),
-                            )),
-                        Container(
-                            margin: const EdgeInsets.only(top: 20),
-                            child: Text(
-                              '- deinen relevantesten Anlaufstellen',
-                              style: TextStyle(
-                                color: Color(0xFFBff8000),
-                                fontSize: 18,
-                              ),
-                            )),
-                        Container(
-                            margin: const EdgeInsets.only(top: 20),
-                            child: Text(
-                              'Die Ralley besteht aus X Stationen, die jeweils eine Aufgabe bereithalten. Mit jeder Station besteht eine Chance, Punkte für das Team zu sammeln. Das Team, das am Ende die meisten Punkte absahnt, erhält eine schöne Belohnung ;)',
-                              style: TextStyle(
-                                color: Color(0xFFBff8000),
-                                fontSize: 18,
-                              ),
-                            )),
-                        Container(
-                            child: Text(
-                          'Innerhalb der Ralley gibt es kein Zurück, also seid aufmerksam!',
-                          style: TextStyle(
-                            color: Color(0xFFBff8000),
-                            fontSize: 18,
-                          ),
-                        ))
-                      ],
-                    )),
-                Container(
-                    //padding: EdgeInsets.only(),
-                    // margin: const EdgeInsets.only(top: 150),
-                    child: Column(
-                  mainAxisAlignment: MainAxisAlignment.end,
-                  children: <Widget>[
-                    MaterialButton(
-                      height: 50,
-                      color: Color(0xFFBff8000),
-                      onPressed: goToStationChoice,
-                      child: Text(
-                        'Verstanden, starte die Ralley',
-                        style: TextStyle(color: Colors.white, fontSize: 18),
-                      ),
-                    )
-                  ],
-                )),
-                Container(),
-                /*Container(
-                padding: EdgeInsets.all(50.0),
-                // margin: const EdgeInsets.only(top: 150),
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.end,
-                  children: <Widget>[
-                    MaterialButton(
-                      height: 50,
-                      color: Color(0xFFBff8000),
-                      onPressed: //goToTest,
-                      child: Text(
-                        'TEST',
-                        style: TextStyle(color: Colors.white, fontSize: 18),
-                      ),
-                    )
-                  ],
-                )),*/
-              ],
+    return MaterialApp(
+        home: Scaffold(
+      body: Container(
+        color: Color(0xFFBff8000),
+        child: Column(
+          children: <Widget>[
+            Container(
+              padding: EdgeInsets.only(left: 100, right: 100, top: 50),
+              height: 90,
+              child: Text(
+                'Ralley Regelwerk',
+                style: TextStyle(color: Colors.white, fontSize: 25),
+              ),
             ),
+            Expanded(
+                child: Stack(
+              children: [
+                Container(
+                  decoration: BoxDecoration(
+                      color: Colors.white,
+                      borderRadius: BorderRadius.only(
+                          topLeft: Radius.circular(60),
+                          topRight: Radius.circular(60))),
+                ),
+                Container(
+                    padding: EdgeInsets.only(
+                        top: 30, bottom: 30, left: 50, right: 50),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          'Navigation',
+                          style: TextStyle(
+                              color: Color(0xFFBff8000), fontSize: 20),
+                        ),
+                        Text(
+                          '▪ erfolgt über die untere Navigationsleiste',
+                          style: TextStyle(color: Colors.grey, fontSize: 16),
+                        ),
+                        Text(
+                          '▪ die Ralley wird durch Klick auf das rechte Symbol beendet',
+                          style: TextStyle(color: Colors.grey, fontSize: 16),
+                        ),
+                        SizedBox(
+                          height: 20,
+                        ),
+                        Text(
+                          'Stationen',
+                          style: TextStyle(
+                              color: Color(0xFFBff8000), fontSize: 20),
+                        ),
+                        Text(
+                          '▪ eine Station wird über die Stationsliste ausgewählt',
+                          style: TextStyle(color: Colors.grey, fontSize: 16),
+                        ),
+                        Text(
+                          '▪ eine Station kann nur 1 mal aufgerufen werden',
+                          style: TextStyle(color: Colors.grey, fontSize: 16),
+                        ),
+                        SizedBox(
+                          height: 20,
+                        ),
+                        Text(
+                          'Punkte',
+                          style: TextStyle(
+                              color: Color(0xFFBff8000), fontSize: 20),
+                        ),
+                        Text(
+                          '▪ angezeigt werden nur die eigenen gesammelten Punkte',
+                          style: TextStyle(color: Colors.grey, fontSize: 16),
+                        ),
+                        Text(
+                          '▪ bei Multiple Choice Fragen kann mindestens eine Antwort richtig sein',
+                          style: TextStyle(color: Colors.grey, fontSize: 16),
+                        ),
+                        Text(
+                          '▪ für richtige Antworten gibt es 10 Punkte, für falsche Antworten werden 10 Punkte abgezogen',
+                          style: TextStyle(color: Colors.grey, fontSize: 16),
+                        ),
+                        Text(
+                          '▪ es können aus einer Station auch Negativ-Punkte ergattert werden',
+                          style: TextStyle(color: Colors.grey, fontSize: 16),
+                        ),
+                        Text(
+                          '▪ ABER: die eigene Punktzahl wird nie negativ',
+                          style: TextStyle(color: Colors.grey, fontSize: 16),
+                        ),
+                        Text(
+                          '▪ die Gesamtpunktzahl der Gruppe muss am Ende der Ralley aus allen einzelnen Punkten der Gruppe berechnet werden',
+                          style: TextStyle(color: Colors.grey, fontSize: 16),
+                        ),
+                      ],
+                    ))
+              ],
+            ))
+          ],
+        ),
+      ),
+      bottomNavigationBar: CurvedNavigationBar(
+        color: Color(0xFFBff8000),
+        backgroundColor: Colors.white,
+        buttonBackgroundColor: Color(0xFFBff8000),
+        height: 50,
+        animationDuration: Duration(milliseconds: 200),
+        animationCurve: Curves.bounceInOut,
+        index: 0,
+        items: <Widget>[
+          Icon(
+            Icons.feedback,
+            size: 20,
+            color: Colors.white,
           ),
-        ));
-  }
-
-  void goToStationChoice() {
-    setState(() {
-      Navigator.push(
-          context, MaterialPageRoute(builder: (context) => Stationmenu()));
-    });
+          Icon(
+            Icons.menu,
+            size: 20,
+            color: Colors.white,
+          ),
+          Icon(Icons.exit_to_app, size: 20, color: Colors.white)
+        ],
+        onTap: (index) {
+          if (index == 1) {
+            setState(() {
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => Stationmenu(
+                            newCurrentScore: currentScore,
+                          )));
+            });
+          } else if (index == 2) {
+            setState(() {
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) =>
+                          WordSolutionPage(currentScore: currentScore)));
+            });
+          } else {}
+        },
+      ),
+    ));
   }
 }

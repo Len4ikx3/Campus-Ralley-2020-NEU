@@ -1,3 +1,6 @@
+import 'package:curved_navigation_bar/curved_navigation_bar.dart';
+import 'package:first_app/introductionpage.dart';
+import 'package:first_app/wordSolutionPage.dart';
 import 'package:flutter/material.dart';
 import 'stationcarousel.dart';
 //import 'package:carousel_slider/carousel_slider.dart';
@@ -83,6 +86,49 @@ class StationmenuState extends State<Stationmenu> {
           ],
         ),
       )),
+      bottomNavigationBar: CurvedNavigationBar(
+        color: Color(0xFFBff8000),
+        backgroundColor: Colors.white,
+        buttonBackgroundColor: Color(0xFFBff8000),
+        height: 50,
+        animationDuration: Duration(milliseconds: 200),
+        animationCurve: Curves.bounceInOut,
+        index: 1,
+        items: <Widget>[
+          Icon(
+            Icons.feedback,
+            size: 20,
+            color: Colors.white,
+          ),
+          Icon(
+            Icons.menu,
+            size: 20,
+            color: Colors.white,
+          ),
+          Icon(Icons.exit_to_app, size: 20, color: Colors.white)
+        ],
+        onTap: (index) {
+          if (index == 0) {
+            setState(() {
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => Introductionpage(
+                            currentScore: currentScore,
+                          )));
+            });
+          } else if (index == 2) {
+            setState(() {
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => WordSolutionPage(
+                            currentScore: currentScore,
+                          )));
+            });
+          }
+        },
+      ),
     ));
   }
 }

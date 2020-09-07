@@ -524,17 +524,6 @@ class StationTile extends StatelessWidget {
                         ],
                         pressedCounter: 0)));
           }
-          if (stationnr == 23) {
-            Navigator.push(
-                context,
-                MaterialPageRoute(
-                    builder: (context) => WordSolutionPage(
-                        /*currentScore: currentScore,
-                          id: stationnr,
-                          description: 'Das ist eine Beschreibung',
-                          hintText: 'zB 12',*/
-                        )));
-          }
         },
         child: Container(
           padding: EdgeInsets.symmetric(horizontal: 24),
