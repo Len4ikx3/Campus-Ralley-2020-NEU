@@ -32,8 +32,6 @@ class StationmenuState extends State<Stationmenu> {
     }
   }
 
-  //currentScore = newCurrentScore;
-
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
