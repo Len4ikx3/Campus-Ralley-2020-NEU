@@ -17,104 +17,117 @@ class WordSolutionPageState extends State<WordSolutionPage> {
   int currentScore;
   WordSolutionPageState({@required this.currentScore});
   String solution;
+  Color selected = Color(0xFFBff8000);
+  Color unselected = Colors.grey;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Container(
-          color: Color(0xFFBff8000),
-          child: Column(
-            //mainAxisAlignment: MainAxisAlignment.spaceAround,
-            children: <Widget>[
+      resizeToAvoidBottomInset: false,
+      body: Stack(
+        children: [
+          Container(
+            decoration: BoxDecoration(
+              gradient: LinearGradient(
+                  colors: [Color(0xFFBff8000), Colors.white],
+                  begin: Alignment.topCenter,
+                  end: Alignment.bottomCenter),
+            ),
+          ),
+          Column(
+            children: [
               Container(
-                //padding: const EdgeInsets.all(50),
-                child: Column(
-                  children: <Widget>[
-                    Container(
-                        color: Color(0xFFBff8000),
-                        width: double.infinity,
-                        child: Center(
-                          child: Text(
-                            '- FHWS -',
-                            style: TextStyle(
-                              color: Colors.white,
-                              fontSize: 16,
-                            ),
-                          ),
-                        )),
-                    Container(
-                        padding: const EdgeInsets.all(50),
-                        child: Column(
-                          children: <Widget>[
-                            Text(
-                              'GLÜCKWUNSCH',
-                              style:
-                                  TextStyle(color: Colors.white, fontSize: 18),
-                            ),
-                            Text(
-                              'Alle Stationen wurden gemeistert. Nun gibt\'s die Chance, sich Extrapunkte zu verdienen...hoffentlich sind euch die Buchstaben im Gedächtnis geblieben ;) Für das richtige Lösungswort gibt es nochmals x Punkte aufs Konto dazu.',
-                              style:
-                                  TextStyle(color: Colors.white, fontSize: 18),
-                              textAlign: TextAlign.center,
-                            ),
-                            Container(
-                                padding: const EdgeInsets.all(20),
-                                child: Text(
-                                  'Gib hier das Lösungswort ein, um die Extrapunkte zu ergattern:',
-                                  style: TextStyle(
-                                      color: Colors.white, fontSize: 18),
-                                  textAlign: TextAlign.center,
-                                )),
-                            Container(
-                              margin: const EdgeInsets.only(top: 30),
-                              width: 250,
-                              padding: const EdgeInsets.all(20),
-                              decoration: BoxDecoration(
-                                border: Border.all(
-                                    color: Colors.deepOrange, width: 2),
-                                borderRadius: BorderRadius.circular(50),
-                                color: Colors.white,
-                              ),
-                              child: Row(
-                                children: <Widget>[
-                                  Container(
-                                      width: 50,
-                                      child: Icon(
-                                        Icons.edit,
-                                        color: Colors.grey,
-                                      )),
-                                  Expanded(
-                                      child: TextField(
-                                    onChanged: (text) {
-                                      solution = text;
-                                    },
-                                    decoration: InputDecoration(
-                                      contentPadding: EdgeInsets.only(left: 20),
-                                      hintText: 'Lösungswort',
-                                      border: InputBorder.none,
-                                    ),
-                                  ))
-                                ],
-                              ),
-                            )
-                          ],
-                        )),
-                    Container(
-                      child: Column(
-                        children: <Widget>[
-                          MaterialButton(
-                            height: 50,
-                            onPressed: goToRalley,
-                            child: Icon(Icons.play_circle_filled,
-                                size: 100, color: Colors.white),
-                          )
-                        ],
+                  height: 150,
+                  padding: EdgeInsets.only(top: 70, left: 100, right: 100),
+                  child: Text(
+                    'Ralley beenden? Sicher?',
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 25,
+                    ),
+                    textAlign: TextAlign.center,
+                  )),
+              Container(
+                  padding: EdgeInsets.all(40),
+                  margin: EdgeInsets.only(left: 30, right: 30),
+                  decoration: BoxDecoration(
+                      color: Colors.white,
+                      borderRadius: BorderRadius.only(
+                          topLeft: Radius.circular(60),
+                          bottomRight: Radius.circular(60))),
+                  child: Column(
+                    children: [
+                      Text(
+                        'Wenn ja, hier noch die letzte Chance, Punkte zu holen! Alle Buchstaben gemerkt? Dann hier Lösungswort eingeben und für die richtige Antwort 100 P abholen:',
+                        style: TextStyle(color: Colors.grey, fontSize: 18),
                       ),
-                    )
-                  ],
-                ),
+                      SizedBox(
+                        height: 50,
+                      ),
+                      TextField(
+                        onChanged: (text) {
+                          solution = text;
+                        },
+                        onTap: () {
+                          setState(() {
+                            unselected = selected;
+                          });
+                        },
+                        decoration: InputDecoration(
+                            enabledBorder: OutlineInputBorder(
+                                borderSide: BorderSide(color: Colors.grey),
+                                borderRadius:
+                                    BorderRadius.all(Radius.circular(30))),
+                            focusedBorder: OutlineInputBorder(
+                                borderSide:
+                                    BorderSide(color: Color(0xFFBff8000)),
+                                borderRadius:
+                                    BorderRadius.all(Radius.circular(30))),
+                            prefixIcon: Icon(
+                              Icons.edit,
+                              color: unselected,
+                            ),
+                            hintText: 'LÖSUNGSWORT',
+                            hintStyle: TextStyle(color: unselected)),
+                      ),
+                      SizedBox(height: 50),
+                      Text(
+                          'Sei gewarnt: speicherst du deine Antwort, gibt es kein Zurück.',
+                          style: TextStyle(color: Colors.grey, fontSize: 18))
+                    ],
+                  )),
+              SizedBox(
+                height: 70,
               ),
+              FlatButton(
+                  shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.all(Radius.circular(50))),
+                  color: Color(0xFFBff8000),
+                  splashColor: Colors.deepPurple[400],
+                  onPressed: () {
+                    setState(() {
+                      if (solution == 'APPETIT') {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => LastPage(
+                                    currentScore: currentScore + 100)));
+                      } else {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) =>
+                                    LastPage(currentScore: currentScore)));
+                      }
+                    });
+                  },
+                  child: Text(
+                    'Speichern und Ralley beenden',
+                    style: TextStyle(color: Colors.white, fontSize: 20),
+                  ))
             ],
-          )),
+          ),
+        ],
+      ),
       bottomNavigationBar: CurvedNavigationBar(
         color: Color(0xFFBff8000),
         backgroundColor: Colors.white,
@@ -158,12 +171,5 @@ class WordSolutionPageState extends State<WordSolutionPage> {
         },
       ),
     );
-  }
-
-  void goToRalley() {
-    setState(() {
-      Navigator.push(
-          context, MaterialPageRoute(builder: (context) => LastPage()));
-    });
   }
 }

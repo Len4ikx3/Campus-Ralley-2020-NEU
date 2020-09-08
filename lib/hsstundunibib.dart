@@ -308,7 +308,7 @@ class HSSTundUnibibState extends State<HSSTundUnibib> {
                                                     scoreToBeAdded))));
                                   }
                                 } else {
-                                  if (pressedCounter == 0) {
+                                  if (pressedCounter == 0 && id == 22) {
                                     Navigator.push(
                                         context,
                                         MaterialPageRoute(
@@ -327,6 +327,26 @@ class HSSTundUnibibState extends State<HSSTundUnibib> {
                                                   '8'
                                                 ],
                                                 pressedCounter: 1)));
+                                  } else if (pressedCounter == 0 && id == 16) {
+                                    Navigator.push(
+                                        context,
+                                        MaterialPageRoute(
+                                            builder: (context) => HSSTundUnibib(
+                                                  currentScore: newFinalScore(
+                                                      currentScore,
+                                                      scoreToBeAdded),
+                                                  id: id,
+                                                  question:
+                                                      'Hier ein paar Fragen für die Autofahrer. Frage 2: Wer darf hinter der Schranke parken?',
+                                                  points: [-10, -10, 10, -10],
+                                                  answerTexts: [
+                                                    'Studenten, Dozenten und Professoren',
+                                                    'Dozenten, Professoren und Fachschaftsmitglieder',
+                                                    'Dozenten und Professoren',
+                                                    'Hausmeister, Dozenten und Professoren'
+                                                  ],
+                                                  pressedCounter: 1,
+                                                )));
                                   } else {
                                     Navigator.push(
                                         context,

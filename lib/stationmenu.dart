@@ -38,6 +38,7 @@ class StationmenuState extends State<Stationmenu> {
   Widget build(BuildContext context) {
     return MaterialApp(
         home: Scaffold(
+      backgroundColor: Colors.white,
       body: Container(
           child: SingleChildScrollView(
         child: Column(

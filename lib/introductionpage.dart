@@ -25,7 +25,7 @@ class IntroductionpageState extends State<Introductionpage> {
         child: Column(
           children: <Widget>[
             Container(
-              padding: EdgeInsets.only(left: 100, right: 100, top: 50),
+              padding: EdgeInsets.only(left: 100, right: 100, top: 40),
               height: 90,
               child: Text(
                 'Ralley Regelwerk',
@@ -37,6 +37,13 @@ class IntroductionpageState extends State<Introductionpage> {
               children: [
                 Container(
                   decoration: BoxDecoration(
+                      boxShadow: [
+                        BoxShadow(
+                            color: Colors.red,
+                            spreadRadius: 5,
+                            blurRadius: 20,
+                            offset: Offset(0, 3))
+                      ],
                       color: Colors.white,
                       borderRadius: BorderRadius.only(
                           topLeft: Radius.circular(60),

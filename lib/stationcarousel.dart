@@ -191,19 +191,13 @@ class StationCarouselState extends State<StationCarousel> {
           stationtitle: "Unibibliothek",
           currentScore: currentScore,
         ),
-        StationTile(
-          onTap: () {},
-          imagepath: "lib/images/mensa.jpg",
-          stationnr: 23,
-          stationtitle: "Mensa",
-          currentScore: currentScore,
-        ),
       ],
     ));
   }
 
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.white,
       body: stationList(),
     );
   }
@@ -446,6 +440,19 @@ class StationTile extends StatelessWidget {
                         currentScore: currentScore,
                         id: stationnr,
                         description: 'Was ist der nächste Buchstabe?')));
+          }
+          if (stationnr == 16) {
+            Navigator.push(
+                context,
+                MaterialPageRoute(
+                    builder: (context) => HSSTundUnibib(
+                        currentScore: currentScore,
+                        id: stationnr,
+                        question:
+                            'Hier ein paar Fragen für die Autofahrer. Frage 1: Durch wie viele Türen gelangt man ins Gebäude der FHWS?',
+                        points: [-10, -10, -10, 10],
+                        answerTexts: ['5', '2', '4', '3'],
+                        pressedCounter: 0)));
           }
           if (stationnr == 17) {
             Navigator.push(
