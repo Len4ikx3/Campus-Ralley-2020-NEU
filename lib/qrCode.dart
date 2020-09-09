@@ -6,16 +6,21 @@ class QrCode extends StatefulWidget {
   int currentScore;
   int id;
   String description;
+  List<bool> tappedList;
 
   QrCode(
       {@required this.currentScore,
       @required this.id,
-      @required this.description});
+      @required this.description,
+      @required this.tappedList});
 
   @override
   State<StatefulWidget> createState() {
     return _QrCodeState(
-        currentScore: currentScore, id: id, description: description);
+        currentScore: currentScore,
+        id: id,
+        description: description,
+        tappedList: tappedList);
   }
 }
 
@@ -24,11 +29,18 @@ class _QrCodeState extends State<QrCode> {
   int currentScore;
   int id;
   String description;
+  List<bool> tappedList;
 
   _QrCodeState(
       {@required this.currentScore,
       @required this.id,
-      @required this.description});
+      @required this.description,
+      @required this.tappedList});
+
+  List changedtappedList(List<bool> tappedList) {
+    tappedList[(id - 1)] = true;
+    return tappedList;
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -148,6 +160,8 @@ class _QrCodeState extends State<QrCode> {
                               MaterialPageRoute(
                                   builder: (context) => Stationmenu(
                                         newCurrentScore: currentScore,
+                                        newtappedList:
+                                            changedtappedList(tappedList),
                                       )));
                         });
                       }),
@@ -169,8 +183,11 @@ class _QrCodeState extends State<QrCode> {
   void goToStationMenu() {
     setState(() {
       Navigator.push(
-          context, MaterialPageRoute(builder: (context) => Stationmenu()));
+          context,
+          MaterialPageRoute(
+              builder: (context) => Stationmenu(
+                    newtappedList: changedtappedList(tappedList),
+                  )));
     });
   }
-  //its quite simple as that you can use try and catch staatements too for platform exception
 }

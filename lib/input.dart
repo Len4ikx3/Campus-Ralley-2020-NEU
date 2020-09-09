@@ -6,12 +6,14 @@ class Input extends StatefulWidget {
   int id;
   String description;
   String hintText;
+  List<bool> tappedList;
 
   Input(
       {@required this.currentScore,
       @required this.id,
       @required this.description,
-      @required this.hintText});
+      @required this.hintText,
+      @required this.tappedList});
 
   @override
   State<StatefulWidget> createState() {
@@ -19,7 +21,8 @@ class Input extends StatefulWidget {
         currentScore: currentScore,
         id: id,
         description: description,
-        hintText: hintText);
+        hintText: hintText,
+        tappedList: tappedList);
   }
 }
 
@@ -28,6 +31,7 @@ class _InputState extends State<Input> {
   int id;
   String description;
   String hintText;
+  List<bool> tappedList;
 
   Color selected = Color(0xFFBff8000);
   Color unselected = Colors.grey;
@@ -38,7 +42,13 @@ class _InputState extends State<Input> {
       {@required this.currentScore,
       @required this.id,
       @required this.description,
-      @required this.hintText});
+      @required this.hintText,
+      @required this.tappedList});
+
+  List changedtappedList(List<bool> tappedList) {
+    tappedList[(id - 1)] = true;
+    return tappedList;
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -173,6 +183,8 @@ class _InputState extends State<Input> {
                                 builder: (context) => Stationmenu(
                                       newCurrentScore:
                                           currentScore + scoreToBeAdded,
+                                      newtappedList:
+                                          changedtappedList(tappedList),
                                     )));
                       });
                     }),

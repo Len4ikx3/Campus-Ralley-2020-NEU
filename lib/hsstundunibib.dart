@@ -11,13 +11,16 @@ class HSSTundUnibib extends StatefulWidget {
   List<String> answerTexts;
   int pressedCounter;
 
+  List<bool> tappedList;
+
   HSSTundUnibib(
       {@required this.currentScore,
       @required this.id,
       @required this.question,
       @required this.points,
       @required this.answerTexts,
-      @required this.pressedCounter});
+      @required this.pressedCounter,
+      @required this.tappedList});
 
   @override
   State<StatefulWidget> createState() {
@@ -27,7 +30,8 @@ class HSSTundUnibib extends StatefulWidget {
         question: question,
         points: points,
         answerTexts: answerTexts,
-        pressedCounter: pressedCounter);
+        pressedCounter: pressedCounter,
+        tappedList: tappedList);
   }
 }
 
@@ -42,6 +46,7 @@ class HSSTundUnibibState extends State<HSSTundUnibib> {
   List<int> points;
   List<bool> answerValues;
   List<String> answerTexts;
+  List<bool> tappedList;
 
   Color buttonUnselectedColor = Color(0xFFBff8000);
   Color buttonSelectedColor = Colors.deepPurple[300];
@@ -91,13 +96,19 @@ class HSSTundUnibibState extends State<HSSTundUnibib> {
     return icon;
   }
 
+  List changedtappedList(List<bool> tappedList) {
+    tappedList[(id - 1)] = true;
+    return tappedList;
+  }
+
   HSSTundUnibibState(
       {@required this.currentScore,
       @required this.id,
       @required this.question,
       @required this.points,
       @required this.answerTexts,
-      @required this.pressedCounter});
+      @required this.pressedCounter,
+      @required this.tappedList});
 
   @override
   Widget build(BuildContext context) {
@@ -265,47 +276,59 @@ class HSSTundUnibibState extends State<HSSTundUnibib> {
                                         context,
                                         MaterialPageRoute(
                                             builder: (context) => HSSTundUnibib(
-                                                currentScore: newFinalScore(
-                                                    currentScore,
-                                                    scoreToBeAdded),
-                                                id: id,
-                                                question:
-                                                    'Hier gibt es 3 Fragen zu 3 Themen. Frage 2: Wer bekommt einen Teil der Kosten für das Semesterticket?',
-                                                points: [-10, -10, -10, 10],
-                                                answerTexts: [
-                                                  'Ich',
-                                                  'Tutoren',
-                                                  'HSST',
-                                                  'Studentenwerk'
-                                                ],
-                                                pressedCounter: 1)));
+                                                  currentScore: newFinalScore(
+                                                      currentScore,
+                                                      scoreToBeAdded),
+                                                  id: id,
+                                                  question:
+                                                      'Hier gibt es 3 Fragen zu 3 Themen. Frage 2: Wer bekommt einen Teil der Kosten für das Semesterticket?',
+                                                  points: [-10, -10, -10, 10],
+                                                  answerTexts: [
+                                                    'Ich',
+                                                    'Tutoren',
+                                                    'HSST',
+                                                    'Studentenwerk'
+                                                  ],
+                                                  pressedCounter: 1,
+                                                  tappedList: changedtappedList(
+                                                      tappedList),
+                                                )));
                                   } else if (pressedCounter == 1) {
                                     Navigator.push(
                                         context,
                                         MaterialPageRoute(
                                             builder: (context) => HSSTundUnibib(
-                                                currentScore: newFinalScore(
-                                                    currentScore,
-                                                    scoreToBeAdded),
-                                                id: id,
-                                                question:
-                                                    'Hier gibt es 3 Fragen zu 3 Themen. Frage 3: Welche Businien fahren von der FH aus ab?',
-                                                points: [10, -10, -10, -10],
-                                                answerTexts: [
-                                                  'Buslinie 114',
-                                                  'Buslinie 14',
-                                                  'Buslinie 16',
-                                                  'Buslinie 216'
-                                                ],
-                                                pressedCounter: 2)));
+                                                  currentScore: newFinalScore(
+                                                      currentScore,
+                                                      scoreToBeAdded),
+                                                  id: id,
+                                                  question:
+                                                      'Hier gibt es 3 Fragen zu 3 Themen. Frage 3: Welche Businien fahren von der FH aus ab?',
+                                                  points: [10, -10, -10, -10],
+                                                  answerTexts: [
+                                                    'Buslinie 114',
+                                                    'Buslinie 14',
+                                                    'Buslinie 16',
+                                                    'Buslinie 216'
+                                                  ],
+                                                  pressedCounter: 2,
+                                                  tappedList: changedtappedList(
+                                                      tappedList),
+                                                )));
                                   } else {
                                     Navigator.push(
                                         context,
                                         MaterialPageRoute(
                                             builder: (context) => Stationmenu(
-                                                newCurrentScore: newFinalScore(
+                                                  newCurrentScore:
+                                                      newFinalScore(
                                                     currentScore,
-                                                    scoreToBeAdded))));
+                                                    scoreToBeAdded,
+                                                  ),
+                                                  newtappedList:
+                                                      changedtappedList(
+                                                          tappedList),
+                                                )));
                                   }
                                 } else {
                                   if (pressedCounter == 0 && id == 22) {
@@ -313,20 +336,23 @@ class HSSTundUnibibState extends State<HSSTundUnibib> {
                                         context,
                                         MaterialPageRoute(
                                             builder: (context) => HSSTundUnibib(
-                                                currentScore: newFinalScore(
-                                                    currentScore,
-                                                    scoreToBeAdded),
-                                                id: id,
-                                                question:
-                                                    'Hier gibt es 2 Fragen zu 2 Themen. Frage 2: Wie viele Teilbibliotheken gibt es in Würzburg?',
-                                                points: [-10, 10, -10, -10],
-                                                answerTexts: [
-                                                  '15',
-                                                  '11',
-                                                  '10',
-                                                  '8'
-                                                ],
-                                                pressedCounter: 1)));
+                                                  currentScore: newFinalScore(
+                                                      currentScore,
+                                                      scoreToBeAdded),
+                                                  id: id,
+                                                  question:
+                                                      'Hier gibt es 2 Fragen zu 2 Themen. Frage 2: Wie viele Teilbibliotheken gibt es in Würzburg?',
+                                                  points: [-10, 10, -10, -10],
+                                                  answerTexts: [
+                                                    '15',
+                                                    '11',
+                                                    '10',
+                                                    '8'
+                                                  ],
+                                                  pressedCounter: 1,
+                                                  tappedList: changedtappedList(
+                                                      tappedList),
+                                                )));
                                   } else if (pressedCounter == 0 && id == 16) {
                                     Navigator.push(
                                         context,
@@ -346,15 +372,22 @@ class HSSTundUnibibState extends State<HSSTundUnibib> {
                                                     'Hausmeister, Dozenten und Professoren'
                                                   ],
                                                   pressedCounter: 1,
+                                                  tappedList: changedtappedList(
+                                                      tappedList),
                                                 )));
                                   } else {
                                     Navigator.push(
                                         context,
                                         MaterialPageRoute(
                                             builder: (context) => Stationmenu(
-                                                newCurrentScore: newFinalScore(
-                                                    currentScore,
-                                                    scoreToBeAdded))));
+                                                  newCurrentScore:
+                                                      newFinalScore(
+                                                          currentScore,
+                                                          scoreToBeAdded),
+                                                  newtappedList:
+                                                      changedtappedList(
+                                                          tappedList),
+                                                )));
                                   }
                                 }
                               });

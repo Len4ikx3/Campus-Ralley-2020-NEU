@@ -9,13 +9,15 @@ class Dekan extends StatefulWidget {
   String question;
   List<int> points;
   List<String> answerTexts;
+  List<bool> tappedList;
 
   Dekan(
       {@required this.currentScore,
       @required this.id,
       @required this.question,
       @required this.points,
-      @required this.answerTexts});
+      @required this.answerTexts,
+      @required this.tappedList});
 
   @override
   State<StatefulWidget> createState() {
@@ -24,7 +26,8 @@ class Dekan extends StatefulWidget {
         id: id,
         question: question,
         points: points,
-        answerTexts: answerTexts);
+        answerTexts: answerTexts,
+        tappedList: tappedList);
   }
 }
 
@@ -49,12 +52,20 @@ class DekanState extends State<Dekan> {
   int id;
   String question;
 
+  List<bool> tappedList;
+
   DekanState(
       {@required this.currentScore,
       @required this.id,
       @required this.question,
       @required this.points,
-      @required this.answerTexts});
+      @required this.answerTexts,
+      @required this.tappedList});
+
+  List changedtappedList(List<bool> tappedList) {
+    tappedList[(id - 1)] = true;
+    return tappedList;
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -243,9 +254,11 @@ class DekanState extends State<Dekan> {
                                     context,
                                     MaterialPageRoute(
                                         builder: (context) => Stationmenu(
-                                            newCurrentScore: newFinalScore(
-                                                currentScore,
-                                                scoreToBeAdded))));
+                                              newCurrentScore: newFinalScore(
+                                                  currentScore, scoreToBeAdded),
+                                              newtappedList:
+                                                  changedtappedList(tappedList),
+                                            )));
                               });
                             }),
                         Text('Speichern und zurück zur Stationenauswahl',

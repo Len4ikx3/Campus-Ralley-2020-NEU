@@ -10,12 +10,14 @@ class InputTimer extends StatefulWidget {
   int id;
   String description;
   int timer;
+  List<bool> tappedList;
 
   InputTimer(
       {@required this.currentScore,
       @required this.id,
       @required this.description,
-      @required this.timer});
+      @required this.timer,
+      @required this.tappedList});
 
   @override
   State<StatefulWidget> createState() {
@@ -23,7 +25,8 @@ class InputTimer extends StatefulWidget {
         currentScore: currentScore,
         id: id,
         description: description,
-        timer: timer);
+        timer: timer,
+        tappedList: tappedList);
   }
 }
 
@@ -36,6 +39,12 @@ class _InputTimerState extends State<InputTimer> {
   int yourScore = 0;
   String yourScoreText;
   String buttonText;
+  List<bool> tappedList;
+
+  List changedtappedList(List<bool> tappedList) {
+    tappedList[(id - 1)] = true;
+    return tappedList;
+  }
 
   String getYourScoreText() {
     if (id == 4 || id == 21) {
@@ -64,7 +73,8 @@ class _InputTimerState extends State<InputTimer> {
       {@required this.currentScore,
       @required this.id,
       @required this.description,
-      @required this.timer});
+      @required this.timer,
+      @required this.tappedList});
 
   @override
   Widget build(BuildContext context) {
@@ -132,13 +142,19 @@ class _InputTimerState extends State<InputTimer> {
                           context,
                           MaterialPageRoute(
                               builder: (context) => Stationmenu(
-                                  newCurrentScore: currentScore + yourScore)));
+                                    newCurrentScore: currentScore + yourScore,
+                                    newtappedList:
+                                        changedtappedList(tappedList),
+                                  )));
                     } else {
                       Navigator.push(
                           context,
                           MaterialPageRoute(
-                              builder: (context) =>
-                                  Stationmenu(newCurrentScore: currentScore)));
+                              builder: (context) => Stationmenu(
+                                    newCurrentScore: currentScore,
+                                    newtappedList:
+                                        changedtappedList(tappedList),
+                                  )));
                     }
                   });
                 },
@@ -174,6 +190,8 @@ class _InputTimerState extends State<InputTimer> {
                               MaterialPageRoute(
                                   builder: (context) => Stationmenu(
                                         newCurrentScore: currentScore + 10,
+                                        newtappedList:
+                                            changedtappedList(tappedList),
                                       )));
                         }
                       });

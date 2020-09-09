@@ -6,16 +6,20 @@ import 'lastpage.dart';
 
 class WordSolutionPage extends StatefulWidget {
   int currentScore;
-  WordSolutionPage({@required this.currentScore});
+  List<bool> tappedList;
+  WordSolutionPage({@required this.currentScore, @required this.tappedList});
   @override
   State<StatefulWidget> createState() {
-    return WordSolutionPageState(currentScore: currentScore);
+    return WordSolutionPageState(
+        currentScore: currentScore, tappedList: tappedList);
   }
 }
 
 class WordSolutionPageState extends State<WordSolutionPage> {
   int currentScore;
-  WordSolutionPageState({@required this.currentScore});
+  List<bool> tappedList;
+  WordSolutionPageState(
+      {@required this.currentScore, @required this.tappedList});
   String solution;
   Color selected = Color(0xFFBff8000);
   Color unselected = Colors.grey;
@@ -157,6 +161,7 @@ class WordSolutionPageState extends State<WordSolutionPage> {
                   MaterialPageRoute(
                       builder: (context) => Stationmenu(
                             newCurrentScore: currentScore,
+                            newtappedList: tappedList,
                           )));
             });
           } else if (index == 0) {
@@ -164,8 +169,10 @@ class WordSolutionPageState extends State<WordSolutionPage> {
               Navigator.push(
                   context,
                   MaterialPageRoute(
-                      builder: (context) =>
-                          Introductionpage(currentScore: currentScore)));
+                      builder: (context) => Introductionpage(
+                            currentScore: currentScore,
+                            tappedList: tappedList,
+                          )));
             });
           } else {}
         },

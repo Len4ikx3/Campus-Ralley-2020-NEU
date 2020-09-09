@@ -6,16 +6,20 @@ import 'stationmenu.dart';
 
 class Introductionpage extends StatefulWidget {
   int currentScore;
-  Introductionpage({@required this.currentScore});
+  List<bool> tappedList;
+  Introductionpage({@required this.currentScore, @required this.tappedList});
   @override
   State<StatefulWidget> createState() {
-    return IntroductionpageState(currentScore: currentScore);
+    return IntroductionpageState(
+        currentScore: currentScore, tappedList: tappedList);
   }
 }
 
 class IntroductionpageState extends State<Introductionpage> {
   int currentScore;
-  IntroductionpageState({@required this.currentScore});
+  List<bool> tappedList;
+  IntroductionpageState(
+      {@required this.currentScore, @required this.tappedList});
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -152,6 +156,7 @@ class IntroductionpageState extends State<Introductionpage> {
                   MaterialPageRoute(
                       builder: (context) => Stationmenu(
                             newCurrentScore: currentScore,
+                            newtappedList: tappedList,
                           )));
             });
           } else if (index == 2) {
@@ -159,8 +164,10 @@ class IntroductionpageState extends State<Introductionpage> {
               Navigator.push(
                   context,
                   MaterialPageRoute(
-                      builder: (context) =>
-                          WordSolutionPage(currentScore: currentScore)));
+                      builder: (context) => WordSolutionPage(
+                            currentScore: currentScore,
+                            tappedList: tappedList,
+                          )));
             });
           } else {}
         },

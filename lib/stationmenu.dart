@@ -3,32 +3,57 @@ import 'package:first_app/introductionpage.dart';
 import 'package:first_app/wordSolutionPage.dart';
 import 'package:flutter/material.dart';
 import 'stationcarousel.dart';
-//import 'package:carousel_slider/carousel_slider.dart';
-
-void main() => runApp(MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: Stationmenu(),
-    ));
 
 // ignore: must_be_immutable
 class Stationmenu extends StatefulWidget {
   int newCurrentScore;
-  Stationmenu({this.newCurrentScore});
+  List<bool> newtappedList;
+  Stationmenu({this.newCurrentScore, this.newtappedList});
   @override
   State<StatefulWidget> createState() {
-    return StationmenuState(newCurrentScore);
+    return StationmenuState(newCurrentScore, newtappedList);
   }
 }
 
 class StationmenuState extends State<Stationmenu> {
   int currentScore;
   int newCurrentScore;
+  List<bool> tappedList;
+  List<bool> newtappedList;
 
-  StationmenuState(newCurrentScore) {
+  StationmenuState(newCurrentScore, newtappedList) {
     if (newCurrentScore == null) {
       currentScore = 0;
     } else {
       currentScore = newCurrentScore;
+    }
+    if (newtappedList == null) {
+      tappedList = [
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false
+      ];
+    } else {
+      tappedList = newtappedList;
     }
   }
 
@@ -80,8 +105,7 @@ class StationmenuState extends State<Stationmenu> {
             Container(
                 height: 530,
                 child: StationCarousel(
-                  currentScore: currentScore,
-                ))
+                    currentScore: currentScore, tappedList: tappedList))
           ],
         ),
       )),
@@ -114,6 +138,7 @@ class StationmenuState extends State<Stationmenu> {
                   MaterialPageRoute(
                       builder: (context) => Introductionpage(
                             currentScore: currentScore,
+                            tappedList: tappedList,
                           )));
             });
           } else if (index == 2) {
@@ -123,6 +148,7 @@ class StationmenuState extends State<Stationmenu> {
                   MaterialPageRoute(
                       builder: (context) => WordSolutionPage(
                             currentScore: currentScore,
+                            tappedList: tappedList,
                           )));
             });
           }

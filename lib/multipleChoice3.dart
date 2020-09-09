@@ -10,6 +10,7 @@ class MultipleChoice3 extends StatefulWidget {
   List<int> points;
   List<bool> answerValues;
   List<String> answerTexts;
+  List<bool> tappedList;
 
   MultipleChoice3(
       {this.currentScore,
@@ -17,7 +18,8 @@ class MultipleChoice3 extends StatefulWidget {
       @required this.question,
       @required this.points,
       @required this.answerValues,
-      @required this.answerTexts});
+      @required this.answerTexts,
+      @required this.tappedList});
 
   @override
   State<StatefulWidget> createState() {
@@ -27,7 +29,8 @@ class MultipleChoice3 extends StatefulWidget {
         question: question,
         points: points,
         answerValues: answerValues,
-        answerTexts: answerTexts);
+        answerTexts: answerTexts,
+        tappedList: tappedList);
   }
 }
 
@@ -40,6 +43,7 @@ class MultipleChoice3State extends State<MultipleChoice3> {
   List<int> points;
   List<bool> answerValues;
   List<String> answerTexts;
+  List<bool> tappedList;
 
   Color buttonUnselectedColor = Color(0xFFBff8000);
   Color buttonSelectedColor = Colors.deepPurple[300];
@@ -57,7 +61,13 @@ class MultipleChoice3State extends State<MultipleChoice3> {
       @required this.question,
       @required this.points,
       @required this.answerValues,
-      @required this.answerTexts});
+      @required this.answerTexts,
+      @required this.tappedList});
+
+  List changedtappedList(List<bool> tappedList) {
+    tappedList[(id - 1)] = true;
+    return tappedList;
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -174,8 +184,11 @@ class MultipleChoice3State extends State<MultipleChoice3> {
                             context,
                             MaterialPageRoute(
                                 builder: (context) => Stationmenu(
-                                    newCurrentScore: newFinalScore(
-                                        currentScore, scoreToBeAdded))));
+                                      newCurrentScore: newFinalScore(
+                                          currentScore, scoreToBeAdded),
+                                      newtappedList:
+                                          changedtappedList(tappedList),
+                                    )));
                       });
                     }),
                 Text('Speichern und zurück zur Stationenauswahl',

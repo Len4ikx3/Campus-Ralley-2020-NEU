@@ -1,8 +1,6 @@
 import 'package:first_app/stationmenu.dart';
 import 'package:flutter/material.dart';
-//import 'stationmenu.dart';
 import 'pulsatingbutton.dart';
-import 'introductionpage.dart';
 import 'package:flutter/services.dart';
 
 void main() {

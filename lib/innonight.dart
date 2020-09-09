@@ -5,20 +5,21 @@ class Innonight extends StatefulWidget {
   int currentScore;
   int id;
   String description;
+  List<bool> tappedList;
 
-  Innonight({
-    @required this.currentScore,
-    @required this.id,
-    @required this.description,
-  });
+  Innonight(
+      {@required this.currentScore,
+      @required this.id,
+      @required this.description,
+      @required this.tappedList});
 
   @override
   State<StatefulWidget> createState() {
     return _InnonightState(
-      currentScore: currentScore,
-      id: id,
-      description: description,
-    );
+        currentScore: currentScore,
+        id: id,
+        description: description,
+        tappedList: tappedList);
   }
 }
 
@@ -26,12 +27,19 @@ class _InnonightState extends State<Innonight> {
   int currentScore;
   int id;
   String description;
+  List<bool> tappedList;
 
   _InnonightState({
     @required this.currentScore,
     @required this.id,
     @required this.description,
+    @required this.tappedList,
   });
+
+  List changedtappedList(List<bool> tappedList) {
+    tappedList[(id - 1)] = true;
+    return tappedList;
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -104,6 +112,8 @@ class _InnonightState extends State<Innonight> {
                             MaterialPageRoute(
                                 builder: (context) => Stationmenu(
                                       newCurrentScore: currentScore + 10,
+                                      newtappedList:
+                                          changedtappedList(tappedList),
                                     )));
                       });
                     }),
