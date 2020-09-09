@@ -20,6 +20,7 @@ class LastPageState extends State<LastPage> {
         onWillPop: () async => false,
         child: Scaffold(
           body: Container(
+              child: SingleChildScrollView(
             child: Column(
               children: <Widget>[
                 Container(
@@ -129,7 +130,7 @@ class LastPageState extends State<LastPage> {
                     )),
               ],
             ),
-          ),
+          )),
         ));
   }
 
