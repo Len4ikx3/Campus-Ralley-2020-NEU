@@ -8,7 +8,10 @@ import 'stationcarousel.dart';
 class Stationmenu extends StatefulWidget {
   int newCurrentScore;
   List<bool> newtappedList;
-  Stationmenu({this.newCurrentScore, this.newtappedList});
+  Stationmenu({
+    this.newCurrentScore,
+    this.newtappedList,
+  });
   @override
   State<StatefulWidget> createState() {
     return StationmenuState(newCurrentScore, newtappedList);
@@ -20,8 +23,12 @@ class StationmenuState extends State<Stationmenu> {
   int newCurrentScore;
   List<bool> tappedList;
   List<bool> newtappedList;
+  List<String> pictureList;
 
-  StationmenuState(newCurrentScore, newtappedList) {
+  StationmenuState(
+    newCurrentScore,
+    newtappedList,
+  ) {
     if (newCurrentScore == null) {
       currentScore = 0;
     } else {
@@ -105,7 +112,9 @@ class StationmenuState extends State<Stationmenu> {
             Container(
                 height: 530,
                 child: StationCarousel(
-                    currentScore: currentScore, tappedList: tappedList))
+                  currentScore: currentScore,
+                  tappedList: tappedList,
+                ))
           ],
         ),
       )),

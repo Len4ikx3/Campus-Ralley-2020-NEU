@@ -12,21 +12,23 @@ class InputTimer extends StatefulWidget {
   int timer;
   List<bool> tappedList;
 
-  InputTimer(
-      {@required this.currentScore,
-      @required this.id,
-      @required this.description,
-      @required this.timer,
-      @required this.tappedList});
+  InputTimer({
+    @required this.currentScore,
+    @required this.id,
+    @required this.description,
+    @required this.timer,
+    @required this.tappedList,
+  });
 
   @override
   State<StatefulWidget> createState() {
     return _InputTimerState(
-        currentScore: currentScore,
-        id: id,
-        description: description,
-        timer: timer,
-        tappedList: tappedList);
+      currentScore: currentScore,
+      id: id,
+      description: description,
+      timer: timer,
+      tappedList: tappedList,
+    );
   }
 }
 
@@ -69,12 +71,13 @@ class _InputTimerState extends State<InputTimer> {
   Color selected = Color(0xFFBff8000);
   Color unselected = Colors.grey;
 
-  _InputTimerState(
-      {@required this.currentScore,
-      @required this.id,
-      @required this.description,
-      @required this.timer,
-      @required this.tappedList});
+  _InputTimerState({
+    @required this.currentScore,
+    @required this.id,
+    @required this.description,
+    @required this.timer,
+    @required this.tappedList,
+  });
 
   @override
   Widget build(BuildContext context) {

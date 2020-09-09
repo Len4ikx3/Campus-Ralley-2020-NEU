@@ -19,24 +19,26 @@ class StationTile extends StatefulWidget {
   bool tapped;
   List<bool> tappedList;
 
-  StationTile(
-      {@required this.onTap,
-      @required this.imagepath,
-      @required this.stationnr,
-      @required this.stationtitle,
-      @required this.currentScore,
-      @required this.tapped,
-      @required this.tappedList});
+  StationTile({
+    @required this.onTap,
+    this.imagepath,
+    @required this.stationnr,
+    @required this.stationtitle,
+    @required this.currentScore,
+    @required this.tapped,
+    @required this.tappedList,
+  });
 
   @override
   _StationTileState createState() => _StationTileState(
-      onTap: onTap,
-      imagepath: imagepath,
-      stationnr: stationnr,
-      stationtitle: stationtitle,
-      currentScore: currentScore,
-      tapped: tapped,
-      tappedList: tappedList);
+        onTap: onTap,
+        imagepath: imagepath,
+        stationnr: stationnr,
+        stationtitle: stationtitle,
+        currentScore: currentScore,
+        tapped: tapped,
+        tappedList: tappedList,
+      );
 }
 
 class _StationTileState extends State<StationTile> {
@@ -48,14 +50,15 @@ class _StationTileState extends State<StationTile> {
   bool tapped;
   List<bool> tappedList;
 
-  _StationTileState(
-      {@required this.onTap,
-      @required this.imagepath,
-      @required this.stationnr,
-      @required this.stationtitle,
-      @required this.currentScore,
-      @required this.tapped,
-      @required this.tappedList});
+  _StationTileState({
+    @required this.onTap,
+    @required this.imagepath,
+    @required this.stationnr,
+    @required this.stationtitle,
+    @required this.currentScore,
+    @required this.tapped,
+    @required this.tappedList,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -67,12 +70,13 @@ class _StationTileState extends State<StationTile> {
                   context,
                   MaterialPageRoute(
                       builder: (context) => InputTimer(
-                          currentScore: currentScore,
-                          id: stationnr,
-                          description:
-                              'Auf die Decke, fertig, los! Alle müssen auf die Decke und sie einmal umdrehen. Aber Achtung! Es darf keiner von der Decke runter ;-) Schafft ihr es in x Sekunden könnt ihr jeweils 10 P. ergattern, sonst geht ihr leer aus',
-                          timer: 25,
-                          tappedList: tappedList)));
+                            currentScore: currentScore,
+                            id: stationnr,
+                            description:
+                                'Auf die Decke, fertig, los! Alle müssen auf die Decke und sie einmal umdrehen. Aber Achtung! Es darf keiner von der Decke runter ;-) Schafft ihr es in x Sekunden könnt ihr jeweils 10 P. ergattern, sonst geht ihr leer aus',
+                            timer: 25,
+                            tappedList: tappedList,
+                          )));
             } else {}
           }
           if (stationnr == 2) {
@@ -430,7 +434,7 @@ class _StationTileState extends State<StationTile> {
             child: Stack(
               children: [
                 Image.asset(
-                  widget.imagepath,
+                  imagepath,
                   fit: BoxFit.cover,
                   width: MediaQuery.of(context).size.width,
                 ),

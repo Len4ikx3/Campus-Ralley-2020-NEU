@@ -5,17 +5,60 @@ import 'stationtile.dart';
 class StationCarousel extends StatefulWidget {
   int currentScore;
   List<bool> tappedList;
-  StationCarousel({@required this.currentScore, @required this.tappedList});
+
+  StationCarousel({
+    @required this.currentScore,
+    @required this.tappedList,
+  });
   @override
-  StationCarouselState createState() =>
-      StationCarouselState(currentScore: currentScore, tappedList: tappedList);
+  StationCarouselState createState() => StationCarouselState(
+        currentScore: currentScore,
+        tappedList: tappedList,
+      );
 }
 
 class StationCarouselState extends State<StationCarousel> {
   int currentScore;
   List<bool> tappedList;
-  StationCarouselState(
-      {@required this.currentScore, @required this.tappedList});
+  String picture;
+
+  List<String> pictureList = [
+    "lib/images/Foyer.jpg",
+    "lib/images/fachschaft.png",
+    "lib/images/FHWS.jpg",
+    "lib/images/FHWS.jpg",
+    "lib/images/FHWS.jpg",
+    "lib/images/labor.jpg",
+    "lib/images/FHWS.jpg",
+    "lib/images/innonight.jpg",
+    "lib/images/stillzimmer.jpg",
+    "lib/images/FHWS.jpg",
+    "lib/images/wasser.png",
+    "lib/images/welearn.png",
+    "lib/images/FHWS.jpg",
+    "lib/images/FHWS.jpg",
+    "lib/images/FHWS.jpg",
+    "lib/images/parken.jpg",
+    "lib/images/tischtennis.jpg",
+    "lib/images/Innenhof.jpg",
+    "lib/images/Cafe.jpeg",
+    "lib/images/H1.jpg",
+    "lib/images/sport.jpg",
+    "lib/images/bib.jpg"
+  ];
+
+  String getPicture(int stationnr) {
+    if (tappedList[stationnr - 1] == false) {
+      return pictureList[stationnr - 1];
+    } else {
+      return "lib/images/tappedTrue.png";
+    }
+  }
+
+  StationCarouselState({
+    @required this.currentScore,
+    @required this.tappedList,
+  });
 
   Widget build(BuildContext context) {
     return Scaffold(
@@ -24,16 +67,17 @@ class StationCarouselState extends State<StationCarousel> {
             child: ListView(
           children: <StationTile>[
             StationTile(
-                onTap: () {},
-                imagepath: "lib/images/Foyer.jpg",
-                stationnr: 1,
-                stationtitle: "Foyer Institutsgebäude",
-                currentScore: currentScore,
-                tapped: tappedList[0],
-                tappedList: tappedList),
+              onTap: () {},
+              imagepath: getPicture(1),
+              stationnr: 1,
+              stationtitle: "Foyer Institutsgebäude",
+              currentScore: currentScore,
+              tapped: tappedList[0],
+              tappedList: tappedList,
+            ),
             StationTile(
                 onTap: () {},
-                imagepath: "lib/images/fachschaft.png",
+                imagepath: getPicture(2),
                 stationnr: 2,
                 stationtitle: "Fachschaft",
                 currentScore: currentScore,
@@ -41,8 +85,7 @@ class StationCarouselState extends State<StationCarousel> {
                 tappedList: tappedList),
             StationTile(
                 onTap: () {},
-                //gibts kein bild
-                imagepath: "lib/images/FHWS.jpg",
+                imagepath: getPicture(3),
                 stationnr: 3,
                 stationtitle: "Hochschulservice Studium HSST",
                 currentScore: currentScore,
@@ -50,8 +93,7 @@ class StationCarouselState extends State<StationCarousel> {
                 tappedList: tappedList),
             StationTile(
                 onTap: () {},
-                //gibts kein bild
-                imagepath: "lib/images/FHWS.jpg",
+                imagepath: getPicture(4),
                 stationnr: 4,
                 stationtitle: "Studierraum",
                 currentScore: currentScore,
@@ -59,8 +101,7 @@ class StationCarouselState extends State<StationCarousel> {
                 tappedList: tappedList),
             StationTile(
                 onTap: () {},
-                //gibts kein bild
-                imagepath: "lib/images/FHWS.jpg",
+                imagepath: getPicture(5),
                 stationnr: 5,
                 stationtitle: "Technische Mitarbeiter",
                 currentScore: currentScore,
@@ -68,7 +109,7 @@ class StationCarouselState extends State<StationCarousel> {
                 tappedList: tappedList),
             StationTile(
                 onTap: () {},
-                imagepath: "lib/images/labor.jpg",
+                imagepath: getPicture(6),
                 stationnr: 6,
                 stationtitle: "Labor",
                 currentScore: currentScore,
@@ -76,8 +117,7 @@ class StationCarouselState extends State<StationCarousel> {
                 tappedList: tappedList),
             StationTile(
                 onTap: () {},
-                //gibts kein bild
-                imagepath: "lib/images/FHWS.jpg",
+                imagepath: getPicture(7),
                 stationnr: 7,
                 stationtitle: "Drucker und Kopierer",
                 currentScore: currentScore,
@@ -85,7 +125,7 @@ class StationCarouselState extends State<StationCarousel> {
                 tappedList: tappedList),
             StationTile(
                 onTap: () {},
-                imagepath: "lib/images/innonight.jpg",
+                imagepath: getPicture(8),
                 stationnr: 8,
                 stationtitle: "Innonight",
                 currentScore: currentScore,
@@ -93,7 +133,7 @@ class StationCarouselState extends State<StationCarousel> {
                 tappedList: tappedList),
             StationTile(
                 onTap: () {},
-                imagepath: "lib/images/stillzimmer.jpg",
+                imagepath: getPicture(9),
                 stationnr: 9,
                 stationtitle: "Stillzimmer",
                 currentScore: currentScore,
@@ -101,8 +141,7 @@ class StationCarouselState extends State<StationCarousel> {
                 tappedList: tappedList),
             StationTile(
                 onTap: () {},
-                //gibts kein bild
-                imagepath: "lib/images/FHWS.jpg",
+                imagepath: getPicture(10),
                 stationnr: 10,
                 stationtitle: "Dekan",
                 currentScore: currentScore,
@@ -110,7 +149,7 @@ class StationCarouselState extends State<StationCarousel> {
                 tappedList: tappedList),
             StationTile(
                 onTap: () {},
-                imagepath: "lib/images/wasser.png",
+                imagepath: getPicture(11),
                 stationnr: 11,
                 stationtitle: "Wasserspender",
                 currentScore: currentScore,
@@ -118,7 +157,7 @@ class StationCarouselState extends State<StationCarousel> {
                 tappedList: tappedList),
             StationTile(
                 onTap: () {},
-                imagepath: "lib/images/welearn.png",
+                imagepath: getPicture(12),
                 stationnr: 12,
                 stationtitle: "Welearn",
                 currentScore: currentScore,
@@ -126,8 +165,7 @@ class StationCarouselState extends State<StationCarousel> {
                 tappedList: tappedList),
             StationTile(
                 onTap: () {},
-                //gibts kein bild
-                imagepath: "lib/images/FHWS.jpg",
+                imagepath: getPicture(13),
                 stationnr: 13,
                 stationtitle: "Dekanat",
                 currentScore: currentScore,
@@ -135,8 +173,7 @@ class StationCarouselState extends State<StationCarousel> {
                 tappedList: tappedList),
             StationTile(
                 onTap: () {},
-                //gibts kein bild
-                imagepath: "lib/images/FHWS.jpg",
+                imagepath: getPicture(14),
                 stationnr: 14,
                 stationtitle: "Glasbrett",
                 currentScore: currentScore,
@@ -144,8 +181,7 @@ class StationCarouselState extends State<StationCarousel> {
                 tappedList: tappedList),
             StationTile(
                 onTap: () {},
-                //gibts kein bild
-                imagepath: "lib/images/FHWS.jpg",
+                imagepath: getPicture(15),
                 stationnr: 15,
                 stationtitle: "IWInet",
                 currentScore: currentScore,
@@ -153,7 +189,7 @@ class StationCarouselState extends State<StationCarousel> {
                 tappedList: tappedList),
             StationTile(
                 onTap: () {},
-                imagepath: "lib/images/parken.jpg",
+                imagepath: getPicture(16),
                 stationnr: 16,
                 stationtitle: "Tiefgarage",
                 currentScore: currentScore,
@@ -161,7 +197,7 @@ class StationCarouselState extends State<StationCarousel> {
                 tappedList: tappedList),
             StationTile(
                 onTap: () {},
-                imagepath: "lib/images/tischtennis.jpg",
+                imagepath: getPicture(17),
                 stationnr: 17,
                 stationtitle: "Tischtennis",
                 currentScore: currentScore,
@@ -169,7 +205,7 @@ class StationCarouselState extends State<StationCarousel> {
                 tappedList: tappedList),
             StationTile(
                 onTap: () {},
-                imagepath: "lib/images/Innenhof.jpg",
+                imagepath: getPicture(18),
                 stationnr: 18,
                 stationtitle: "Innenhof",
                 currentScore: currentScore,
@@ -177,7 +213,7 @@ class StationCarouselState extends State<StationCarousel> {
                 tappedList: tappedList),
             StationTile(
                 onTap: () {},
-                imagepath: "lib/images/Cafe.jpeg",
+                imagepath: getPicture(19),
                 stationnr: 19,
                 stationtitle: "Cafeteria",
                 currentScore: currentScore,
@@ -185,7 +221,7 @@ class StationCarouselState extends State<StationCarousel> {
                 tappedList: tappedList),
             StationTile(
                 onTap: () {},
-                imagepath: "lib/images/H1.jpg",
+                imagepath: getPicture(20),
                 stationnr: 20,
                 stationtitle: "Hörsaal",
                 currentScore: currentScore,
@@ -193,8 +229,7 @@ class StationCarouselState extends State<StationCarousel> {
                 tappedList: tappedList),
             StationTile(
                 onTap: () {},
-                //Bild muss ausgetauscht werden!
-                imagepath: "lib/images/sport.jpg",
+                imagepath: getPicture(21),
                 stationnr: 21,
                 stationtitle: "Hochschulsport",
                 currentScore: currentScore,
@@ -202,7 +237,7 @@ class StationCarouselState extends State<StationCarousel> {
                 tappedList: tappedList),
             StationTile(
                 onTap: () {},
-                imagepath: "lib/images/bib.jpg",
+                imagepath: getPicture(22),
                 stationnr: 22,
                 stationtitle: "Unibibliothek",
                 currentScore: currentScore,
