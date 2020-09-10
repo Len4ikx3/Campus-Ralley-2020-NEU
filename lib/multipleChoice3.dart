@@ -69,140 +69,144 @@ class MultipleChoice3State extends State<MultipleChoice3> {
     return tappedList;
   }
 
+  final bool banner = false;
+
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-        body: Container(
-            child: SingleChildScrollView(
-      child: Column(
-        children: <Widget>[
-          Container(
-              margin: EdgeInsets.only(left: 50, right: 50),
-              height: 50,
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.only(
-                    bottomLeft: Radius.circular(100),
-                    bottomRight: Radius.circular(100)),
-                color: Color(0xFFBff8000),
-              ),
-              child: Center(
-                child: Text('- FHWS -',
-                    style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 20,
-                        fontWeight: FontWeight.bold),
-                    textAlign: TextAlign.end),
-              )),
-          Container(
-              padding: EdgeInsets.only(top: 50, bottom: 50),
-              width: double.infinity,
-              child: Row(
-                children: <Widget>[
-                  Container(
-                      color: Color(0xFFBff8000),
-                      height: 200,
-                      width: 250,
-                      child: Center(
-                          child: Text(question,
-                              style: TextStyle(color: Colors.white)))),
-                  Container(
-                    padding: EdgeInsets.all(50),
-                    child: Text(
-                      '$id',
-                      style: TextStyle(color: Colors.grey, fontSize: 50),
-                    ),
+    return MaterialApp(
+        debugShowCheckedModeBanner: banner,
+        home: Scaffold(
+            body: Container(
+                child: SingleChildScrollView(
+          child: Column(
+            children: <Widget>[
+              Container(
+                  margin: EdgeInsets.only(left: 50, right: 50),
+                  height: 50,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.only(
+                        bottomLeft: Radius.circular(100),
+                        bottomRight: Radius.circular(100)),
+                    color: Color(0xFFBff8000),
                   ),
-                ],
-              )),
-          Container(
-              height: 300,
-              child: Column(
-                children: <Widget>[
-                  Container(
-                    width: 380,
-                    height: 45,
-                    margin: EdgeInsets.only(bottom: 15),
-                    child: FlatButton(
-                      color: buttonColor[0],
-                      onPressed: () {
-                        changeScore(0, answerValues[0]);
-                      },
-                      child: Text(answerTexts[0],
-                          style: TextStyle(color: Colors.white),
-                          textAlign: TextAlign.center),
-                      shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(20)),
-                    ),
-                  ),
-                  Container(
-                    width: 380,
-                    height: 45,
-                    margin: EdgeInsets.only(bottom: 15),
-                    child: FlatButton(
-                      color: buttonColor[1],
-                      onPressed: () {
-                        changeScore(1, answerValues[1]);
-                      },
-                      child: Text(answerTexts[1],
-                          style: TextStyle(color: Colors.white),
-                          textAlign: TextAlign.center),
-                      shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(20)),
-                    ),
-                  ),
-                  Container(
-                    width: 380,
-                    height: 45,
-                    margin: EdgeInsets.only(bottom: 15),
-                    child: FlatButton(
-                      color: buttonColor[2],
-                      onPressed: () {
-                        changeScore(2, answerValues[2]);
-                      },
-                      child: Text(answerTexts[2],
-                          style: TextStyle(color: Colors.white),
-                          textAlign: TextAlign.center),
-                      shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(20)),
-                    ),
-                  ),
-                ],
-              )),
-          Container(
-            child: Column(
-              children: <Widget>[
-                IconButton(
-                    icon: Icon(
-                      Icons.save,
-                      color: Color(0xFFBff8000),
-                    ),
-                    iconSize: 50,
-                    splashColor: Color(0xFFBff8000),
-                    onPressed: () {
-                      setState(() {
-                        Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => Stationmenu(
-                                      newCurrentScore: newFinalScore(
-                                          currentScore, scoreToBeAdded),
-                                      newtappedList:
-                                          changedtappedList(tappedList),
-                                    )));
-                      });
-                    }),
-                Text('Speichern und zurück zur Stationenauswahl',
-                    textAlign: TextAlign.center,
-                    style: TextStyle(
-                      color: Color(0xFFBff8000),
-                      fontSize: 17,
-                    ))
-              ],
-            ),
-          )
-        ],
-      ),
-    )));
+                  child: Center(
+                    child: Text('- FHWS -',
+                        style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 20,
+                            fontWeight: FontWeight.bold),
+                        textAlign: TextAlign.end),
+                  )),
+              Container(
+                  padding: EdgeInsets.only(top: 50, bottom: 50),
+                  width: double.infinity,
+                  child: Row(
+                    children: <Widget>[
+                      Container(
+                          color: Color(0xFFBff8000),
+                          height: 200,
+                          width: 250,
+                          child: Center(
+                              child: Text(question,
+                                  style: TextStyle(color: Colors.white)))),
+                      Container(
+                        padding: EdgeInsets.all(50),
+                        child: Text(
+                          '$id',
+                          style: TextStyle(color: Colors.grey, fontSize: 50),
+                        ),
+                      ),
+                    ],
+                  )),
+              Container(
+                  height: 300,
+                  child: Column(
+                    children: <Widget>[
+                      Container(
+                        width: 380,
+                        height: 45,
+                        margin: EdgeInsets.only(bottom: 15),
+                        child: FlatButton(
+                          color: buttonColor[0],
+                          onPressed: () {
+                            changeScore(0, answerValues[0]);
+                          },
+                          child: Text(answerTexts[0],
+                              style: TextStyle(color: Colors.white),
+                              textAlign: TextAlign.center),
+                          shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(20)),
+                        ),
+                      ),
+                      Container(
+                        width: 380,
+                        height: 45,
+                        margin: EdgeInsets.only(bottom: 15),
+                        child: FlatButton(
+                          color: buttonColor[1],
+                          onPressed: () {
+                            changeScore(1, answerValues[1]);
+                          },
+                          child: Text(answerTexts[1],
+                              style: TextStyle(color: Colors.white),
+                              textAlign: TextAlign.center),
+                          shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(20)),
+                        ),
+                      ),
+                      Container(
+                        width: 380,
+                        height: 45,
+                        margin: EdgeInsets.only(bottom: 15),
+                        child: FlatButton(
+                          color: buttonColor[2],
+                          onPressed: () {
+                            changeScore(2, answerValues[2]);
+                          },
+                          child: Text(answerTexts[2],
+                              style: TextStyle(color: Colors.white),
+                              textAlign: TextAlign.center),
+                          shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(20)),
+                        ),
+                      ),
+                    ],
+                  )),
+              Container(
+                child: Column(
+                  children: <Widget>[
+                    IconButton(
+                        icon: Icon(
+                          Icons.save,
+                          color: Color(0xFFBff8000),
+                        ),
+                        iconSize: 50,
+                        splashColor: Color(0xFFBff8000),
+                        onPressed: () {
+                          setState(() {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => Stationmenu(
+                                          newCurrentScore: newFinalScore(
+                                              currentScore, scoreToBeAdded),
+                                          newtappedList:
+                                              changedtappedList(tappedList),
+                                        )));
+                          });
+                        }),
+                    Text('Speichern und zurück zur Stationenauswahl',
+                        textAlign: TextAlign.center,
+                        style: TextStyle(
+                          color: Color(0xFFBff8000),
+                          fontSize: 17,
+                        ))
+                  ],
+                ),
+              )
+            ],
+          ),
+        ))));
   }
 
   void changeScore(int buttonnr, bool correct) {

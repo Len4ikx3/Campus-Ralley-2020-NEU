@@ -23,160 +23,165 @@ class WordSolutionPageState extends State<WordSolutionPage> {
   String solution;
   Color selected = Color(0xFFBff8000);
   Color unselected = Colors.grey;
+
+  final bool banner = false;
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      resizeToAvoidBottomInset: false,
-      body: Stack(
-        children: [
-          Container(
-            decoration: BoxDecoration(
-              gradient: LinearGradient(
-                  colors: [Color(0xFFBff8000), Colors.white],
-                  begin: Alignment.topCenter,
-                  end: Alignment.bottomCenter),
-            ),
-          ),
-          Column(
+    return MaterialApp(
+        debugShowCheckedModeBanner: banner,
+        home: Scaffold(
+          resizeToAvoidBottomInset: false,
+          body: Stack(
             children: [
               Container(
-                  height: 150,
-                  padding: EdgeInsets.only(top: 70, left: 100, right: 100),
-                  child: Text(
-                    'Ralley beenden? Sicher?',
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 25,
-                    ),
-                    textAlign: TextAlign.center,
-                  )),
-              Container(
-                  padding: EdgeInsets.all(40),
-                  margin: EdgeInsets.only(left: 30, right: 30),
-                  decoration: BoxDecoration(
-                      color: Colors.white,
-                      borderRadius: BorderRadius.only(
-                          topLeft: Radius.circular(60),
-                          bottomRight: Radius.circular(60))),
-                  child: Column(
-                    children: [
-                      Text(
-                        'Wenn ja, hier noch die letzte Chance, Punkte zu holen! Alle Buchstaben gemerkt? Dann hier Lösungswort eingeben und für die richtige Antwort 100 P abholen:',
-                        style: TextStyle(color: Colors.grey, fontSize: 18),
-                      ),
-                      SizedBox(
-                        height: 50,
-                      ),
-                      TextField(
-                        onChanged: (text) {
-                          solution = text;
-                        },
-                        onTap: () {
-                          setState(() {
-                            unselected = selected;
-                          });
-                        },
-                        decoration: InputDecoration(
-                            enabledBorder: OutlineInputBorder(
-                                borderSide: BorderSide(color: Colors.grey),
-                                borderRadius:
-                                    BorderRadius.all(Radius.circular(30))),
-                            focusedBorder: OutlineInputBorder(
-                                borderSide:
-                                    BorderSide(color: Color(0xFFBff8000)),
-                                borderRadius:
-                                    BorderRadius.all(Radius.circular(30))),
-                            prefixIcon: Icon(
-                              Icons.edit,
-                              color: unselected,
-                            ),
-                            hintText: 'LÖSUNGSWORT',
-                            hintStyle: TextStyle(color: unselected)),
-                      ),
-                      SizedBox(height: 50),
-                      Text(
-                          'Sei gewarnt: speicherst du deine Antwort, gibt es kein Zurück.',
-                          style: TextStyle(color: Colors.grey, fontSize: 18))
-                    ],
-                  )),
-              SizedBox(
-                height: 70,
+                decoration: BoxDecoration(
+                  gradient: LinearGradient(
+                      colors: [Color(0xFFBff8000), Colors.white],
+                      begin: Alignment.topCenter,
+                      end: Alignment.bottomCenter),
+                ),
               ),
-              FlatButton(
-                  shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.all(Radius.circular(50))),
-                  color: Color(0xFFBff8000),
-                  splashColor: Colors.deepPurple[400],
-                  onPressed: () {
-                    setState(() {
-                      if (solution == 'APPETIT') {
-                        Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => LastPage(
-                                    currentScore: currentScore + 100)));
-                      } else {
-                        Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) =>
-                                    LastPage(currentScore: currentScore)));
-                      }
-                    });
-                  },
-                  child: Text(
-                    'Speichern und Ralley beenden',
-                    style: TextStyle(color: Colors.white, fontSize: 20),
-                  ))
+              Column(
+                children: [
+                  Container(
+                      height: 150,
+                      padding: EdgeInsets.only(top: 70, left: 100, right: 100),
+                      child: Text(
+                        'Ralley beenden? Sicher?',
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 25,
+                        ),
+                        textAlign: TextAlign.center,
+                      )),
+                  Container(
+                      padding: EdgeInsets.all(40),
+                      margin: EdgeInsets.only(left: 30, right: 30),
+                      decoration: BoxDecoration(
+                          color: Colors.white,
+                          borderRadius: BorderRadius.only(
+                              topLeft: Radius.circular(60),
+                              bottomRight: Radius.circular(60))),
+                      child: Column(
+                        children: [
+                          Text(
+                            'Wenn ja, hier noch die letzte Chance, Punkte zu holen! Alle Buchstaben gemerkt? Dann hier Lösungswort eingeben und für die richtige Antwort 100 P abholen:',
+                            style: TextStyle(color: Colors.grey, fontSize: 18),
+                          ),
+                          SizedBox(
+                            height: 50,
+                          ),
+                          TextField(
+                            onChanged: (text) {
+                              solution = text;
+                            },
+                            onTap: () {
+                              setState(() {
+                                unselected = selected;
+                              });
+                            },
+                            decoration: InputDecoration(
+                                enabledBorder: OutlineInputBorder(
+                                    borderSide: BorderSide(color: Colors.grey),
+                                    borderRadius:
+                                        BorderRadius.all(Radius.circular(30))),
+                                focusedBorder: OutlineInputBorder(
+                                    borderSide:
+                                        BorderSide(color: Color(0xFFBff8000)),
+                                    borderRadius:
+                                        BorderRadius.all(Radius.circular(30))),
+                                prefixIcon: Icon(
+                                  Icons.edit,
+                                  color: unselected,
+                                ),
+                                hintText: 'LÖSUNGSWORT',
+                                hintStyle: TextStyle(color: unselected)),
+                          ),
+                          SizedBox(height: 50),
+                          Text(
+                              'Sei gewarnt: speicherst du deine Antwort, gibt es kein Zurück.',
+                              style:
+                                  TextStyle(color: Colors.grey, fontSize: 18))
+                        ],
+                      )),
+                  SizedBox(
+                    height: 70,
+                  ),
+                  FlatButton(
+                      shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.all(Radius.circular(50))),
+                      color: Color(0xFFBff8000),
+                      splashColor: Colors.deepPurple[400],
+                      onPressed: () {
+                        setState(() {
+                          if (solution == 'APPETIT') {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => LastPage(
+                                        currentScore: currentScore + 100)));
+                          } else {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) =>
+                                        LastPage(currentScore: currentScore)));
+                          }
+                        });
+                      },
+                      child: Text(
+                        'Speichern und Ralley beenden',
+                        style: TextStyle(color: Colors.white, fontSize: 20),
+                      ))
+                ],
+              ),
             ],
           ),
-        ],
-      ),
-      bottomNavigationBar: CurvedNavigationBar(
-        color: Color(0xFFBff8000),
-        backgroundColor: Colors.white,
-        buttonBackgroundColor: Color(0xFFBff8000),
-        height: 50,
-        animationDuration: Duration(milliseconds: 200),
-        animationCurve: Curves.bounceInOut,
-        index: 2,
-        items: <Widget>[
-          Icon(
-            Icons.feedback,
-            size: 20,
-            color: Colors.white,
+          bottomNavigationBar: CurvedNavigationBar(
+            color: Color(0xFFBff8000),
+            backgroundColor: Colors.white,
+            buttonBackgroundColor: Color(0xFFBff8000),
+            height: 50,
+            animationDuration: Duration(milliseconds: 200),
+            animationCurve: Curves.bounceInOut,
+            index: 2,
+            items: <Widget>[
+              Icon(
+                Icons.feedback,
+                size: 20,
+                color: Colors.white,
+              ),
+              Icon(
+                Icons.menu,
+                size: 20,
+                color: Colors.white,
+              ),
+              Icon(Icons.exit_to_app, size: 20, color: Colors.white)
+            ],
+            onTap: (index) {
+              if (index == 1) {
+                setState(() {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => Stationmenu(
+                                newCurrentScore: currentScore,
+                                newtappedList: tappedList,
+                              )));
+                });
+              } else if (index == 0) {
+                setState(() {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => Introductionpage(
+                                currentScore: currentScore,
+                                tappedList: tappedList,
+                              )));
+                });
+              } else {}
+            },
           ),
-          Icon(
-            Icons.menu,
-            size: 20,
-            color: Colors.white,
-          ),
-          Icon(Icons.exit_to_app, size: 20, color: Colors.white)
-        ],
-        onTap: (index) {
-          if (index == 1) {
-            setState(() {
-              Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                      builder: (context) => Stationmenu(
-                            newCurrentScore: currentScore,
-                            newtappedList: tappedList,
-                          )));
-            });
-          } else if (index == 0) {
-            setState(() {
-              Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                      builder: (context) => Introductionpage(
-                            currentScore: currentScore,
-                            tappedList: tappedList,
-                          )));
-            });
-          } else {}
-        },
-      ),
-    );
+        ));
   }
 }

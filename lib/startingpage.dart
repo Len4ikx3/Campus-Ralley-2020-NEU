@@ -19,42 +19,45 @@ class Startingpage extends StatefulWidget {
 }
 
 class StartingpageState extends State<Startingpage> {
+  final bool banner = false;
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+        debugShowCheckedModeBanner: banner,
         home: Scaffold(
-      body: Container(
-          height: MediaQuery.of(context).size.height,
-          child: SingleChildScrollView(
-            child: Column(
-              children: <Widget>[
-                Container(
-                  padding: EdgeInsets.all(50.0),
-                  child: Text(
-                    '- FHWS -',
-                    style: TextStyle(color: Color(0xFFBff8000), fontSize: 28),
-                  ),
+          body: Container(
+              height: MediaQuery.of(context).size.height,
+              child: SingleChildScrollView(
+                child: Column(
+                  children: <Widget>[
+                    Container(
+                      padding: EdgeInsets.all(50.0),
+                      child: Text(
+                        '- FHWS -',
+                        style:
+                            TextStyle(color: Color(0xFFBff8000), fontSize: 28),
+                      ),
+                    ),
+                    Container(
+                        child: Center(
+                      child: Image.asset(
+                        "lib/images/CampusRalleyLogo.png",
+                      ),
+                    )),
+                    Container(
+                      padding: EdgeInsets.all(40.0),
+                      child: PulsatingCircleIconButton(
+                        onTap: () {
+                          goToStationMenu();
+                        },
+                        icon: Icon(Icons.play_arrow,
+                            color: Color(0xFFBff8000), size: 50),
+                      ),
+                    ),
+                  ],
                 ),
-                Container(
-                    child: Center(
-                  child: Image.asset(
-                    "lib/images/CampusRalleyLogo.png",
-                  ),
-                )),
-                Container(
-                  padding: EdgeInsets.all(40.0),
-                  child: PulsatingCircleIconButton(
-                    onTap: () {
-                      goToStationMenu();
-                    },
-                    icon: Icon(Icons.play_arrow,
-                        color: Color(0xFFBff8000), size: 50),
-                  ),
-                ),
-              ],
-            ),
-          )),
-    ));
+              )),
+        ));
   }
 
   void goToStationMenu() {
