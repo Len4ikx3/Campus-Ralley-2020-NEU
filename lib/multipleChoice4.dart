@@ -104,17 +104,19 @@ class MultipleChoice4State extends State<MultipleChoice4> {
                   child: Row(
                     children: <Widget>[
                       Container(
+                          padding: EdgeInsets.only(left: 20, right: 20),
                           color: Color(0xFFBff8000),
                           height: 200,
                           width: 250,
                           child: Center(
                               child: Text(question,
-                                  style: TextStyle(color: Colors.white)))),
+                                  style: TextStyle(
+                                      color: Colors.white, fontSize: 15)))),
                       Container(
-                        padding: EdgeInsets.all(50),
+                        padding: EdgeInsets.only(left: 50),
                         child: Text(
                           '$id',
-                          style: TextStyle(color: Colors.grey, fontSize: 50),
+                          style: TextStyle(color: Colors.grey, fontSize: 95),
                         ),
                       ),
                     ],
