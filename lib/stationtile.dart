@@ -2,6 +2,7 @@ import 'package:first_app/dekan.dart';
 import 'package:first_app/hsstundunibib.dart';
 import 'package:first_app/innonight.dart';
 import 'package:first_app/multipleChoice4.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 import 'input.dart';
 import 'inputTimer.dart';
@@ -109,7 +110,7 @@ class _StationTileState extends State<StationTile> {
                             currentScore: currentScore,
                             id: stationnr,
                             question:
-                                'Hier gibt es 3 Fragen zu 3 Themen. Frage 1: Studentenausweis verloren? Wohin gehst du?',
+                                'Hier gibt es 3 Fragen zu 3 Themen. \nFrage 1: Studentenausweis verloren? Wohin gehst du?',
                             points: [-10, 10, -10, -10],
                             answerTexts: [
                               'Studentenwerk',
@@ -319,7 +320,7 @@ class _StationTileState extends State<StationTile> {
                             currentScore: currentScore,
                             id: stationnr,
                             question:
-                                'Hier ein paar Fragen für die Autofahrer. Frage 1: Durch wie viele Türen gelangt man ins Gebäude der FHWS?',
+                                'Hier ein paar Fragen für die Autofahrer. \nFrage 1: Durch wie viele Türen gelangt man ins Gebäude der FHWS?',
                             points: [-10, -10, -10, 10],
                             answerTexts: ['5', '2', '4', '3'],
                             pressedCounter: 0,
@@ -366,7 +367,7 @@ class _StationTileState extends State<StationTile> {
                             id: stationnr,
                             description:
                                 'Zeit für etwas Mathe. Was kosten die 3 Produkte X, Y, Z aus den Automaten?',
-                            hintText: '2,40€ = 240 P',
+                            hintText: '2,00€ = 200 P',
                             tappedList: tappedList,
                           )));
             } else {}
@@ -410,7 +411,7 @@ class _StationTileState extends State<StationTile> {
                             currentScore: currentScore,
                             id: stationnr,
                             question:
-                                'Hier gibt es 2 Fragen zu 2 Themen. Frage 1: Hier werdet ihr viel Zeit im Studium verbringen. Da könnt ihr ja mal zählen.. Wie viel digitalen und gedruckten Bestand besitzt die Unibibliothek INSGESAMT?',
+                                'Hier gibt es 2 Fragen zu 2 Themen. \nFrage 1: Hier werdet ihr viel Zeit im Studium verbringen. Da könnt ihr ja mal zählen.. Wie viel digitalen und gedruckten Bestand besitzt die Unibibliothek INSGESAMT?',
                             points: [-10, 10, -10, -10],
                             answerTexts: [
                               '664.374',
@@ -439,28 +440,43 @@ class _StationTileState extends State<StationTile> {
                   width: MediaQuery.of(context).size.width,
                 ),
                 Container(
-                  color: Colors.black26,
+                  color: Colors.black38,
                   child: Center(
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        Text(
-                          '${widget.stationnr}',
-                          style: TextStyle(
-                              fontSize: 20,
-                              color: Colors.white,
-                              fontWeight: FontWeight.w500),
-                        ),
-                        SizedBox(
-                          height: 4,
-                        ),
-                        Text(
-                          widget.stationtitle,
-                          style: TextStyle(
-                              fontSize: 18,
-                              color: Colors.white,
-                              fontWeight: FontWeight.w500),
-                        )
+                        Container(
+                            width: 200,
+                            height: 120,
+                            padding: EdgeInsets.all(15),
+                            decoration: BoxDecoration(
+                                border: Border(
+                                    top: BorderSide(
+                                        width: 1.0, color: Colors.white),
+                                    bottom: BorderSide(
+                                        width: 1.0, color: Colors.white))),
+                            child: Column(
+                              children: [
+                                Text(
+                                  '${widget.stationnr}',
+                                  style: GoogleFonts.pathwayGothicOne(
+                                      fontSize: 25,
+                                      color: Colors.white,
+                                      fontWeight: FontWeight.w500),
+                                ),
+                                SizedBox(
+                                  height: 4,
+                                ),
+                                Text(
+                                  widget.stationtitle,
+                                  style: GoogleFonts.pathwayGothicOne(
+                                      fontSize: 23,
+                                      letterSpacing: 2.0,
+                                      color: Colors.white,
+                                      fontWeight: FontWeight.w600),
+                                )
+                              ],
+                            ))
                       ],
                     ),
                   ),

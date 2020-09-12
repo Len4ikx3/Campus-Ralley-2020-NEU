@@ -2,6 +2,7 @@ import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:first_app/introductionpage.dart';
 import 'package:first_app/wordSolutionPage.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'stationcarousel.dart';
 
 // ignore: must_be_immutable
@@ -86,28 +87,28 @@ class StationmenuState extends State<Stationmenu> {
                       color: Color(0xFFBff8000),
                     ),
                     child: Center(
-                      child: Text('- FHWS -',
-                          style: TextStyle(
-                              color: Colors.white,
-                              fontSize: 20,
-                              fontWeight: FontWeight.bold),
-                          textAlign: TextAlign.end),
-                    )),
+                        child: Image.asset(
+                      'lib/images/fhwsLogo.png',
+                      fit: BoxFit.cover,
+                    ))),
                 Container(
-                  height: 100,
+                  margin: EdgeInsets.all(20),
                   child: Center(
                     child: Text('Punkte: $currentScore',
-                        style: TextStyle(
+                        style: GoogleFonts.pathwayGothicOne(
                             color: Colors.grey,
-                            fontSize: 25,
-                            fontWeight: FontWeight.bold)),
+                            fontSize: 35,
+                            fontWeight: FontWeight.bold,
+                            letterSpacing: 2.0)),
                   ),
                 ),
                 Container(
                   child: Center(
                     child: Text('Wähle eine Station und sammle Punkte!',
-                        style:
-                            TextStyle(color: Color(0xFFBff8000), fontSize: 18)),
+                        style: GoogleFonts.pathwayGothicOne(
+                            color: Color(0xFFBff8000),
+                            fontSize: 20,
+                            letterSpacing: 2.0)),
                   ),
                 ),
                 SizedBox(

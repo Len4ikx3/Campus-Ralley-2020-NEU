@@ -1,3 +1,5 @@
+import 'package:google_fonts/google_fonts.dart';
+
 import 'stationmenu.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -90,34 +92,36 @@ class MultipleChoice3State extends State<MultipleChoice3> {
                     color: Color(0xFFBff8000),
                   ),
                   child: Center(
-                    child: Text('- FHWS -',
-                        style: TextStyle(
-                            color: Colors.white,
-                            fontSize: 20,
-                            fontWeight: FontWeight.bold),
-                        textAlign: TextAlign.end),
-                  )),
+                      child: Image.asset(
+                    'lib/images/fhwsLogo.png',
+                    fit: BoxFit.cover,
+                  ))),
               Container(
                   padding: EdgeInsets.only(top: 50, bottom: 50),
                   width: double.infinity,
                   child: Row(
                     children: <Widget>[
-                      Container(
-                          padding: EdgeInsets.only(left: 20, right: 20),
-                          color: Color(0xFFBff8000),
-                          height: 200,
-                          width: 250,
-                          child: Center(
-                              child: Text(question,
-                                  style: TextStyle(
-                                      color: Colors.white, fontSize: 15)))),
-                      Container(
-                        padding: EdgeInsets.only(left: 50),
-                        child: Text(
-                          '$id',
-                          style: TextStyle(color: Colors.grey, fontSize: 95),
-                        ),
-                      ),
+                      Expanded(
+                          flex: 2,
+                          child: Container(
+                              padding: EdgeInsets.only(left: 20, right: 20),
+                              color: Color(0xFFBff8000),
+                              height: 200,
+                              child: Center(
+                                  child: Text(question,
+                                      style: GoogleFonts.pathwayGothicOne(
+                                        color: Colors.white,
+                                        fontSize: 17,
+                                        letterSpacing: 2.0,
+                                      ))))),
+                      Expanded(
+                          child: Container(
+                              child: Center(
+                                  child: Text('$id',
+                                      style: GoogleFonts.pathwayGothicOne(
+                                        fontSize: 160,
+                                        color: Colors.grey[300],
+                                      ))))),
                     ],
                   )),
               Container(
@@ -134,7 +138,10 @@ class MultipleChoice3State extends State<MultipleChoice3> {
                             changeScore(0, answerValues[0]);
                           },
                           child: Text(answerTexts[0],
-                              style: TextStyle(color: Colors.white),
+                              style: GoogleFonts.pathwayGothicOne(
+                                  color: Colors.white,
+                                  fontSize: 18,
+                                  wordSpacing: 2.0),
                               textAlign: TextAlign.center),
                           shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(20)),
@@ -150,7 +157,10 @@ class MultipleChoice3State extends State<MultipleChoice3> {
                             changeScore(1, answerValues[1]);
                           },
                           child: Text(answerTexts[1],
-                              style: TextStyle(color: Colors.white),
+                              style: GoogleFonts.pathwayGothicOne(
+                                  color: Colors.white,
+                                  fontSize: 18,
+                                  wordSpacing: 2.0),
                               textAlign: TextAlign.center),
                           shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(20)),
@@ -166,7 +176,10 @@ class MultipleChoice3State extends State<MultipleChoice3> {
                             changeScore(2, answerValues[2]);
                           },
                           child: Text(answerTexts[2],
-                              style: TextStyle(color: Colors.white),
+                              style: GoogleFonts.pathwayGothicOne(
+                                  color: Colors.white,
+                                  fontSize: 18,
+                                  wordSpacing: 2.0),
                               textAlign: TextAlign.center),
                           shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(20)),
@@ -199,10 +212,11 @@ class MultipleChoice3State extends State<MultipleChoice3> {
                         }),
                     Text('Speichern und zurück zur Stationenauswahl',
                         textAlign: TextAlign.center,
-                        style: TextStyle(
-                          color: Color(0xFFBff8000),
-                          fontSize: 17,
-                        ))
+                        style: GoogleFonts.pathwayGothicOne(
+                            color: Color(0xFFBff8000),
+                            fontSize: 17,
+                            fontWeight: FontWeight.bold,
+                            letterSpacing: 2.0))
                   ],
                 ),
               )

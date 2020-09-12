@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class LastPage extends StatefulWidget {
@@ -31,24 +32,24 @@ class LastPageState extends State<LastPage> {
                         child: Column(
                           children: <Widget>[
                             Container(
-                                height: 140,
-                                padding: EdgeInsets.only(top: 80),
+                                height: 80,
+                                padding: EdgeInsets.only(top: 5),
                                 child: Text(
                                   'Geschafft!',
                                   textAlign: TextAlign.center,
-                                  style: TextStyle(
+                                  style: GoogleFonts.kaushanScript(
                                     color: Colors.grey,
-                                    fontSize: 30,
+                                    fontSize: 50,
                                   ),
                                 )),
                             Container(
                                 padding: EdgeInsets.all(20),
                                 child: Text(
                                   'Erreichte Punkte:',
-                                  style: TextStyle(
-                                    color: Color(0xFFBff8000),
-                                    fontSize: 17,
-                                  ),
+                                  style: GoogleFonts.pathwayGothicOne(
+                                      color: Color(0xFFBff8000),
+                                      fontSize: 20,
+                                      letterSpacing: 2.0),
                                 )),
                             Container(
                                 height: 150,
@@ -67,14 +68,14 @@ class LastPageState extends State<LastPage> {
                                 child: Center(
                                     child: Text(
                                   currentScore.toString(),
-                                  style: TextStyle(
+                                  style: GoogleFonts.pathwayGothicOne(
                                     color: Colors.white,
-                                    fontSize: 50,
+                                    fontSize: 56,
                                   ),
                                 ))),
                             Container(
                               margin: EdgeInsets.symmetric(horizontal: 100),
-                              padding: EdgeInsets.only(top: 50),
+                              padding: EdgeInsets.only(top: 30),
                               child: Row(
                                 mainAxisAlignment:
                                     MainAxisAlignment.spaceEvenly,
@@ -102,14 +103,13 @@ class LastPageState extends State<LastPage> {
                                 padding: EdgeInsets.fromLTRB(30, 30, 30, 30),
                                 child: Text(
                                   'Ab geht \'s in die Mensa zum Mittagessen.\nUm 14 Uhr findet die Gewinnvergabe an der FHWS statt. \n\nWir wünschen dir für die Zukunft viel Spaß und Erfolg bei Studium!',
-                                  style: TextStyle(
-                                    color: Color(0xFFBff8000),
-                                    fontSize: 18,
-                                  ),
+                                  style: GoogleFonts.pathwayGothicOne(
+                                      color: Color(0xFFBff8000),
+                                      fontSize: 20,
+                                      wordSpacing: 2.0),
                                   textAlign: TextAlign.center,
                                 )),
                             Container(
-                              padding: EdgeInsets.only(top: 30),
                               child: RaisedButton(
                                   color: Color(0xFFBff8000),
                                   shape: RoundedRectangleBorder(
@@ -124,9 +124,9 @@ class LastPageState extends State<LastPage> {
                                 padding: EdgeInsets.symmetric(horizontal: 40),
                                 child: Text(
                                   'Hier noch eine Zusammenfassung der Stationen in Video-Form ;)',
-                                  style: TextStyle(
+                                  style: GoogleFonts.pathwayGothicOne(
                                     color: Colors.grey[400],
-                                    fontSize: 17,
+                                    fontSize: 19,
                                   ),
                                   textAlign: TextAlign.center,
                                 ))

@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:circular_countdown_timer/circular_countdown_timer.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 import 'stationmenu.dart';
 import 'package:flutter/material.dart';
@@ -99,34 +100,36 @@ class _InputTimerState extends State<InputTimer> {
                     color: Color(0xFFBff8000),
                   ),
                   child: Center(
-                    child: Text('- FHWS -',
-                        style: TextStyle(
-                            color: Colors.white,
-                            fontSize: 20,
-                            fontWeight: FontWeight.bold),
-                        textAlign: TextAlign.end),
-                  )),
+                      child: Image.asset(
+                    'lib/images/fhwsLogo.png',
+                    fit: BoxFit.cover,
+                  ))),
               Container(
                   padding: EdgeInsets.only(top: 50, bottom: 50),
                   width: double.infinity,
                   child: Row(
                     children: <Widget>[
-                      Container(
-                          padding: EdgeInsets.only(left: 20, right: 20),
-                          color: Color(0xFFBff8000),
-                          height: 200,
-                          width: 250,
-                          child: Center(
-                              child: Text(description,
-                                  style: TextStyle(
-                                      color: Colors.white, fontSize: 15)))),
-                      Container(
-                        padding: EdgeInsets.only(left: 50),
-                        child: Text(
-                          '$id',
-                          style: TextStyle(color: Colors.grey, fontSize: 95),
-                        ),
-                      ),
+                      Expanded(
+                          flex: 2,
+                          child: Container(
+                              padding: EdgeInsets.only(left: 20, right: 20),
+                              color: Color(0xFFBff8000),
+                              height: 200,
+                              child: Center(
+                                  child: Text(description,
+                                      style: GoogleFonts.pathwayGothicOne(
+                                        color: Colors.white,
+                                        fontSize: 17,
+                                        letterSpacing: 2.0,
+                                      ))))),
+                      Expanded(
+                          child: Container(
+                              child: Center(
+                                  child: Text('$id',
+                                      style: GoogleFonts.pathwayGothicOne(
+                                        fontSize: 160,
+                                        color: Colors.grey[300],
+                                      ))))),
                     ],
                   )),
               Container(
@@ -140,10 +143,8 @@ class _InputTimerState extends State<InputTimer> {
                     strokeWidth: 10.0,
                     isReverse: true,
                     isTimerTextShown: true,
-                    textStyle: TextStyle(
-                      color: Colors.grey,
-                      fontSize: 25,
-                    ),
+                    textStyle: GoogleFonts.pathwayGothicOne(
+                        color: Colors.grey, fontSize: 27, letterSpacing: 2.0),
                     onComplete: () {
                       setState(() {
                         if (id == 4 || id == 21) {
@@ -172,7 +173,11 @@ class _InputTimerState extends State<InputTimer> {
               Container(
                 child: Text(
                   getYourScoreText(),
-                  style: TextStyle(color: Colors.deepPurple[300]),
+                  style: GoogleFonts.pathwayGothicOne(
+                      color: Colors.deepPurple[300],
+                      fontSize: 15,
+                      fontWeight: FontWeight.bold,
+                      letterSpacing: 2.0),
                 ),
               ),
               Container(
@@ -209,10 +214,11 @@ class _InputTimerState extends State<InputTimer> {
                         }),
                     Text(getButtonText(),
                         textAlign: TextAlign.center,
-                        style: TextStyle(
-                          color: Color(0xFFBff8000),
-                          fontSize: 17,
-                        ))
+                        style: GoogleFonts.pathwayGothicOne(
+                            color: Color(0xFFBff8000),
+                            fontSize: 17,
+                            fontWeight: FontWeight.bold,
+                            letterSpacing: 2.0))
                   ],
                 ),
               )
