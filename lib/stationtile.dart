@@ -181,7 +181,7 @@ class _StationTileState extends State<StationTile> {
                             currentScore: currentScore,
                             id: stationnr,
                             description:
-                                'Zugehört und verstanden? Dann zeigt euer können. Sucht einen USB-Stick und druckt den Inhalt aus. Welcher Buchstabe ist es?',
+                                'Zugehört und verstanden? Dann zeigt euer Können. Sucht einen USB-Stick und druckt den Inhalt aus. Welcher Buchstabe ist es?',
                             tappedList: tappedList,
                           )));
             } else {}
@@ -337,7 +337,7 @@ class _StationTileState extends State<StationTile> {
                             currentScore: currentScore,
                             id: stationnr,
                             description:
-                                'Schon Punkte gesammelt? Mindestens 10 von euch müssen spielen. Ihr lauft um die Tischtennisplatte und schlagt dabei den Ball mit der Hand auf. Geht der daneben, ist die Person raus. Ein erfolgreicher Aufschlag = 1 Punkt',
+                                'Schon Punkte gesammelt? Mindestens 10 von euch müssen spielen. Ihr lauft um die Tischtennisplatte und schlagt dabei den Ball mit der Hand auf. Geht der daneben, ist die Person raus. \n1 erfolgreicher Aufschlag = 1 P',
                             hintText: 'zB 36',
                             tappedList: tappedList,
                           )));
@@ -352,7 +352,7 @@ class _StationTileState extends State<StationTile> {
                           currentScore: currentScore,
                           id: stationnr,
                           description:
-                              'Weitwurf ist angesagt! Aber mit Teebeuteln ;-) Jeder bekommt einen vollgesaugten Teebeutel und muss ihn mit dem Mund so weit wie möglich werfen. Jeder Meter bringt euch einen Punkt',
+                              'Weitwurf ist angesagt! Aber mit Teebeuteln ;-) Jeder bekommt einen vollgesaugten Teebeutel und muss ihn mit dem Mund so weit wie möglich werfen. Jeder Meter bringt Punkte',
                           hintText: '1,05m = 105 P',
                           tappedList: tappedList)));
             } else {}
@@ -396,7 +396,7 @@ class _StationTileState extends State<StationTile> {
                             currentScore: currentScore,
                             id: stationnr,
                             description:
-                                'Zeit für Sport! Jeder durchläuft hintereinander durch diesen Parcour. Hat jemand den Parkour durchlaufen, darf er sich einen Punkt holen! Die Zeit läuft...',
+                                'Zeit für Sport! Jeder durchläuft mindestens 1 Mal diesen Parkour. Hat jemand den Parkour durchlaufen, darf er sich einen Punkt holen! Die Zeit läuft...',
                             timer: 10,
                             tappedList: tappedList,
                           )));
@@ -411,7 +411,7 @@ class _StationTileState extends State<StationTile> {
                             currentScore: currentScore,
                             id: stationnr,
                             question:
-                                'Hier gibt es 2 Fragen zu 2 Themen. \nFrage 1: Hier werdet ihr viel Zeit im Studium verbringen. Da könnt ihr ja mal zählen.. Wie viel digitalen und gedruckten Bestand besitzt die Unibibliothek INSGESAMT?',
+                                'Hier gibt es 2 Fragen zu 2 Themen. \nFrage 1: Hier werdet ihr viel Zeit im Studium verbringen. Da könnt ihr ja mal zählen... Wie viel digitalen und gedruckten Bestand besitzt die Unibibliothek INSGESAMT?',
                             points: [-10, 10, -10, -10],
                             answerTexts: [
                               '664.374',
