@@ -137,7 +137,7 @@ class _InputState extends State<Input> {
                                           int.parse(text) < 170) ||
                                       (266 < int.parse(text) &&
                                           int.parse(text) <= 296)) {
-                                    scoreToBeAdded = scoreToBeAdded + 40;
+                                    scoreToBeAdded = scoreToBeAdded + 10;
                                   } else {
                                     scoreToBeAdded = 0;
                                   }
