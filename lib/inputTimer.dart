@@ -89,7 +89,8 @@ class _InputTimerState extends State<InputTimer> {
         home: Scaffold(
             resizeToAvoidBottomInset: false,
             body: Container(
-                child: Column(children: <Widget>[
+                child: SingleChildScrollView(
+                    child: Column(children: <Widget>[
               Container(
                   margin: EdgeInsets.only(left: 50, right: 50),
                   height: 50,
@@ -222,6 +223,6 @@ class _InputTimerState extends State<InputTimer> {
                   ],
                 ),
               )
-            ]))));
+            ])))));
   }
 }

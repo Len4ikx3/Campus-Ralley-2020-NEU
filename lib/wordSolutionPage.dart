@@ -46,7 +46,7 @@ class WordSolutionPageState extends State<WordSolutionPage> {
                 children: [
                   Container(
                       height: 150,
-                      padding: EdgeInsets.only(top: 40, left: 100, right: 100),
+                      padding: EdgeInsets.only(top: 45, left: 20),
                       child: Text(
                         'Ralley beenden? Sicher?',
                         style: GoogleFonts.pathwayGothicOne(
