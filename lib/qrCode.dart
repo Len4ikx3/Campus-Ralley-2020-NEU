@@ -69,7 +69,7 @@ class _QrCodeState extends State<QrCode> {
                       fit: BoxFit.cover,
                     ))),
                 Container(
-                    padding: EdgeInsets.only(top: 50, bottom: 50),
+                    padding: EdgeInsets.only(top: 50, bottom: 00),
                     width: double.infinity,
                     child: Row(
                       children: <Widget>[
@@ -97,7 +97,7 @@ class _QrCodeState extends State<QrCode> {
                       ],
                     )),
                 Container(
-                  height: 300,
+                  height: 255,
                   child: Column(
                     children: <Widget>[
                       Container(

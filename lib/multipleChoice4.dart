@@ -126,7 +126,7 @@ class MultipleChoice4State extends State<MultipleChoice4> {
                     ],
                   )),
               Container(
-                  height: 300,
+                  height: 245,
                   child: Column(
                     children: <Widget>[
                       Container(

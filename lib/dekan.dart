@@ -96,7 +96,7 @@ class DekanState extends State<Dekan> {
                             fit: BoxFit.cover,
                           ))),
                       Container(
-                          padding: EdgeInsets.only(top: 50, bottom: 50),
+                          padding: EdgeInsets.only(top: 20, bottom: 50),
                           width: double.infinity,
                           child: Row(
                             children: <Widget>[
@@ -113,7 +113,7 @@ class DekanState extends State<Dekan> {
                                                   GoogleFonts.pathwayGothicOne(
                                                 color: Colors.white,
                                                 fontSize: 17,
-                                                letterSpacing: 2.0,
+                                                letterSpacing: 3.0,
                                               ))))),
                               Expanded(
                                   child: Container(
@@ -127,7 +127,7 @@ class DekanState extends State<Dekan> {
                             ],
                           )),
                       Container(
-                          height: 300,
+                          height: 275,
                           child: Column(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: <Widget>[

@@ -96,7 +96,7 @@ class _InnonightState extends State<Innonight> {
                     ],
                   )),
               Container(
-                height: 300,
+                height: 245,
                 padding: EdgeInsets.all(20),
                 decoration: BoxDecoration(
                     image: DecorationImage(

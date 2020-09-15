@@ -134,7 +134,7 @@ class _InputTimerState extends State<InputTimer> {
                     ],
                   )),
               Container(
-                  height: 300,
+                  height: 220,
                   child: CircularCountDownTimer(
                     width: 250,
                     height: 250,

@@ -115,7 +115,7 @@ class StationmenuState extends State<Stationmenu> {
                   height: 30,
                 ),
                 Container(
-                    height: 530,
+                    height: 450,
                     child: StationCarousel(
                       currentScore: currentScore,
                       tappedList: tappedList,

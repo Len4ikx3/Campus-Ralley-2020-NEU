@@ -104,7 +104,7 @@ class _InputState extends State<Input> {
                     ],
                   )),
               Container(
-                height: 300,
+                height: 200,
                 child: Column(
                   children: <Widget>[
                     Container(

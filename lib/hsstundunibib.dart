@@ -170,7 +170,7 @@ class HSSTundUnibibState extends State<HSSTundUnibib> {
                             ],
                           )),
                       Container(
-                          height: 300,
+                          height: 245,
                           child: Column(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: <Widget>[
