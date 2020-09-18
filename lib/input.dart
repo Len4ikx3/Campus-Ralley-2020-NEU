@@ -112,6 +112,7 @@ class _InputState extends State<Input> {
                         width: 270,
                         padding: const EdgeInsets.all(20),
                         child: TextField(
+                            keyboardType: TextInputType.number,
                             onChanged: (text) {
                               setState(() {
                                 if (id == 20) {

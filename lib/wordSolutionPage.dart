@@ -66,7 +66,7 @@ class WordSolutionPageState extends State<WordSolutionPage> {
                       child: Column(
                         children: [
                           Text(
-                            'Wenn ja, hier noch die letzte Chance, Punkte zu holen! Alle Buchstaben gemerkt? Dann hier Lösungswort in Großbuchstaben eingeben und für die richtige Antwort 100 P abholen:',
+                            'Wenn ja, hier noch die letzte Chance, Punkte zu holen! Alle Buchstaben gemerkt? Dann hier Lösungswort eingeben und für die richtige Antwort 100 P abholen:',
                             style: GoogleFonts.pathwayGothicOne(
                                 color: Colors.grey,
                                 fontSize: 21,
@@ -126,7 +126,7 @@ class WordSolutionPageState extends State<WordSolutionPage> {
                                   splashColor: Colors.deepPurple[400],
                                   onPressed: () {
                                     setState(() {
-                                      if (solution == 'APPETIT') {
+                                      if (solution.toUpperCase() == 'APPETIT') {
                                         Navigator.push(
                                             context,
                                             MaterialPageRoute(
