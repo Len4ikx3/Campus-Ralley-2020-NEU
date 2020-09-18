@@ -69,7 +69,10 @@ class StationmenuState extends State<Stationmenu> {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    // WillPopScope ist neu, davor war return: MaterialApp(.....)
+    return WillPopScope(
+        onWillPop: () async => false,
+        child: MaterialApp(
         debugShowCheckedModeBanner: banner,
         home: Scaffold(
           backgroundColor: Colors.white,
@@ -168,6 +171,6 @@ class StationmenuState extends State<Stationmenu> {
               }
             },
           ),
-        ));
+        )));
   }
 }
