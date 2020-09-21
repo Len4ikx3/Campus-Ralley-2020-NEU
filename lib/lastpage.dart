@@ -102,7 +102,7 @@ class LastPageState extends State<LastPage> {
                             Container(
                                 padding: EdgeInsets.fromLTRB(30, 30, 30, 30),
                                 child: Text(
-                                  'Ab geht \'s in die Mensa zum Mittagessen.\nUm 14 Uhr findet die Gewinnvergabe an der FHWS statt. \n\nWir wünschen dir für die Zukunft viel Spaß und Erfolg bei Studium!',
+                                  'Ab geht \'s in die Mensa zum Mittagessen.\nUm 14 Uhr findet die Gewinnvergabe an der FHWS statt. \n\nWir wünschen dir für die Zukunft viel Spaß und Erfolg beim Studium!',
                                   style: GoogleFonts.pathwayGothicOne(
                                       color: Color(0xFFBff8000),
                                       fontSize: 20,

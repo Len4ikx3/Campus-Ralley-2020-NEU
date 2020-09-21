@@ -59,7 +59,9 @@ class _InputState extends State<Input> {
         debugShowCheckedModeBanner: banner,
         home: Scaffold(
             resizeToAvoidBottomInset: false,
+            
             body: Container(
+              child: SingleChildScrollView(
                 child: Column(children: <Widget>[
               Container(
                   margin: EdgeInsets.only(left: 50, right: 50),
@@ -98,7 +100,7 @@ class _InputState extends State<Input> {
                               child: Center(
                                   child: Text('$id',
                                       style: GoogleFonts.pathwayGothicOne(
-                                        fontSize: 160,
+                                        fontSize: 140,
                                         color: Colors.grey[300],
                                       ))))),
                     ],
@@ -211,6 +213,6 @@ class _InputState extends State<Input> {
                   ],
                 ),
               )
-            ]))));
+            ])))));
   }
 }

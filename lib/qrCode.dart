@@ -52,6 +52,7 @@ class _QrCodeState extends State<QrCode> {
         debugShowCheckedModeBanner: banner,
         home: Scaffold(
           body: Container(
+            child: SingleChildScrollView(
             child: Column(
               children: <Widget>[
                 Container(
@@ -194,7 +195,7 @@ class _QrCodeState extends State<QrCode> {
               ],
             ),
           ),
-        ));
+        )));
   }
 
   void goToStationMenu() {

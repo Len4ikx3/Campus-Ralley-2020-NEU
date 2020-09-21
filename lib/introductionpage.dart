@@ -29,6 +29,8 @@ class IntroductionpageState extends State<Introductionpage> {
         debugShowCheckedModeBanner: banner,
         home: Scaffold(
           body: Container(
+            
+
             color: Color(0xFFBff8000),
             child: Column(
               children: <Widget>[
