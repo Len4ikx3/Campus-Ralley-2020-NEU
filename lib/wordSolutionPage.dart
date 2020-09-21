@@ -45,7 +45,7 @@ class WordSolutionPageState extends State<WordSolutionPage> {
               Column(
                 children: [
                   Container(
-                      height: 100,
+                      height: 150,
                       padding: EdgeInsets.only(top: 30, left: 100, right: 100),
                       child: Text(
                         'Ralley beenden? Sicher?',
@@ -73,7 +73,7 @@ class WordSolutionPageState extends State<WordSolutionPage> {
                                 wordSpacing: 2.0),
                           ),
                           SizedBox(
-                            height: 40,
+                            height: 50,
                           ),
                           TextField(
                             onChanged: (text) {
@@ -101,7 +101,7 @@ class WordSolutionPageState extends State<WordSolutionPage> {
                                 hintText: 'LÖSUNGSWORT',
                                 hintStyle: TextStyle(
                                     color: unselected,
-                                    fontSize: 21,
+                                    fontSize: 17,
                                     wordSpacing: 2.0,
                                     letterSpacing: 3.0)),
                           ),

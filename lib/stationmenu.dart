@@ -25,6 +25,7 @@ class StationmenuState extends State<Stationmenu> {
   List<bool> tappedList;
   List<bool> newtappedList;
   List<String> pictureList;
+  
 
   StationmenuState(
     newCurrentScore,
@@ -70,6 +71,7 @@ class StationmenuState extends State<Stationmenu> {
   @override
   Widget build(BuildContext context) {
     // WillPopScope ist neu, davor war return: MaterialApp(.....)
+     
     return WillPopScope(
         onWillPop: () async => false,
         child: MaterialApp(
@@ -118,13 +120,12 @@ class StationmenuState extends State<Stationmenu> {
                     SizedBox(
                       height: 30,
                     ),
-                    Expanded(
-                    child: Container(
-                        height: 450,
+                     Container(
+                        height: (MediaQuery.of(context).size.height) * 0.7,
                         child: StationCarousel(
                           currentScore: currentScore,
                           tappedList: tappedList,
-                        )))
+                        ))
                   ],
                 ),
               )),
