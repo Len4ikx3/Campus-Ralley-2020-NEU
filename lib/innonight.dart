@@ -52,6 +52,7 @@ class _InnonightState extends State<Innonight> {
         home: Scaffold(
             resizeToAvoidBottomInset: false,
             body: Container(
+              child: SingleChildScrollView(
                 child: Column(children: <Widget>[
               Container(
                   margin: EdgeInsets.only(left: 50, right: 50),
@@ -137,6 +138,6 @@ class _InnonightState extends State<Innonight> {
                   ],
                 ),
               )
-            ]))));
+            ])))));
   }
 }

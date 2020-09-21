@@ -33,6 +33,7 @@ class WordSolutionPageState extends State<WordSolutionPage> {
         home: Scaffold(
           resizeToAvoidBottomInset: false,
           body: Stack(
+            
             children: [
               Container(
                 decoration: BoxDecoration(
