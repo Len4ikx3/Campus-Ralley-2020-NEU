@@ -101,7 +101,7 @@ class WordSolutionPageState extends State<WordSolutionPage> {
                                 hintText: 'LÖSUNGSWORT',
                                 hintStyle: TextStyle(
                                     color: unselected,
-                                    fontSize: 17,
+                                    fontSize: 15,
                                     wordSpacing: 2.0,
                                     letterSpacing: 3.0)),
                           ),
