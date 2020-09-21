@@ -152,10 +152,9 @@ class HSSTundUnibibState extends State<HSSTundUnibib> {
                                       height: 200,
                                       child: Center(
                                           child: Text(question,
-                                              style:
-                                                  GoogleFonts.pathwayGothicOne(
+                                              style: TextStyle(
                                                 color: Colors.white,
-                                                fontSize: 17,
+                                                fontSize: 13,
                                                 letterSpacing: 2.0,
                                               ))))),
                               Expanded(
@@ -164,7 +163,7 @@ class HSSTundUnibibState extends State<HSSTundUnibib> {
                                           child: Text('$id',
                                               style:
                                                   GoogleFonts.pathwayGothicOne(
-                                                fontSize: 160,
+                                                fontSize: 100,
                                                 color: Colors.grey[300],
                                               ))))),
                             ],
@@ -192,9 +191,9 @@ class HSSTundUnibibState extends State<HSSTundUnibib> {
                                     });
                                   },
                                   child: Text(answerTexts[0],
-                                      style: GoogleFonts.pathwayGothicOne(
+                                      style: TextStyle(
                                           color: Colors.white,
-                                          fontSize: 18,
+                                          fontSize: 13,
                                           wordSpacing: 2.0),
                                       textAlign: TextAlign.center),
                                   shape: RoundedRectangleBorder(
@@ -219,9 +218,9 @@ class HSSTundUnibibState extends State<HSSTundUnibib> {
                                     });
                                   },
                                   child: Text(answerTexts[1],
-                                      style: GoogleFonts.pathwayGothicOne(
+                                      style: TextStyle(
                                           color: Colors.white,
-                                          fontSize: 18,
+                                          fontSize: 13,
                                           wordSpacing: 2.0),
                                       textAlign: TextAlign.center),
                                   shape: RoundedRectangleBorder(
@@ -246,9 +245,9 @@ class HSSTundUnibibState extends State<HSSTundUnibib> {
                                     });
                                   },
                                   child: Text(answerTexts[2],
-                                      style: GoogleFonts.pathwayGothicOne(
+                                      style: TextStyle(
                                           color: Colors.white,
-                                          fontSize: 18,
+                                          fontSize: 13,
                                           wordSpacing: 2.0),
                                       textAlign: TextAlign.center),
                                   shape: RoundedRectangleBorder(
@@ -274,9 +273,9 @@ class HSSTundUnibibState extends State<HSSTundUnibib> {
                                   },
                                   child: Text(
                                     answerTexts[3],
-                                    style: GoogleFonts.pathwayGothicOne(
+                                    style: TextStyle(
                                         color: Colors.white,
-                                        fontSize: 18,
+                                        fontSize: 13,
                                         wordSpacing: 2.0),
                                     textAlign: TextAlign.center,
                                   ),
@@ -457,9 +456,9 @@ class HSSTundUnibibState extends State<HSSTundUnibib> {
                                 }),
                             Text(getButtonText(),
                                 textAlign: TextAlign.center,
-                                style: GoogleFonts.pathwayGothicOne(
+                                style: TextStyle(
                                     color: Color(0xFFBff8000),
-                                    fontSize: 17,
+                                    fontSize: 15,
                                     fontWeight: FontWeight.bold,
                                     letterSpacing: 2.0))
                           ],

@@ -52,8 +52,8 @@ class _InnonightState extends State<Innonight> {
         home: Scaffold(
             resizeToAvoidBottomInset: false,
             body: Container(
-              child: SingleChildScrollView(
-                child: Column(children: <Widget>[
+                child: SingleChildScrollView(
+                    child: Column(children: <Widget>[
               Container(
                   margin: EdgeInsets.only(left: 50, right: 50),
                   height: 50,
@@ -81,17 +81,17 @@ class _InnonightState extends State<Innonight> {
                               height: 200,
                               child: Center(
                                   child: Text(description,
-                                      style: GoogleFonts.pathwayGothicOne(
+                                      style: TextStyle(
                                         color: Colors.white,
-                                        fontSize: 17,
+                                        fontSize: 13,
                                         letterSpacing: 2.0,
                                       ))))),
                       Expanded(
                           child: Container(
                               child: Center(
                                   child: Text('$id',
-                                      style: GoogleFonts.pathwayGothicOne(
-                                        fontSize: 160,
+                                      style: TextStyle(
+                                        fontSize: 100,
                                         color: Colors.grey[300],
                                       ))))),
                     ],
@@ -130,9 +130,9 @@ class _InnonightState extends State<Innonight> {
                         }),
                     Text('Gib mir 10 Punkte!',
                         textAlign: TextAlign.center,
-                        style: GoogleFonts.pathwayGothicOne(
+                        style: TextStyle(
                             color: Color(0xFFBff8000),
-                            fontSize: 17,
+                            fontSize: 15,
                             fontWeight: FontWeight.bold,
                             letterSpacing: 2.0))
                   ],

@@ -51,8 +51,8 @@ class _QrCodeState extends State<QrCode> {
     return MaterialApp(
         debugShowCheckedModeBanner: banner,
         home: Scaffold(
-          body: Container(
-            child: SingleChildScrollView(
+            body: Container(
+          child: SingleChildScrollView(
             child: Column(
               children: <Widget>[
                 Container(
@@ -82,17 +82,17 @@ class _QrCodeState extends State<QrCode> {
                                 height: 200,
                                 child: Center(
                                     child: Text(description,
-                                        style: GoogleFonts.pathwayGothicOne(
+                                        style: TextStyle(
                                           color: Colors.white,
-                                          fontSize: 17,
+                                          fontSize: 13,
                                           letterSpacing: 2.0,
                                         ))))),
                         Expanded(
                             child: Container(
                                 child: Center(
                                     child: Text('$id',
-                                        style: GoogleFonts.pathwayGothicOne(
-                                          fontSize: 160,
+                                        style: TextStyle(
+                                          fontSize: 100,
                                           color: Colors.grey[300],
                                         ))))),
                       ],
@@ -105,8 +105,8 @@ class _QrCodeState extends State<QrCode> {
                         padding: EdgeInsets.only(top: 30),
                         child: Text(
                           "Ergebnis:",
-                          style: GoogleFonts.pathwayGothicOne(
-                              fontSize: 22.0,
+                          style: TextStyle(
+                              fontSize: 19.0,
                               color: Color(0xFFBff8000),
                               letterSpacing: 2.0),
                           textAlign: TextAlign.center,
@@ -114,8 +114,8 @@ class _QrCodeState extends State<QrCode> {
                       ),
                       Text(
                         qrCodeResult,
-                        style: GoogleFonts.pathwayGothicOne(
-                            fontSize: 27.0,
+                        style: TextStyle(
+                            fontSize: 23.0,
                             color: Color(0xFFBff8000),
                             fontWeight: FontWeight.bold,
                             wordSpacing: 2.0),
@@ -146,10 +146,10 @@ class _QrCodeState extends State<QrCode> {
                         },
                         child: Text(
                           "Scanner öffnen",
-                          style: GoogleFonts.pathwayGothicOne(
+                          style: TextStyle(
                               color: Color(0xFFBff8000),
                               fontWeight: FontWeight.bold,
-                              fontSize: 20,
+                              fontSize: 18,
                               letterSpacing: 2.0),
                         ),
                         shape: RoundedRectangleBorder(
@@ -184,9 +184,9 @@ class _QrCodeState extends State<QrCode> {
                           }),
                       Text('Merk\' ich mir! Zurück zur Stationenauswahl',
                           textAlign: TextAlign.center,
-                          style: GoogleFonts.pathwayGothicOne(
+                          style: TextStyle(
                               color: Color(0xFFBff8000),
-                              fontSize: 17,
+                              fontSize: 15,
                               fontWeight: FontWeight.bold,
                               letterSpacing: 2.0))
                     ],

@@ -37,7 +37,7 @@ class LastPageState extends State<LastPage> {
                                 child: Text(
                                   'Geschafft!',
                                   textAlign: TextAlign.center,
-                                  style: GoogleFonts.kaushanScript(
+                                  style: TextStyle(
                                     color: Colors.grey,
                                     fontSize: 50,
                                   ),
@@ -46,9 +46,9 @@ class LastPageState extends State<LastPage> {
                                 padding: EdgeInsets.all(20),
                                 child: Text(
                                   'Erreichte Punkte:',
-                                  style: GoogleFonts.pathwayGothicOne(
+                                  style: TextStyle(
                                       color: Color(0xFFBff8000),
-                                      fontSize: 20,
+                                      fontSize: 18,
                                       letterSpacing: 2.0),
                                 )),
                             Container(
@@ -68,9 +68,9 @@ class LastPageState extends State<LastPage> {
                                 child: Center(
                                     child: Text(
                                   currentScore.toString(),
-                                  style: GoogleFonts.pathwayGothicOne(
+                                  style: TextStyle(
                                     color: Colors.white,
-                                    fontSize: 56,
+                                    fontSize: 47,
                                   ),
                                 ))),
                             Container(
@@ -103,9 +103,9 @@ class LastPageState extends State<LastPage> {
                                 padding: EdgeInsets.fromLTRB(30, 30, 30, 30),
                                 child: Text(
                                   'Ab geht \'s in die Mensa zum Mittagessen.\nUm 14 Uhr findet die Gewinnvergabe an der FHWS statt. \n\nWir wünschen dir für die Zukunft viel Spaß und Erfolg beim Studium!',
-                                  style: GoogleFonts.pathwayGothicOne(
+                                  style: TextStyle(
                                       color: Color(0xFFBff8000),
-                                      fontSize: 20,
+                                      fontSize: 15,
                                       wordSpacing: 2.0),
                                   textAlign: TextAlign.center,
                                 )),
@@ -124,9 +124,9 @@ class LastPageState extends State<LastPage> {
                                 padding: EdgeInsets.symmetric(horizontal: 40),
                                 child: Text(
                                   'Hier noch eine Zusammenfassung der Stationen in Video-Form ;)',
-                                  style: GoogleFonts.pathwayGothicOne(
+                                  style: TextStyle(
                                     color: Colors.grey[400],
-                                    fontSize: 19,
+                                    fontSize: 13,
                                   ),
                                   textAlign: TextAlign.center,
                                 ))

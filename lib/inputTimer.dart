@@ -118,17 +118,17 @@ class _InputTimerState extends State<InputTimer> {
                               height: 200,
                               child: Center(
                                   child: Text(description,
-                                      style: GoogleFonts.pathwayGothicOne(
+                                      style: TextStyle(
                                         color: Colors.white,
-                                        fontSize: 17,
+                                        fontSize: 13,
                                         letterSpacing: 2.0,
                                       ))))),
                       Expanded(
                           child: Container(
                               child: Center(
                                   child: Text('$id',
-                                      style: GoogleFonts.pathwayGothicOne(
-                                        fontSize: 160,
+                                      style: TextStyle(
+                                        fontSize: 100,
                                         color: Colors.grey[300],
                                       ))))),
                     ],
@@ -144,7 +144,7 @@ class _InputTimerState extends State<InputTimer> {
                     strokeWidth: 10.0,
                     isReverse: true,
                     isTimerTextShown: true,
-                    textStyle: GoogleFonts.pathwayGothicOne(
+                    textStyle: TextStyle(
                         color: Colors.grey, fontSize: 27, letterSpacing: 2.0),
                     onComplete: () {
                       setState(() {
@@ -174,9 +174,9 @@ class _InputTimerState extends State<InputTimer> {
               Container(
                 child: Text(
                   getYourScoreText(),
-                  style: GoogleFonts.pathwayGothicOne(
+                  style: TextStyle(
                       color: Colors.deepPurple[300],
-                      fontSize: 15,
+                      fontSize: 12,
                       fontWeight: FontWeight.bold,
                       letterSpacing: 2.0),
                 ),
@@ -215,9 +215,9 @@ class _InputTimerState extends State<InputTimer> {
                         }),
                     Text(getButtonText(),
                         textAlign: TextAlign.center,
-                        style: GoogleFonts.pathwayGothicOne(
+                        style: TextStyle(
                             color: Color(0xFFBff8000),
-                            fontSize: 17,
+                            fontSize: 15,
                             fontWeight: FontWeight.bold,
                             letterSpacing: 2.0))
                   ],

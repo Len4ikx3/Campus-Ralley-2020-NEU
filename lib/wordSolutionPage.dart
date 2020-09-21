@@ -33,7 +33,6 @@ class WordSolutionPageState extends State<WordSolutionPage> {
         home: Scaffold(
           resizeToAvoidBottomInset: false,
           body: Stack(
-            
             children: [
               Container(
                 decoration: BoxDecoration(
@@ -46,13 +45,13 @@ class WordSolutionPageState extends State<WordSolutionPage> {
               Column(
                 children: [
                   Container(
-                      height: 150,
-                      padding: EdgeInsets.only(top: 40, left: 100, right: 100),
+                      height: 100,
+                      padding: EdgeInsets.only(top: 30, left: 100, right: 100),
                       child: Text(
                         'Ralley beenden? Sicher?',
-                        style: GoogleFonts.pathwayGothicOne(
+                        style: TextStyle(
                             color: Colors.white,
-                            fontSize: 35,
+                            fontSize: 25,
                             letterSpacing: 2.0),
                         textAlign: TextAlign.center,
                       )),
@@ -68,13 +67,13 @@ class WordSolutionPageState extends State<WordSolutionPage> {
                         children: [
                           Text(
                             'Wenn ja, hier noch die letzte Chance, Punkte zu holen! Alle Buchstaben gemerkt? Dann hier Lösungswort eingeben und für die richtige Antwort 100 P abholen:',
-                            style: GoogleFonts.pathwayGothicOne(
+                            style: TextStyle(
                                 color: Colors.grey,
-                                fontSize: 21,
+                                fontSize: 16,
                                 wordSpacing: 2.0),
                           ),
                           SizedBox(
-                            height: 50,
+                            height: 40,
                           ),
                           TextField(
                             onChanged: (text) {
@@ -100,57 +99,56 @@ class WordSolutionPageState extends State<WordSolutionPage> {
                                   color: unselected,
                                 ),
                                 hintText: 'LÖSUNGSWORT',
-                                hintStyle: GoogleFonts.pathwayGothicOne(
+                                hintStyle: TextStyle(
                                     color: unselected,
                                     fontSize: 21,
                                     wordSpacing: 2.0,
                                     letterSpacing: 3.0)),
                           ),
-                          SizedBox(height: 50),
+                          SizedBox(height: 40),
                           Text(
                             'Sei gewarnt: speicherst du deine Antwort, gibt es kein Zurück.',
-                            style: GoogleFonts.pathwayGothicOne(
+                            style: TextStyle(
                                 color: Colors.grey,
-                                fontSize: 21,
+                                fontSize: 16,
                                 wordSpacing: 2.0),
                           )
                         ],
                       )),
-                  Expanded(
-                      child: Container(
-                          child: Center(
-                              child: FlatButton(
-                                  shape: RoundedRectangleBorder(
-                                      borderRadius: BorderRadius.all(
-                                          Radius.circular(50))),
-                                  color: Color(0xFFBff8000),
-                                  splashColor: Colors.deepPurple[400],
-                                  onPressed: () {
-                                    setState(() {
-                                      if (solution.toUpperCase() == 'APPETIT') {
-                                        Navigator.push(
-                                            context,
-                                            MaterialPageRoute(
-                                                builder: (context) => LastPage(
-                                                    currentScore:
-                                                        currentScore + 100)));
-                                      } else {
-                                        Navigator.push(
-                                            context,
-                                            MaterialPageRoute(
-                                                builder: (context) => LastPage(
-                                                    currentScore:
-                                                        currentScore)));
-                                      }
-                                    });
-                                  },
-                                  child: Text(
-                                    'Speichern und Ralley beenden',
-                                    style: GoogleFonts.pathwayGothicOne(
-                                        color: Colors.white,
-                                        fontSize: 21,
-                                        letterSpacing: 2.0),
-                                  )))))
+                  SizedBox(height: 30),
+                  Container(
+                      child: Center(
+                          child: FlatButton(
+                              shape: RoundedRectangleBorder(
+                                  borderRadius:
+                                      BorderRadius.all(Radius.circular(50))),
+                              color: Color(0xFFBff8000),
+                              splashColor: Colors.deepPurple[400],
+                              onPressed: () {
+                                setState(() {
+                                  if (solution.toUpperCase() == 'APPETIT') {
+                                    Navigator.push(
+                                        context,
+                                        MaterialPageRoute(
+                                            builder: (context) => LastPage(
+                                                currentScore:
+                                                    currentScore + 100)));
+                                  } else {
+                                    Navigator.push(
+                                        context,
+                                        MaterialPageRoute(
+                                            builder: (context) => LastPage(
+                                                currentScore: currentScore)));
+                                  }
+                                });
+                              },
+                              child: Text(
+                                'Speichern und Ralley beenden',
+                                style: TextStyle(
+                                    color: Colors.white,
+                                    fontSize: 17,
+                                    letterSpacing: 2.0),
+                              ))))
                 ],
               ),
             ],

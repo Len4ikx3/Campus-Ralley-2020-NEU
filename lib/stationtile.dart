@@ -337,7 +337,7 @@ class _StationTileState extends State<StationTile> {
                             currentScore: currentScore,
                             id: stationnr,
                             description:
-                                'Schon Punkte gesammelt? Mindestens 10 von euch müssen spielen. Ihr lauft um die Tischtennisplatte und schlagt dabei den Ball mit der Hand auf. Geht der daneben, ist die Person raus. \n1 erfolgreicher Aufschlag = 1 P',
+                                'Schon Punkte gesammelt? Mindestens 10 von euch müssen spielen. Ihr lauft um die Tischtennisplatte und schlagt dabei den Ball mit der Hand auf. Geht der daneben, ist die Person raus. \n1 erfolgreicher Aufschlag \n= 1 P',
                             hintText: 'zB 36',
                             tappedList: tappedList,
                           )));
@@ -459,18 +459,19 @@ class _StationTileState extends State<StationTile> {
                               children: [
                                 Text(
                                   '${widget.stationnr}',
-                                  style: GoogleFonts.pathwayGothicOne(
-                                      fontSize: 25,
+                                  style: TextStyle(
+                                      fontSize: 22,
                                       color: Colors.white,
                                       fontWeight: FontWeight.w500),
                                 ),
                                 SizedBox(
-                                  height: 4,
+                                  height: 10,
                                 ),
                                 Text(
                                   widget.stationtitle,
-                                  style: GoogleFonts.pathwayGothicOne(
-                                      fontSize: 23,
+                                  textAlign: TextAlign.center,
+                                  style: TextStyle(
+                                      fontSize: 17,
                                       letterSpacing: 2.0,
                                       color: Colors.white,
                                       fontWeight: FontWeight.w600),

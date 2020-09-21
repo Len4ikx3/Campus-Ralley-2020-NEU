@@ -109,17 +109,17 @@ class MultipleChoice3State extends State<MultipleChoice3> {
                               height: 200,
                               child: Center(
                                   child: Text(question,
-                                      style: GoogleFonts.pathwayGothicOne(
+                                      style: TextStyle(
                                         color: Colors.white,
-                                        fontSize: 17,
+                                        fontSize: 13,
                                         letterSpacing: 2.0,
                                       ))))),
                       Expanded(
                           child: Container(
                               child: Center(
                                   child: Text('$id',
-                                      style: GoogleFonts.pathwayGothicOne(
-                                        fontSize: 160,
+                                      style: TextStyle(
+                                        fontSize: 100,
                                         color: Colors.grey[300],
                                       ))))),
                     ],
@@ -138,9 +138,9 @@ class MultipleChoice3State extends State<MultipleChoice3> {
                             changeScore(0, answerValues[0]);
                           },
                           child: Text(answerTexts[0],
-                              style: GoogleFonts.pathwayGothicOne(
+                              style: TextStyle(
                                   color: Colors.white,
-                                  fontSize: 18,
+                                  fontSize: 13,
                                   wordSpacing: 2.0),
                               textAlign: TextAlign.center),
                           shape: RoundedRectangleBorder(
@@ -157,9 +157,9 @@ class MultipleChoice3State extends State<MultipleChoice3> {
                             changeScore(1, answerValues[1]);
                           },
                           child: Text(answerTexts[1],
-                              style: GoogleFonts.pathwayGothicOne(
+                              style: TextStyle(
                                   color: Colors.white,
-                                  fontSize: 18,
+                                  fontSize: 13,
                                   wordSpacing: 2.0),
                               textAlign: TextAlign.center),
                           shape: RoundedRectangleBorder(
@@ -176,9 +176,9 @@ class MultipleChoice3State extends State<MultipleChoice3> {
                             changeScore(2, answerValues[2]);
                           },
                           child: Text(answerTexts[2],
-                              style: GoogleFonts.pathwayGothicOne(
+                              style: TextStyle(
                                   color: Colors.white,
-                                  fontSize: 18,
+                                  fontSize: 13,
                                   wordSpacing: 2.0),
                               textAlign: TextAlign.center),
                           shape: RoundedRectangleBorder(
@@ -212,9 +212,9 @@ class MultipleChoice3State extends State<MultipleChoice3> {
                         }),
                     Text('Speichern und zurück zur Stationenauswahl',
                         textAlign: TextAlign.center,
-                        style: GoogleFonts.pathwayGothicOne(
+                        style: TextStyle(
                             color: Color(0xFFBff8000),
-                            fontSize: 17,
+                            fontSize: 15,
                             fontWeight: FontWeight.bold,
                             letterSpacing: 2.0))
                   ],

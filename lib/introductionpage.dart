@@ -29,8 +29,6 @@ class IntroductionpageState extends State<Introductionpage> {
         debugShowCheckedModeBanner: banner,
         home: Scaffold(
           body: Container(
-            
-
             color: Color(0xFFBff8000),
             child: Column(
               children: <Widget>[
@@ -39,7 +37,7 @@ class IntroductionpageState extends State<Introductionpage> {
                   height: 90,
                   child: Text(
                     'Ralley Regelwerk',
-                    style: GoogleFonts.pathwayGothicOne(
+                    style: TextStyle(
                         color: Colors.white,
                         fontSize: 30,
                         fontWeight: FontWeight.bold,
@@ -73,21 +71,21 @@ class IntroductionpageState extends State<Introductionpage> {
                               children: [
                                 Text(
                                   'Navigation',
-                                  style: GoogleFonts.pathwayGothicOne(
-                                      color: Color(0xFFBff8000), fontSize: 25),
+                                  style: TextStyle(
+                                      color: Color(0xFFBff8000), fontSize: 22),
                                 ),
                                 Text(
                                   '▪ erfolgt über die untere Navigationsleiste',
-                                  style: GoogleFonts.pathwayGothicOne(
+                                  style: TextStyle(
                                       color: Colors.grey,
-                                      fontSize: 19,
+                                      fontSize: 16,
                                       wordSpacing: 2.0),
                                 ),
                                 Text(
                                   '▪ die Ralley wird durch Klick auf das rechte Symbol beendet',
-                                  style: GoogleFonts.pathwayGothicOne(
+                                  style: TextStyle(
                                     color: Colors.grey,
-                                    fontSize: 19,
+                                    fontSize: 16,
                                     wordSpacing: 2.0,
                                   ),
                                 ),
@@ -96,21 +94,21 @@ class IntroductionpageState extends State<Introductionpage> {
                                 ),
                                 Text(
                                   'Stationen',
-                                  style: GoogleFonts.pathwayGothicOne(
-                                      color: Color(0xFFBff8000), fontSize: 25),
+                                  style: TextStyle(
+                                      color: Color(0xFFBff8000), fontSize: 22),
                                 ),
                                 Text(
                                   '▪ eine Station wird über die Stationsliste ausgewählt',
-                                  style: GoogleFonts.pathwayGothicOne(
+                                  style: TextStyle(
                                       color: Colors.grey,
-                                      fontSize: 19,
+                                      fontSize: 16,
                                       wordSpacing: 2.0),
                                 ),
                                 Text(
                                   '▪ eine Station kann nur 1 mal aufgerufen werden',
-                                  style: GoogleFonts.pathwayGothicOne(
+                                  style: TextStyle(
                                       color: Colors.grey,
-                                      fontSize: 19,
+                                      fontSize: 16,
                                       wordSpacing: 2.0),
                                 ),
                                 SizedBox(
@@ -118,49 +116,49 @@ class IntroductionpageState extends State<Introductionpage> {
                                 ),
                                 Text(
                                   'Punkte',
-                                  style: GoogleFonts.pathwayGothicOne(
-                                      color: Color(0xFFBff8000), fontSize: 25),
+                                  style: TextStyle(
+                                      color: Color(0xFFBff8000), fontSize: 22),
                                 ),
                                 Text(
                                   '▪ angezeigt werden nur die eigenen gesammelten Punkte',
-                                  style: GoogleFonts.pathwayGothicOne(
+                                  style: TextStyle(
                                       color: Colors.grey,
-                                      fontSize: 19,
+                                      fontSize: 16,
                                       wordSpacing: 2.0),
                                 ),
                                 Text(
                                   '▪ bei Multiple Choice Fragen kann mindestens eine Antwort richtig sein',
-                                  style: GoogleFonts.pathwayGothicOne(
+                                  style: TextStyle(
                                       color: Colors.grey,
-                                      fontSize: 19,
+                                      fontSize: 16,
                                       wordSpacing: 2.0),
                                 ),
                                 Text(
                                   '▪ für richtige Antworten gibt es 10 Punkte, für falsche Antworten werden 10 Punkte abgezogen',
-                                  style: GoogleFonts.pathwayGothicOne(
+                                  style: TextStyle(
                                       color: Colors.grey,
-                                      fontSize: 19,
+                                      fontSize: 16,
                                       wordSpacing: 2.0),
                                 ),
                                 Text(
                                   '▪ es können aus einer Station auch Negativ-Punkte ergattert werden',
-                                  style: GoogleFonts.pathwayGothicOne(
+                                  style: TextStyle(
                                       color: Colors.grey,
-                                      fontSize: 19,
+                                      fontSize: 16,
                                       wordSpacing: 2.0),
                                 ),
                                 Text(
                                   '▪ ABER: die eigene Punktzahl wird nie negativ',
-                                  style: GoogleFonts.pathwayGothicOne(
+                                  style: TextStyle(
                                       color: Colors.grey,
-                                      fontSize: 19,
+                                      fontSize: 16,
                                       wordSpacing: 2.0),
                                 ),
                                 Text(
                                   '▪ die Gesamtpunktzahl der Gruppe muss am Ende der Ralley aus allen einzelnen Punkten der Gruppe berechnet werden',
-                                  style: GoogleFonts.pathwayGothicOne(
+                                  style: TextStyle(
                                       color: Colors.grey,
-                                      fontSize: 19,
+                                      fontSize: 16,
                                       wordSpacing: 2.0),
                                 ),
                               ],

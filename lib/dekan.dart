@@ -109,10 +109,9 @@ class DekanState extends State<Dekan> {
                                       height: 200,
                                       child: Center(
                                           child: Text(question,
-                                              style:
-                                                  GoogleFonts.pathwayGothicOne(
+                                              style: TextStyle(
                                                 color: Colors.white,
-                                                fontSize: 17,
+                                                fontSize: 13,
                                                 letterSpacing: 3.0,
                                               ))))),
                               Expanded(
@@ -121,7 +120,7 @@ class DekanState extends State<Dekan> {
                                           child: Text('$id',
                                               style:
                                                   GoogleFonts.pathwayGothicOne(
-                                                fontSize: 160,
+                                                fontSize: 100,
                                                 color: Colors.grey[300],
                                               ))))),
                             ],
@@ -149,9 +148,9 @@ class DekanState extends State<Dekan> {
                                     });
                                   },
                                   child: Text(answerTexts[0],
-                                      style: GoogleFonts.pathwayGothicOne(
+                                      style: TextStyle(
                                           color: Colors.white,
-                                          fontSize: 18,
+                                          fontSize: 13,
                                           wordSpacing: 2.0),
                                       textAlign: TextAlign.center),
                                   shape: RoundedRectangleBorder(
@@ -176,9 +175,9 @@ class DekanState extends State<Dekan> {
                                     });
                                   },
                                   child: Text(answerTexts[1],
-                                      style: GoogleFonts.pathwayGothicOne(
+                                      style: TextStyle(
                                           color: Colors.white,
-                                          fontSize: 18,
+                                          fontSize: 13,
                                           wordSpacing: 2.0),
                                       textAlign: TextAlign.center),
                                   shape: RoundedRectangleBorder(
@@ -203,9 +202,9 @@ class DekanState extends State<Dekan> {
                                     });
                                   },
                                   child: Text(answerTexts[2],
-                                      style: GoogleFonts.pathwayGothicOne(
+                                      style: TextStyle(
                                           color: Colors.white,
-                                          fontSize: 18,
+                                          fontSize: 13,
                                           wordSpacing: 2.0),
                                       textAlign: TextAlign.center),
                                   shape: RoundedRectangleBorder(
@@ -231,9 +230,9 @@ class DekanState extends State<Dekan> {
                                   },
                                   child: Text(
                                     answerTexts[3],
-                                    style: GoogleFonts.pathwayGothicOne(
+                                    style: TextStyle(
                                         color: Colors.white,
-                                        fontSize: 18,
+                                        fontSize: 13,
                                         wordSpacing: 2.0),
                                     textAlign: TextAlign.center,
                                   ),
@@ -259,9 +258,9 @@ class DekanState extends State<Dekan> {
                                     });
                                   },
                                   child: Text(answerTexts[4],
-                                      style: GoogleFonts.pathwayGothicOne(
+                                      style: TextStyle(
                                           color: Colors.white,
-                                          fontSize: 18,
+                                          fontSize: 13,
                                           wordSpacing: 2.0),
                                       textAlign: TextAlign.center),
                                   shape: RoundedRectangleBorder(
@@ -298,9 +297,9 @@ class DekanState extends State<Dekan> {
                                 }),
                             Text('Speichern und zurück zur Stationenauswahl',
                                 textAlign: TextAlign.center,
-                                style: GoogleFonts.pathwayGothicOne(
+                                style: TextStyle(
                                     color: Color(0xFFBff8000),
-                                    fontSize: 17,
+                                    fontSize: 15,
                                     fontWeight: FontWeight.bold,
                                     letterSpacing: 2.0))
                           ],
