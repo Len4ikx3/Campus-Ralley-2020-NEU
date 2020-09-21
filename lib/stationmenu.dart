@@ -118,12 +118,13 @@ class StationmenuState extends State<Stationmenu> {
                     SizedBox(
                       height: 30,
                     ),
-                    Container(
+                    Expanded(
+                    child: Container(
                         height: 450,
                         child: StationCarousel(
                           currentScore: currentScore,
                           tappedList: tappedList,
-                        ))
+                        )))
                   ],
                 ),
               )),

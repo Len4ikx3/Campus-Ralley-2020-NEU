@@ -471,7 +471,7 @@ class _StationTileState extends State<StationTile> {
                                   widget.stationtitle,
                                   textAlign: TextAlign.center,
                                   style: TextStyle(
-                                      fontSize: 17,
+                                      fontSize: 16,
                                       letterSpacing: 2.0,
                                       color: Colors.white,
                                       fontWeight: FontWeight.w600),
